@@ -1,3 +1,21 @@
 {
-  "item.teamod.tea_leaf": "Tea Leaf"
+  "item.teamod.tea_leaf": "Tea leaf",
+  "item.teamod.dried_tea_leaf": "Dried tea leaf",
+  "item.teamod.lightly_dried_tea_leaf": "Lightly dried tea leaf",
+  "item.teamod.green_tea_leaves": "Green tea leaves",
+  "item.teamod.black_tea_leaves": "Black tea leaves",
+  "item.teamod.raw_cup": "Raw cup",
+  "item.teamod.raw_tea_pot": "Raw tea pot",
+  "item.teamod.raw_chakhai": "Raw chakhai",
+  "item.teamod.cup": "Cup",
+  "item.teamod.tea_seeds": "Tea seeds",
+  "item.teamod.tea_pot": "Tea pot",
+  "item.teamod.chakhai": "Chakhai",
+
+  "block.teamod.tea_bush": "Tea Bush",
+  "block.teamod.tea_pot_block": "Tea pot",
+  "block.teamod.chakhai_block": "Chakhai",
+
+  "creativetab.teamod.tea_items": "Tea Leaves",
+  "creativetab.teamod.dishes": "Dishes"
 }

@@ -1,5 +1,8 @@
 package net.hasagj.teamod;
 
+import net.hasagj.teamod.block.ModBlocks;
+import net.hasagj.teamod.block.custom.TeaPotBlock;
+import net.hasagj.teamod.item.ModCreativeModeTabs;
 import net.hasagj.teamod.item.ModItems;
 import org.slf4j.Logger;
 
@@ -51,7 +54,11 @@ public class TeaMod
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
+        ModCreativeModeTabs.register(modEventBus);
+
         ModItems.ITEMS.register(modEventBus);
+        ModBlocks.BLOCKS.register(modEventBus);
+
 
 
         // Register ourselves for server and other game events we are interested in.
@@ -82,8 +89,7 @@ public class TeaMod
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS)
-            event.accept(ModItems.TEA_LEAF);
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

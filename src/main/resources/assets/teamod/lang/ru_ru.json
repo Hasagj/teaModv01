@@ -1,3 +1,22 @@
 {
-  "item.teamod.tea_leaf" : "Чайный лист"
+  "item.teamod.tea_leaf" : "Чайный лист",
+  "item.teamod.dried_tea_leaf": "Сушёный чайный лист",
+  "item.teamod.lightly_dried_tea_leaf": "Подсушеный чайный лист",
+  "item.teamod.green_tea_leaves": "Заварка зелёного чая",
+  "item.teamod.black_tea_leaves": "Заварка чёрного чая",
+  "item.teamod.raw_cup": "Сырая пиала",
+  "item.teamod.raw_tea_pot": "Сырой чайник",
+  "item.teamod.raw_chakhai": "Сырой чахай",
+  "item.teamod.cup": "Пиала",
+  "item.teamod.tea_seeds": "Семена чая",
+  "item.teamod.tea_pot": "Чайник",
+  "item.teamod.chakhai": "Чахай",
+
+  "block.teamod.tea_bush": "Чайный куст",
+  "block.teamod.tea_pot_block": "Чайник",
+  "block.teamod.chakhai_block": "Чахай",
+
+  "creativetab.teamod.tea_items": "Чаи и заварки",
+  "creativetab.teamod.dishes": "Посуда"
+
 }

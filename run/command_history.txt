@@ -1,0 +1,8 @@
+/setblock ~ ~ ~ teamod:tea_bush[
+/setblock ~ ~ ~ teamod:tea_bush[age=0]
+/tick freeze
+/setblock ~ ~ ~ teamod:tea_bush[age=1]
+/setblock ~ ~ ~ teamod:tea_bush[age=2]
+/setblock ~ ~ ~ teamod:tea_bush[age=3]
+/tick unfreeze
+/time set day

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "green_tea_leaves",
+
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "teamod:lightly_dried_tea_leaf"
+    },
+    {
+      "item": "teamod:lightly_dried_tea_leaf"
+    },
+    {
+      "item": "teamod:lightly_dried_tea_leaf"
+    },
+    {
+      "item": "teamod:lightly_dried_tea_leaf"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "teamod:green_tea_leaves"
+  }
+}

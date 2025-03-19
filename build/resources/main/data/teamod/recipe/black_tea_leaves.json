@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "black_tea_leaves",
+
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "teamod:dried_tea_leaf"
+    },
+    {
+      "item": "teamod:dried_tea_leaf"
+    },
+    {
+      "item": "teamod:dried_tea_leaf"
+    },
+    {
+      "item": "teamod:dried_tea_leaf"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "teamod:black_tea_leaves"
+  }
+}
