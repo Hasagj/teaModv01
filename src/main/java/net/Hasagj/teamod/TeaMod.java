@@ -2,6 +2,7 @@ package net.hasagj.teamod;
 
 import net.hasagj.teamod.block.ModBlocks;
 import net.hasagj.teamod.block.custom.TeaPotBlock;
+import net.hasagj.teamod.effect.ModEffects;
 import net.hasagj.teamod.item.ModCreativeModeTabs;
 import net.hasagj.teamod.item.ModItems;
 import org.slf4j.Logger;
@@ -58,6 +59,7 @@ public class TeaMod
 
         ModItems.ITEMS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
+        ModEffects.register(modEventBus);
 
 
 

@@ -26,6 +26,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DRIED_TEA_LEAF);
                         output.accept(ModItems.GREEN_TEA_LEAVES);
                         output.accept(ModItems.BLACK_TEA_LEAVES);
+                        output.accept(ModItems.HIBISCUS);
+                        output.accept(ModItems.HIBISCUS_FLOWER);
+                        output.accept(ModItems.DRIED_HIBISCUS_PETALS);
 
 
                     }).build());

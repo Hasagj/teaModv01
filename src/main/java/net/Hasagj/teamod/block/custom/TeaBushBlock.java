@@ -10,6 +10,8 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.SweetBerryBushBlock;
@@ -26,7 +28,7 @@ public class TeaBushBlock extends SweetBerryBushBlock {
 
     @Override
     public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
-        return super.getCloneItemStack(level, pos, state);
+        return new ItemStack((ItemLike) ModItems.TEA_SEEDS);
     }
 
     @Override

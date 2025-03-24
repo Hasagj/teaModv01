@@ -8,15 +8,34 @@
   "item.teamod.raw_tea_pot": "Сырой чайник",
   "item.teamod.raw_chakhai": "Сырой чахай",
   "item.teamod.cup": "Пиала",
+  "item.teamod.cup_green_tea": "Пиала с зелёным чаем",
+  "item.teamod.cup_black_tea": "Пиала с чёрным чаем",
+  "item.teamod.cup_hibiscus_tea": "Пиала с каркаде",
   "item.teamod.tea_seeds": "Семена чая",
+  "item.teamod.hibiscus": "Гибискус",
+  "item.teamod.hibiscus_flower": "Цветок гибискуса",
+  "item.teamod.dried_hibiscus_petals": "Сушёные лепестки гибискуса",
   "item.teamod.tea_pot": "Чайник",
   "item.teamod.chakhai": "Чахай",
+  "item.teamod.chakhai_green_tea": "Чахай с зелёным чаем",
+  "item.teamod.chakhai_black_tea": "Чахай с чёрным чаем",
+  "item.teamod.chakhai_hibiscus_tea": "Чахай с каркаде",
 
   "block.teamod.tea_bush": "Чайный куст",
+  "block.teamod.hibiscus_block": "Гибискус",
   "block.teamod.tea_pot_block": "Чайник",
   "block.teamod.chakhai_block": "Чахай",
+  "block.teamod.chakhai_green_tea_block": "Чахай с зелёным чаем",
+  "block.teamod.chakhai_black_tea_block": "Чахай с чёрным чаем",
+  "block.teamod.chakhai_hibiscus_tea_block": "Чахай с каркаде",
 
   "creativetab.teamod.tea_items": "Чаи и заварки",
-  "creativetab.teamod.dishes": "Посуда"
+  "creativetab.teamod.dishes": "Посуда",
+
+  "effect.teamod.solid": "Твёрдость",
+
+  "tooltip.teamod.cup_green_tea.tooltip": "Просто зелёный чай, не более",
+  "tooltip.teamod.cup_black_tea.tooltip": "Просто чёрный чай, не более",
+  "tooltip.teamod.cup_hibiscus_tea.tooltip": "Весьма специфический вкус..."
 
 }

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "teamod:hibiscus_flower"
+  },
+  "result": {
+    "id": "teamod:dried_hibiscus_petals"
+  }
+}

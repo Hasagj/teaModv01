@@ -1,5 +1,10 @@
 {
   "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ],
   "pools": [
     {
       "bonus_rolls": 0.0,
@@ -7,6 +12,44 @@
         {
           "type": "minecraft:item",
           "name": "teamod:tea_pot"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "teamod:tea_pot_block",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "what_leaves_inside": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "teamod:green_tea_leaves"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "teamod:tea_pot_block",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "what_leaves_inside": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "teamod:black_tea_leaves"
         }
       ],
       "rolls": 1.0
