@@ -2,9 +2,19 @@ package net.hasagj.teamod;
 
 import net.hasagj.teamod.block.ModBlocks;
 import net.hasagj.teamod.block.custom.TeaPotBlock;
+import net.hasagj.teamod.block.entity.ModBlockEntities;
 import net.hasagj.teamod.effect.ModEffects;
+import net.hasagj.teamod.event.AutoSleepEvent;
 import net.hasagj.teamod.item.ModCreativeModeTabs;
 import net.hasagj.teamod.item.ModItems;
+import net.hasagj.teamod.screen.ModMenuTypes;
+import net.hasagj.teamod.screen.custom.PressScreen;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.neoforged.bus.api.EventPriority;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.event.tick.LevelTickEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -60,6 +70,8 @@ public class TeaMod
         ModItems.ITEMS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
         ModEffects.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
 
 
@@ -67,6 +79,7 @@ public class TeaMod
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
+        new AutoSleepEvent();
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -102,16 +115,22 @@ public class TeaMod
         LOGGER.info("HELLO from server starting");
     }
 
+
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
+
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+        }
+        @SubscribeEvent(priority = EventPriority.HIGH)
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(ModMenuTypes.PRESS_MENU.get(), PressScreen::new);
         }
     }
 }

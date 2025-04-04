@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "daisy_tea_leaves",
+
+  "ingredients": [
+    {
+      "item": "teamod:dried_daisy"
+    },
+    {
+      "item": "teamod:dried_daisy"
+    },
+    {
+      "item": "teamod:dried_daisy"
+    },
+    {
+      "item": "teamod:dried_daisy"
+    },
+    {
+      "item": "teamod:dried_daisy"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "teamod:daisy_tea_leaves"
+  }
+}

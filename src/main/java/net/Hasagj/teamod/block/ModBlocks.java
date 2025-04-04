@@ -36,6 +36,13 @@ public class ModBlocks {
             () -> new ChakhaiBlackTeaBlock(BlockBehaviour.Properties.of().noOcclusion().instabreak().sound(SoundType.DECORATED_POT)));
     public static final DeferredBlock<Block> CHAKHAI_HIBISCUS_TEA_BLOCK = BLOCKS.register("chakhai_hibiscus_tea_block",
             () -> new ChakhaiHibiscusTeaBlock(BlockBehaviour.Properties.of().noOcclusion().instabreak().sound(SoundType.DECORATED_POT)));
+    public static final DeferredBlock<Block> CHAKHAI_DAISY_TEA_BLOCK = BLOCKS.register("chakhai_daisy_tea_block",
+            () -> new ChakhaiDaisyTeaBlock(BlockBehaviour.Properties.of().noOcclusion().instabreak().sound(SoundType.DECORATED_POT)));
+
+
+    public static final DeferredBlock<Block> PRESS = BLOCKS.register("press",
+            () -> new PressBlock(BlockBehaviour.Properties.of().dynamicShape().noOcclusion()));
+
 
 
 

@@ -1,0 +1,29 @@
+# Main Class
+cpw.mods.bootstraplauncher.BootstrapLauncher
+
+# NeoForge Run-Type Program Arguments
+--launchTarget
+forgedatauserdev
+--assetIndex
+17
+--assetsDir
+C:\\Users\\Пользователь\\.gradle\\caches\\neoformruntime\\assets
+--gameDir
+.
+--fml.neoForgeVersion
+21.1.133
+--fml.fmlVersion
+4.0.38
+--fml.mcVersion
+1.21.1
+--fml.neoFormVersion
+20240808.144430
+
+# User Supplied Program Arguments
+--mod
+teamod
+--all
+--output
+C:\\teaModv0\\teaModv01\\src\\generated\\resources
+--existing
+C:\\teaModv0\\teaModv01\\src\\main\\resources

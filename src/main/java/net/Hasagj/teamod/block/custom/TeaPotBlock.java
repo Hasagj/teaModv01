@@ -108,10 +108,45 @@ public class TeaPotBlock extends HorizontalDirectionalBlock {
 
 
             }
+            if (stack.is(ModItems.DAISY_TEA_LEAVES)) {
+                stack.shrink(1);
+                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+
+                flag = true;
+                level.setBlockAndUpdate(pos, state.setValue(WHAT_LEAVES_INSIDE, 4));
+
+
+            }
             if (!level.isClientSide() && flag) {
                 player.awardStat(Stats.ITEM_USED.get(item));
             }
 
+
+        }else {
+            if (stack.is(ModItems.FABRIC)) {
+                stack.shrink(0);
+                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ARMOR_EQUIP_LEATHER, SoundSource.BLOCKS, 1.0F, 1.0F);
+                if(state.getValue(WHAT_LEAVES_INSIDE) == 1) {
+                    flag = true;
+                    popResource(level, pos, new ItemStack(ModItems.GREEN_TEA_LEAVES.get(), 1));
+                    level.setBlockAndUpdate(pos, state.setValue(WHAT_LEAVES_INSIDE, 0));
+                }
+                if(state.getValue(WHAT_LEAVES_INSIDE) == 2) {
+                    flag = true;
+                    popResource(level, pos, new ItemStack(ModItems.BLACK_TEA_LEAVES.get(), 1));
+                    level.setBlockAndUpdate(pos, state.setValue(WHAT_LEAVES_INSIDE, 0));
+                }
+                if(state.getValue(WHAT_LEAVES_INSIDE) == 3) {
+                    flag = true;
+                    popResource(level, pos, new ItemStack(ModItems.DRIED_HIBISCUS_PETALS.get(), 1));
+                    level.setBlockAndUpdate(pos, state.setValue(WHAT_LEAVES_INSIDE, 0));
+                }
+                if(state.getValue(WHAT_LEAVES_INSIDE) == 4) {
+                    flag = true;
+                    popResource(level, pos, new ItemStack(ModItems.DAISY_TEA_LEAVES.get(), 1));
+                    level.setBlockAndUpdate(pos, state.setValue(WHAT_LEAVES_INSIDE, 0));
+                }
+            }
 
         }
         if (j && i != 0) {
@@ -155,6 +190,19 @@ public class TeaPotBlock extends HorizontalDirectionalBlock {
                         player.drop(new ItemStack((ItemLike) ModItems.CHAKHAI_HIBISCUS_TEA), false);
                     }
                     level.setBlockAndUpdate(pos, state.setValue(IS_WATER_INSIDE, false).setValue(WHAT_TEA_INSIDE, 0).setValue(WHAT_LEAVES_INSIDE, 0));
+                }
+            }
+            if (state.getValue(WHAT_TEA_INSIDE) == 4) {
+                if (stack.is(ModItems.CHAKHAI)) {
+                    stack.shrink(1);
+                    level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    if (stack.isEmpty()) {
+                        player.setItemInHand(hand, new ItemStack((ItemLike) ModItems.CHAKHAI_DAISY_TEA));
+                    } else if (!player.getInventory().add(new ItemStack((ItemLike) ModItems.CHAKHAI_DAISY_TEA))) {
+                        player.drop(new ItemStack((ItemLike) ModItems.CHAKHAI_DAISY_TEA), false);
+                    }
+                    level.setBlockAndUpdate(pos, state.setValue(IS_WATER_INSIDE, false).setValue(WHAT_TEA_INSIDE, 0).setValue(WHAT_LEAVES_INSIDE, 0));
+
                 }
             }
             return ItemInteractionResult.sidedSuccess(level.isClientSide);

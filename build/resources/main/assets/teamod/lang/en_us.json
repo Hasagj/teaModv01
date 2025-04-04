@@ -11,15 +11,20 @@
   "item.teamod.cup_green_tea": "Cup of green tea",
   "item.teamod.cup_black_tea": "Cup of black tea",
   "item.teamod.cup_hibiscus_tea": "Cup of hibiscus tea",
+  "item.teamod.cup_daisy_tea": "Cup of daisy tea",
   "item.teamod.tea_seeds": "Tea seeds",
   "item.teamod.hibiscus": "Hibiscus",
   "item.teamod.hibiscus_flower": "Hibiscus flower",
   "item.teamod.dried_hibiscus_petals": "Dried hibiscus petals",
+  "item.teamod.dried_daisy": "Dried daisy",
+  "item.teamod.daisy_tea_leaves": "Daisy tea leaves",
   "item.teamod.tea_pot": "Tea pot",
   "item.teamod.chakhai": "Chakhai",
   "item.teamod.chakhai_green_tea": "Chakhai with green tea",
   "item.teamod.chakhai_black_tea": "Chakhai with black tea",
   "item.teamod.chakhai_hibiscus_tea": "Chakhai with hibiscus tea",
+  "item.teamod.chakhai_daisy_tea": "Chakhai with daisy tea",
+  "item.teamod.fabric": "Fabric",
 
   "block.teamod.tea_bush": "Tea Bush",
   "block.teamod.hibiscus_block": "Hibiscus",
@@ -28,13 +33,18 @@
   "block.teamod.chakhai_green_tea_block": "Chakhai with green tea",
   "block.teamod.chakhai_black_tea_block": "Chakhai with black tea",
   "block.teamod.chakhai_hibiscus_tea_block": "Chakhai with hibiscus tea",
+  "block.teamod.chakhai_daisy_tea_block": "Chakhai with daisy tea",
 
   "creativetab.teamod.tea_items": "Tea Leaves",
   "creativetab.teamod.dishes": "Dishes",
 
   "effect.teamod.solid": "Solid",
+  "effect.teamod.drowsy": "Drowsy",
 
   "tooltip.teamod.cup_green_tea.tooltip": "Just green tea, no more",
   "tooltip.teamod.cup_black_tea.tooltip": "Just black tea, no more",
-  "tooltip.teamod.cup_hibiscus_tea.tooltip": "Specific taste"
+  "tooltip.teamod.cup_hibiscus_tea.tooltip": "Specific taste",
+  "tooltip.teamod.cup_daisy_tea.tooltip": "",
+
+  "block.teamod.press": "Press"
 }

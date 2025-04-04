@@ -44,6 +44,8 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> BLACK_TEA_LEAVES = ITEMS.register("black_tea_leaves",
             () -> new Item(new Item.Properties().stacksTo(16)));
+    public static final DeferredItem<Item> DAISY_TEA_LEAVES = ITEMS.register("daisy_tea_leaves",
+            () -> new Item(new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> GREEN_TEA_LEAVES = ITEMS.register("green_tea_leaves",
             () -> new Item(new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> RAW_CUP = ITEMS.register("raw_cup",
@@ -56,6 +58,11 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> DRIED_HIBISCUS_PETALS = ITEMS.register("dried_hibiscus_petals",
             () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> DRIED_DAISY = ITEMS.register("dried_daisy",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> FABRIC = ITEMS.register("fabric",
+            () -> new Item(new Item.Properties()));
+
 
 
 
@@ -100,7 +107,7 @@ public class ModItems {
 
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.teamod.cup_green_tea.tooltip").withColor(808080));
+                    tooltipComponents.add(Component.translatable("tooltip.teamod.cup_green_tea.tooltip").withColor(0x808080));
                     super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
                 }
             });
@@ -141,7 +148,7 @@ public class ModItems {
                 }
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.teamod.cup_black_tea.tooltip").withColor(808080));
+                    tooltipComponents.add(Component.translatable("tooltip.teamod.cup_black_tea.tooltip").withColor(0x808080));
                     super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
                 }
             }
@@ -183,11 +190,54 @@ public class ModItems {
                 }
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-                    tooltipComponents.add(Component.translatable("tooltip.teamod.cup_hibiscus_tea.tooltip").withColor(808080));
+                    tooltipComponents.add(Component.translatable("tooltip.teamod.cup_hibiscus_tea.tooltip").withColor(0x808080));
                     super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
                 }
             }
     );
+
+    public static final DeferredItem<Item> CUP_DAISY_TEA = ITEMS.register("cup_daisy_tea",
+            () -> new Item(new Item.Properties().stacksTo(1)) {
+                @Override
+                public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entityLiving) {
+                    if (entityLiving instanceof ServerPlayer serverplayer) {
+                        CriteriaTriggers.CONSUME_ITEM.trigger(serverplayer, stack);
+                        serverplayer.awardStat(Stats.ITEM_USED.get(this));
+                    }
+
+                    if (!level.isClientSide) {
+                        entityLiving.addEffect(new MobEffectInstance(ModEffects.DROWSY_EFFECT, 1200));
+                    }
+
+                    if (entityLiving instanceof Player player) {
+                        return ItemUtils.createFilledResult(stack, player, new ItemStack((ItemLike)CUP), false);
+                    } else {
+                        stack.consume(1, entityLiving);
+                        return stack;
+                    }
+                }
+
+                @Override
+                public int getUseDuration(ItemStack stack, LivingEntity entity) {
+                    return 32;
+                }
+
+                @Override
+                public UseAnim getUseAnimation(ItemStack stack) {
+                    return UseAnim.DRINK;
+                }
+
+                @Override
+                public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+                    return ItemUtils.startUsingInstantly(level, player, hand);
+                }
+
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("tooltip.teamod.cup_daisy_tea.tooltip").withColor(0x808080));
+                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+                }
+            });
 
 
 
@@ -209,7 +259,8 @@ public class ModItems {
             () -> new ItemNameBlockItem(ModBlocks.CHAKHAI_BLACK_TEA_BLOCK.get(), new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> CHAKHAI_HIBISCUS_TEA = ITEMS.register("chakhai_hibiscus_tea",
             () -> new ItemNameBlockItem(ModBlocks.CHAKHAI_HIBISCUS_TEA_BLOCK.get(), new Item.Properties().stacksTo(1)));
-
+    public static final DeferredItem<Item> CHAKHAI_DAISY_TEA = ITEMS.register("chakhai_daisy_tea",
+            () -> new ItemNameBlockItem(ModBlocks.CHAKHAI_DAISY_TEA_BLOCK.get(), new Item.Properties().stacksTo(1)));
 
     public static final DeferredItem<Item> RAW_CHAKHAI = ITEMS.register("raw_chakhai",
             () -> new Item(new Item.Properties().stacksTo(1)));

@@ -16,11 +16,12 @@ public class ModEffects {
             DeferredRegister.create(BuiltInRegistries.MOB_EFFECT, TeaMod.MOD_ID);
 
     public static final Holder<MobEffect> SOLID_EFFECT = MOB_EFFECTS.register("solid",
-            () -> new SolidEffect(MobEffectCategory.BENEFICIAL, 0x36ebab)
+            () -> new SolidEffect(MobEffectCategory.BENEFICIAL, 0x888888)
                     .addAttributeModifier(Attributes.KNOCKBACK_RESISTANCE, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "solid"), 10, AttributeModifier.Operation.ADD_VALUE)
                     .addAttributeModifier(Attributes.ARMOR, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "solid"), 6, AttributeModifier.Operation.ADD_VALUE)
                     .addAttributeModifier(Attributes.ARMOR_TOUGHNESS, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "solid"), 2, AttributeModifier.Operation.ADD_VALUE));
-
+    public static final Holder<MobEffect> DROWSY_EFFECT = MOB_EFFECTS.register("drowsy",
+            () -> new DrowsyEffect(MobEffectCategory.BENEFICIAL, 0xae34eb).addAttributeModifier(Attributes.MOVEMENT_SPEED, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "drowsy"), -0.01, AttributeModifier.Operation.ADD_VALUE));
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);

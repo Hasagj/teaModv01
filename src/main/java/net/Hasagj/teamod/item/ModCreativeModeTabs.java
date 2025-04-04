@@ -29,6 +29,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.HIBISCUS);
                         output.accept(ModItems.HIBISCUS_FLOWER);
                         output.accept(ModItems.DRIED_HIBISCUS_PETALS);
+                        output.accept(ModItems.DRIED_DAISY);
+                        output.accept(ModItems.DAISY_TEA_LEAVES);
+
 
 
                     }).build());
@@ -44,6 +47,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CUP);
                         output.accept(ModItems.TEA_POT);
                         output.accept(ModItems.CHAKHAI);
+                        output.accept(ModItems.FABRIC);
 
 
                     }).build());
