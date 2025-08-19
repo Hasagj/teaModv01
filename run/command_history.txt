@@ -1,0 +1,50 @@
+/effect give @s teamod:thorny infinite
+/damage @s 3
+/damage @s 3 minecraft:arrow
+/damage @s 3 minecraft:arrow by @s
+/damage @s 3 minecraft:arrow by @s from @s
+/effect give @s teamod:thorny infinite
+/effect clear
+/effect give @s teamod:thorny infinite
+/effect clear
+/effect give @s teamod:thorny infinite
+/effect clear
+/effect give @s teamod:thorny infinite
+/effect give f281886f-e777-4c4c-870c-d3c52b35f0cc teamod:thorny infinite
+/effect clear
+/effect give @s teamod:thorny infinite
+/locate structure minecraft:ancient_city
+/locate structure minecraft:village_plains
+/effect clear
+/effect give @s minecraft:wither 600 2
+/effect give @s teamod:thorny infinite
+/effect give @s minecraft:wither 600 4
+/effect give @s minecraft:wither 600 10
+/effect give @s minecraft:wither 600 50
+/effect give @s minecraft:wither 600 255
+/effect clear @s minecraft:wither
+/effect clear
+/effect give @s teamod:bitter infinite
+/effect clear
+/effect give @s teamod:doom
+/effect give @s teamod:doom infinite
+/effect clear
+/effect give @s minecraft:instant_damage 1 1
+/effect give @s teamod:doom infinite
+/give @s teamod:broken_totem
+/effect give @s teamod:doom infinite
+/give @s teamod:broken_totem
+/time set day
+/give @s teamod:cactus_tea_leaves
+/clear
+/effect give @a teamod:bitter
+/effect clear
+/effect give @a teamod:sweet
+/effect clear
+/effect give @a teamod:appetite
+/time set day
+/gamerule doDaylightCycle false
+/effect give @s minecraft:hunger 2 255
+/effect clear
+/give @s teamod:cup_daisy_tea
+/gamerule doDaylightCycle true

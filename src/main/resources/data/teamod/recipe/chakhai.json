@@ -3,9 +3,7 @@
   "category": "misc",
   "cookingtime": 2000,
   "experience": 10,
-  "ingredient": {
-    "item": "teamod:raw_chakhai"
-  },
+  "ingredient": "teamod:raw_chakhai",
   "result": {
     "id": "teamod:chakhai"
   }

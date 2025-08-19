@@ -1,10 +1,7 @@
 {
   "variants": {
-    "has_items_inside=false": {
+    "": {
       "model": "teamod:block/press"
-    },
-    "has_items_inside=true": {
-      "model": "teamod:block/press_tea"
     }
   }
 }

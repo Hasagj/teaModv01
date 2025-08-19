@@ -1,0 +1,16 @@
+{
+  "type": "teamod:press",
+  "ingredient1": "teamod:dried_tea_leaf",
+  "ingredient2": "minecraft:open_eyeblossom",
+  "ingredient3": "teamod:dried_tea_leaf",
+  "ingredient4": "minecraft:open_eyeblossom",
+  "ingredient5": "minecraft:resin_clump",
+  "ingredient6": "minecraft:open_eyeblossom",
+  "ingredient7": "teamod:dried_tea_leaf",
+  "ingredient8": "minecraft:open_eyeblossom",
+  "ingredient9": "teamod:dried_tea_leaf",
+  "result": {
+    "count": 2,
+    "id": "teamod:pale_tea_leaves"
+  }
+}

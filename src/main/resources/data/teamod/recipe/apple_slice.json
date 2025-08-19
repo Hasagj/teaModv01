@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "apple_slice",
+
+  "ingredients": [
+    "minecraft:apple"
+    ],
+  "result": {
+    "count": 4,
+    "id": "teamod:apple_slice"
+  }
+}

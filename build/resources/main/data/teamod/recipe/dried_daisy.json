@@ -3,9 +3,9 @@
   "category": "food",
   "cookingtime": 200,
   "experience": 0.35,
-  "ingredient": {
-    "item": "minecraft:oxeye_daisy"
-  },
+  "ingredient": [
+    "minecraft:oxeye_daisy"
+  ],
   "result": {
     "id": "teamod:dried_daisy"
   }

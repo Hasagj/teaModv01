@@ -1,7 +1,10 @@
 package net.hasagj.teamod.block.entity;
 
 import net.hasagj.teamod.block.custom.PressBlock;
+import net.hasagj.teamod.recipe.ModRecipes;
+import net.hasagj.teamod.recipe.PressRecipe;
 import net.hasagj.teamod.item.ModItems;
+import net.hasagj.teamod.recipe.PressRecipeInput;
 import net.hasagj.teamod.screen.custom.PressMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -10,6 +13,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -20,12 +24,15 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class PressBlockEntity extends BlockEntity implements MenuProvider {
     public final ItemStackHandler itemHandler = new ItemStackHandler(11) {
@@ -48,11 +55,10 @@ public class PressBlockEntity extends BlockEntity implements MenuProvider {
     private static final int INPUT_SLOT8 = 7;
     private static final int INPUT_SLOT9 = 8;
     private static final int OUTPUT_SLOT = 9;
-    private static final int PAPER_SLOT = 10;
 
     protected final ContainerData data;
     private int progress = 0;
-    private int maxProgress = 600;
+    private int maxProgress = 72;
 
 
 
@@ -104,6 +110,12 @@ public class PressBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     @Override
+    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
+        drops();
+        super.preRemoveSideEffects(pos, state);
+    }
+
+    @Override
     protected void saveAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
         pTag.put("inventory", itemHandler.serializeNBT(pRegistries));
         pTag.putInt("press.progress", progress);
@@ -116,9 +128,9 @@ public class PressBlockEntity extends BlockEntity implements MenuProvider {
     protected void loadAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
         super.loadAdditional(pTag, pRegistries);
 
-        itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory"));
-        progress = pTag.getInt("press.progress");
-        maxProgress = pTag.getInt("press.max_progress");
+        itemHandler.deserializeNBT(pRegistries, pTag.getCompound("inventory").get());
+        progress = pTag.getInt("press.progress").get();
+        maxProgress = pTag.getInt("press.max_progress").get();
     }
 
     public void tick(Level level, BlockPos pos, BlockState blockState) {
@@ -139,8 +151,9 @@ public class PressBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     private void craftItem() {
-        ItemStack output = new ItemStack(Items.BARRIER, 1);
-        itemHandler.extractItem(PAPER_SLOT, 1, false);
+        Optional<RecipeHolder<PressRecipe>> recipe = getCurrentRecipe();
+        ItemStack output = recipe.get().value().output();
+
         itemHandler.extractItem(INPUT_SLOT1, 1, false);
         itemHandler.extractItem(INPUT_SLOT2, 1, false);
         itemHandler.extractItem(INPUT_SLOT3, 1, false);
@@ -170,22 +183,36 @@ public class PressBlockEntity extends BlockEntity implements MenuProvider {
 
     public boolean hasRecipe() {
 
-        ItemStack output = new ItemStack(ModItems.TEA_LEAF.get(), 8);
+        Optional<RecipeHolder<PressRecipe>> recipe = getCurrentRecipe();
+        if(recipe.isEmpty()) {
+            return false;
+        }
 
-        return itemHandler.getStackInSlot(INPUT_SLOT1).is(ModItems.DRIED_TEA_LEAF)
-                && itemHandler.getStackInSlot(INPUT_SLOT2).is(ModItems.DRIED_TEA_LEAF)
-                && itemHandler.getStackInSlot(INPUT_SLOT3).is(ModItems.DRIED_TEA_LEAF)
-                && itemHandler.getStackInSlot(INPUT_SLOT4).is(ModItems.LIGHTLY_DRIED_TEA_LEAF)
-                && itemHandler.getStackInSlot(INPUT_SLOT5).is(ModItems.LIGHTLY_DRIED_TEA_LEAF)
-                && itemHandler.getStackInSlot(INPUT_SLOT6).is(ModItems.LIGHTLY_DRIED_TEA_LEAF)
-                && itemHandler.getStackInSlot(INPUT_SLOT7).is(ModItems.DRIED_HIBISCUS_PETALS)
-                && itemHandler.getStackInSlot(INPUT_SLOT8).is(ModItems.DRIED_HIBISCUS_PETALS)
-                && itemHandler.getStackInSlot(INPUT_SLOT9).is(ModItems.DRIED_HIBISCUS_PETALS)
-                && itemHandler.getStackInSlot(PAPER_SLOT).is(Items.PAPER)
+        ItemStack output = recipe.get().value().assemble(new PressRecipeInput(
+                itemHandler.getStackInSlot(INPUT_SLOT1),
+                itemHandler.getStackInSlot(INPUT_SLOT2),
+                itemHandler.getStackInSlot(INPUT_SLOT3),
+                itemHandler.getStackInSlot(INPUT_SLOT4),
+                itemHandler.getStackInSlot(INPUT_SLOT5),
+                itemHandler.getStackInSlot(INPUT_SLOT6),
+                itemHandler.getStackInSlot(INPUT_SLOT7),
+                itemHandler.getStackInSlot(INPUT_SLOT8),
+                itemHandler.getStackInSlot(INPUT_SLOT9)), level.registryAccess());
+        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
 
-                && canInsertAmountIntoOutputSlot(output.getCount())
-                && canInsertItemIntoOutputSlot(output);
-
+    }
+    private Optional<RecipeHolder<PressRecipe>> getCurrentRecipe() {
+        return ((ServerLevel)this.level).recipeAccess()
+                .getRecipeFor(ModRecipes.PRESS_TYPE.get(),
+                        new PressRecipeInput(itemHandler.getStackInSlot(INPUT_SLOT1),
+                        itemHandler.getStackInSlot(INPUT_SLOT2),
+                        itemHandler.getStackInSlot(INPUT_SLOT3),
+                        itemHandler.getStackInSlot(INPUT_SLOT4),
+                        itemHandler.getStackInSlot(INPUT_SLOT5),
+                        itemHandler.getStackInSlot(INPUT_SLOT6),
+                        itemHandler.getStackInSlot(INPUT_SLOT7),
+                        itemHandler.getStackInSlot(INPUT_SLOT8),
+                        itemHandler.getStackInSlot(INPUT_SLOT9)),  level);
     }
 
     public boolean hasOutput() {

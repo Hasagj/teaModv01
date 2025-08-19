@@ -4,18 +4,11 @@
   "group": "black_tea_leaves",
 
   "ingredients": [
-    {
-      "item": "teamod:dried_tea_leaf"
-    },
-    {
-      "item": "teamod:dried_tea_leaf"
-    },
-    {
-      "item": "teamod:dried_tea_leaf"
-    },
-    {
-      "item": "teamod:dried_tea_leaf"
-    }
+
+    "teamod:dried_tea_leaf",
+    "teamod:dried_tea_leaf",
+    "teamod:dried_tea_leaf",
+    "teamod:dried_tea_leaf"
   ],
   "result": {
     "count": 1,

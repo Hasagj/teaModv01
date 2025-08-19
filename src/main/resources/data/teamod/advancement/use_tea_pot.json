@@ -1,0 +1,48 @@
+{
+  "parent": "teamod:root",
+  "criteria": {
+    "use_tea_pot": {
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": "teamod:tea_pot_block"
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": "teamod:chakhai"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_used_on_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.teamod.use_tea_pot.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "teamod:tea_pot"
+    },
+    "title": {
+      "translate": "advancement.teamod.use_tea_pot.title"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "use_tea_pot"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

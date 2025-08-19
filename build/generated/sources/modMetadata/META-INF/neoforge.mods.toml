@@ -23,7 +23,7 @@ license="All Rights Reserved"
 modId="teamod" #mandatory
 
 # The version number of the mod
-version="0.0.1-1.21.1" #mandatory
+version="0.1.1-1.21.5" #mandatory
 
 # A display name for the mod
 displayName="Tea Mod" #mandatory
@@ -68,7 +68,7 @@ description='''Mc Mod'''
     # Optional field describing why the dependency is required or why it is incompatible
     # reason="..."
     # The version range of the dependency
-    versionRange="[21.1.0,)" #mandatory
+    versionRange="[21.5.87,)" #mandatory
     # An ordering relationship for the dependency.
     # BEFORE - This mod is loaded BEFORE the dependency
     # AFTER - This mod is loaded AFTER the dependency
@@ -81,7 +81,7 @@ description='''Mc Mod'''
     modId="minecraft"
     type="required"
     # This version range declares a minimum of the current minecraft version up to but not including the next major version
-    versionRange="[1.21.1, 1.22)"
+    versionRange="[1.21.5, 1.21.6)"
     ordering="NONE"
     side="BOTH"
 

@@ -1,37 +1,26 @@
 package net.hasagj.teamod;
 
 import net.hasagj.teamod.block.ModBlocks;
-import net.hasagj.teamod.block.custom.TeaPotBlock;
 import net.hasagj.teamod.block.entity.ModBlockEntities;
 import net.hasagj.teamod.effect.ModEffects;
-import net.hasagj.teamod.event.AutoSleepEvent;
+import net.hasagj.teamod.event.*;
 import net.hasagj.teamod.item.ModCreativeModeTabs;
 import net.hasagj.teamod.item.ModItems;
+import net.hasagj.teamod.loot.ModLootModifiers;
+import net.hasagj.teamod.particle.ModParticles;
+import net.hasagj.teamod.particle.OrangeEyesParticles;
+import net.hasagj.teamod.recipe.ModRecipes;
 import net.hasagj.teamod.screen.ModMenuTypes;
 import net.hasagj.teamod.screen.custom.PressScreen;
-import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
-import net.neoforged.bus.api.EventPriority;
+import net.minecraft.client.Minecraft;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
-import net.neoforged.neoforge.event.tick.LevelTickEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -44,10 +33,6 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(TeaMod.MOD_ID)
@@ -67,11 +52,14 @@ public class TeaMod
 
         ModCreativeModeTabs.register(modEventBus);
 
-        ModItems.ITEMS.register(modEventBus);
-        ModBlocks.BLOCKS.register(modEventBus);
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
         ModEffects.register(modEventBus);
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
+        ModRecipes.register(modEventBus);
+        ModLootModifiers.register(modEventBus);
+        ModParticles.register(modEventBus);
 
 
 
@@ -79,10 +67,17 @@ public class TeaMod
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
+
         new AutoSleepEvent();
+        new BlockInteractionEvent();
+        new OnTickEvent();
+        new FinishUseEvent();
+        new PreDamageEvent();
+        new StartUseEvent();
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
+        
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -117,20 +112,24 @@ public class TeaMod
 
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
     public static class ClientModEvents
     {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
-        @SubscribeEvent(priority = EventPriority.HIGH)
+        @SubscribeEvent
+        public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
+            Minecraft.getInstance().particleEngine.register(
+                    ModParticles.ORANGE_EYES_PARTICLES.get(),
+                    OrangeEyesParticles.Provider::new);
+        }
+        @SubscribeEvent
         public static void registerScreens(RegisterMenuScreensEvent event) {
             event.register(ModMenuTypes.PRESS_MENU.get(), PressScreen::new);
         }
+
     }
 }

@@ -26,11 +26,20 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DRIED_TEA_LEAF);
                         output.accept(ModItems.GREEN_TEA_LEAVES);
                         output.accept(ModItems.BLACK_TEA_LEAVES);
-                        output.accept(ModItems.HIBISCUS);
+                        output.accept(ModItems.PALE_TEA_LEAVES);
+                        output.accept(ModItems.CACTUS_TEA_LEAVES);
+                        output.accept(ModBlocks.HIBISCUS_SAPLING.get());
+                        output.accept(ModBlocks.FLOWERLESS_LEAVES.get());
+                        output.accept(ModBlocks.HIBISCUS_LEAVES.get());
                         output.accept(ModItems.HIBISCUS_FLOWER);
                         output.accept(ModItems.DRIED_HIBISCUS_PETALS);
                         output.accept(ModItems.DRIED_DAISY);
                         output.accept(ModItems.DAISY_TEA_LEAVES);
+                        output.accept(ModItems.DRIED_PITCHER_PLANT);
+                        output.accept(ModItems.APPLE_SLICE);
+                        output.accept(ModItems.PITCHER_TURNIP);
+                        output.accept(ModItems.DRIED_APPLE_SLICE);
+                        output.accept(ModItems.BOILED_WATER);
 
 
 
@@ -47,8 +56,29 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CUP);
                         output.accept(ModItems.TEA_POT);
                         output.accept(ModItems.CHAKHAI);
-                        output.accept(ModItems.FABRIC);
+                        output.accept(ModBlocks.PRESS.get());
+                        output.accept(ModBlocks.MOON_RAVEN_BLOCK.get());
 
+
+                    }).build());
+    public static final Supplier<CreativeModeTab> CUPS_TAB = CREATIVE_MODE_TAB.register("cups_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.CUP.get()))
+                    .title(Component.translatable("creativetab.teamod.cups"))
+                    .displayItems((itemDisplayParameters, output) -> {
+                        output.accept(ModItems.CHAKHAI_BLACK_TEA);
+                        output.accept(ModItems.CHAKHAI_GREEN_TEA);
+                        output.accept(ModItems.CHAKHAI_HIBISCUS_TEA);
+                        output.accept(ModItems.CHAKHAI_DAISY_TEA);
+                        output.accept(ModItems.CHAKHAI_PALE_TEA);
+                        output.accept(ModItems.CHAKHAI_PITCHER_TEA);
+                        output.accept(ModItems.CHAKHAI_CACTUS_TEA);
+                        output.accept(ModItems.CUP_BLACK_TEA);
+                        output.accept(ModItems.CUP_GREEN_TEA);
+                        output.accept(ModItems.CUP_HIBISCUS_TEA);
+                        output.accept(ModItems.CUP_DAISY_TEA);
+                        output.accept(ModItems.CUP_PALE_TEA);
+                        output.accept(ModItems.CUP_PITCHER_TEA);
+                        output.accept(ModItems.CUP_CACTUS_TEA);
 
                     }).build());
 

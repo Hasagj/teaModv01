@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,is_tea_inside=1": {
+      "model": "teamod:block/chakhai_pitcher_tea_block",
+      "y": 90
+    },
+    "facing=south,is_tea_inside=1": {
+      "model": "teamod:block/chakhai_pitcher_tea_block",
+      "y": 270
+    },
+    "facing=east,is_tea_inside=1": {
+      "model": "teamod:block/chakhai_pitcher_tea_block",
+      "y": 180
+    },
+    "facing=west,is_tea_inside=1": {
+      "model": "teamod:block/chakhai_pitcher_tea_block"
+    },
+    "facing=north,is_tea_inside=0": {
+      "model": "teamod:block/chakhai_block",
+      "y": 90
+    },
+    "facing=south,is_tea_inside=0": {
+      "model": "teamod:block/chakhai_block",
+      "y": 270
+    },
+    "facing=east,is_tea_inside=0": {
+      "model": "teamod:block/chakhai_block",
+      "y": 180
+    },
+    "facing=west,is_tea_inside=0": {
+      "model": "teamod:block/chakhai_block"
+    }
+  }
+}

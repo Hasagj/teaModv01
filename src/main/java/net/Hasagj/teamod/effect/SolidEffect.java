@@ -1,5 +1,6 @@
 package net.hasagj.teamod.effect;
 
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -14,7 +15,7 @@ public class SolidEffect extends MobEffect {
 
     public SolidEffect(MobEffectCategory category, int color) {super(category, color);}
     @Override
-    public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
+    public boolean applyEffectTick(ServerLevel level, LivingEntity livingEntity, int amplifier) {
         Player p = (Player) livingEntity;
         if(livingEntity.hasEffect(MobEffects.POISON) || livingEntity.hasEffect(MobEffects.HUNGER)) {
             livingEntity.removeEffect(MobEffects.POISON);
@@ -22,7 +23,7 @@ public class SolidEffect extends MobEffect {
 
         }
 
-        return super.applyEffectTick(livingEntity, amplifier);
+        return super.applyEffectTick(level, livingEntity, amplifier);
     }
     @Override
     public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {

@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "facing=north,is_full=0": {
+      "model": "teamod:block/cauldron_on_fire",
+      "y": 90
+    },
+    "facing=south,is_full=0": {
+      "model": "teamod:block/cauldron_on_fire",
+      "y": 270
+    },
+    "facing=east,is_full=0": {
+      "model": "teamod:block/cauldron_on_fire",
+      "y": 180
+    },
+    "facing=west,is_full=0": {
+      "model": "teamod:block/cauldron_on_fire"
+    },
+    "facing=north,is_full=1": {
+      "model": "teamod:block/cauldron_on_fire_full",
+      "y": 90
+    },
+    "facing=south,is_full=1": {
+      "model": "teamod:block/cauldron_on_fire_full",
+      "y": 270
+    },
+    "facing=east,is_full=1": {
+      "model": "teamod:block/cauldron_on_fire_full",
+      "y": 180
+    },
+    "facing=west,is_full=1": {
+      "model": "teamod:block/cauldron_on_fire_full"
+    },
+    "facing=north,is_full=2": {
+      "model": "teamod:block/cauldron_on_fire_boiling",
+      "y": 90
+    },
+    "facing=south,is_full=2": {
+      "model": "teamod:block/cauldron_on_fire_boiling",
+      "y": 270
+    },
+    "facing=east,is_full=2": {
+      "model": "teamod:block/cauldron_on_fire_boiling",
+      "y": 180
+    },
+    "facing=west,is_full=2": {
+      "model": "teamod:block/cauldron_on_fire_boiling"
+    }
+  }
+}

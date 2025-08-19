@@ -3,9 +3,9 @@
 "category": "food",
 "cookingtime": 200,
 "experience": 0.35,
-"ingredient": {
-"item": "teamod:tea_leaf"
-},
+"ingredient": [
+  "teamod:tea_leaf"
+],
 "result": {
   "id": "teamod:lightly_dried_tea_leaf"
 }

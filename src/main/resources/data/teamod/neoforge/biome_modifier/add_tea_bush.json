@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:cherry_grove",
+  "features": "teamod:tea_bush_placed",
+  "step": "vegetal_decoration"
+}

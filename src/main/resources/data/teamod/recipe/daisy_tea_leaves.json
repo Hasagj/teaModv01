@@ -4,21 +4,10 @@
   "group": "daisy_tea_leaves",
 
   "ingredients": [
-    {
-      "item": "teamod:dried_daisy"
-    },
-    {
-      "item": "teamod:dried_daisy"
-    },
-    {
-      "item": "teamod:dried_daisy"
-    },
-    {
-      "item": "teamod:dried_daisy"
-    },
-    {
-      "item": "teamod:dried_daisy"
-    }
+    "teamod:dried_daisy",
+    "teamod:dried_daisy",
+    "teamod:dried_daisy",
+    "teamod:dried_daisy"
   ],
   "result": {
     "count": 1,

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "teamod:block/moon_raven"
+    },
+    "facing=south": {
+      "model": "teamod:block/moon_raven",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "teamod:block/moon_raven",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "teamod:block/moon_raven",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ],
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "teamod:chakhai_pale_tea_block",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "is_tea_inside": "0"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "teamod:chakhai"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "teamod:chakhai_pale_tea_block",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "is_tea_inside": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "teamod:chakhai_pale_tea"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "teamod:blocks/chakhai_pale_tea_block"
+}

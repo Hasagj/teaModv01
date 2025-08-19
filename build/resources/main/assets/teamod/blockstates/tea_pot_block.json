@@ -2,18 +2,18 @@
   "variants": {
     "facing=north": {
       "model": "teamod:block/tea_pot_block",
-      "y": 90
+      "y": 270
     },
     "facing=south": {
       "model": "teamod:block/tea_pot_block",
-      "y": 270
+      "y": 90
     },
     "facing=east": {
-      "model": "teamod:block/tea_pot_block",
-      "y": 180
+      "model": "teamod:block/tea_pot_block"
     },
     "facing=west": {
-      "model": "teamod:block/tea_pot_block"
+      "model": "teamod:block/tea_pot_block",
+      "y": 180
     }
   }
 }

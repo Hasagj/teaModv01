@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": [
+    "teamod:apple_slice"
+  ],
+  "result": {
+    "id": "teamod:dried_apple_slice"
+  }
+}

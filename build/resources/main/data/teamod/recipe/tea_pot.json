@@ -3,9 +3,7 @@
   "category": "misc",
   "cookingtime": 2000,
   "experience": 10,
-  "ingredient": {
-    "item": "teamod:raw_tea_pot"
-  },
+  "ingredient": "teamod:raw_tea_pot",
   "result": {
     "id": "teamod:tea_pot"
   }

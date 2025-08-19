@@ -14,12 +14,11 @@
             distributionType = Wrapper.DistributionType.BIN
         }
 
-        version = "0.0.1-1.21.1"
+        version = "0.1.1-1.21.5"
         group = mod_group_id
 
         repositories {
             mavenLocal()
-            mavenCentral()
         }
 
         base {
@@ -66,7 +65,7 @@
                 }
 
                 data {
-                    data()
+                    clientData()
 
                     // example of overriding the workingDirectory set in configureEach above, uncomment if you want to use it
                     // gameDirectory = project.file('run-data')

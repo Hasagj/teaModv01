@@ -1,0 +1,16 @@
+{
+  "type": "teamod:press",
+  "ingredient1": "teamod:lightly_dried_tea_leaf",
+  "ingredient2": "minecraft:cactus_flower",
+  "ingredient3": "teamod:lightly_dried_tea_leaf",
+  "ingredient4": "teamod:lightly_dried_tea_leaf",
+  "ingredient5": "minecraft:cactus_flower",
+  "ingredient6": "teamod:lightly_dried_tea_leaf",
+  "ingredient7": "teamod:lightly_dried_tea_leaf",
+  "ingredient8": "minecraft:cactus",
+  "ingredient9": "teamod:lightly_dried_tea_leaf",
+  "result": {
+    "count": 2,
+    "id": "teamod:cactus_tea_leaves"
+  }
+}

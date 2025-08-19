@@ -14,10 +14,11 @@ public class ModBlockEntities {
             DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, TeaMod.MOD_ID);
 
     public static final Supplier<BlockEntityType<PressBlockEntity>> PRESS_BE =
-            BLOCK_ENTITIES.register("press_be", () -> BlockEntityType.Builder.of(
-                    PressBlockEntity::new, ModBlocks.PRESS.get()).build(null));
+            BLOCK_ENTITIES.register("press_be", () -> new BlockEntityType<>(
+                    PressBlockEntity::new, ModBlocks.PRESS.get()));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }
+
 }

@@ -23,7 +23,7 @@ license="${mod_license}"
 modId="teamod" #mandatory
 
 # The version number of the mod
-version="0.0.1-1.21.1" #mandatory
+version="0.1.1-1.21.5" #mandatory
 
 # A display name for the mod
 displayName="Tea Mod" #mandatory

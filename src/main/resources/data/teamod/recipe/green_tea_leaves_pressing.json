@@ -1,0 +1,16 @@
+{
+  "type": "teamod:press",
+  "ingredient1": "teamod:lightly_dried_tea_leaf",
+  "ingredient2": "teamod:lightly_dried_tea_leaf",
+  "ingredient3": "teamod:lightly_dried_tea_leaf",
+  "ingredient4": "teamod:lightly_dried_tea_leaf",
+  "ingredient5": "teamod:lightly_dried_tea_leaf",
+  "ingredient6": "teamod:lightly_dried_tea_leaf",
+  "ingredient7": "teamod:lightly_dried_tea_leaf",
+  "ingredient8": "teamod:lightly_dried_tea_leaf",
+  "ingredient9": "teamod:lightly_dried_tea_leaf",
+  "result": {
+    "count": 4,
+    "id": "teamod:green_tea_leaves"
+  }
+}

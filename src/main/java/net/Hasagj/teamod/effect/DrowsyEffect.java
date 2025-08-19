@@ -1,5 +1,6 @@
 package net.hasagj.teamod.effect;
 
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -12,12 +13,8 @@ import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 public class DrowsyEffect extends MobEffect {
     RandomSource random = RandomSource.create();
     @Override
-    public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
-        if (random.nextInt(250) == 0 && !livingEntity.hasEffect(MobEffects.BLINDNESS)) {
-            livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 40));
-        }
-
-        return super.applyEffectTick(livingEntity, amplifier);
+    public boolean applyEffectTick(ServerLevel level, LivingEntity livingEntity, int amplifier) {
+        return super.applyEffectTick(level, livingEntity, amplifier);
     }
 
     public DrowsyEffect(MobEffectCategory category, int color) {super(category, color);}

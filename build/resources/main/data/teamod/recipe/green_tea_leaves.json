@@ -4,18 +4,10 @@
   "group": "green_tea_leaves",
 
   "ingredients": [
-    {
-      "item": "teamod:lightly_dried_tea_leaf"
-    },
-    {
-      "item": "teamod:lightly_dried_tea_leaf"
-    },
-    {
-      "item": "teamod:lightly_dried_tea_leaf"
-    },
-    {
-      "item": "teamod:lightly_dried_tea_leaf"
-    }
+    "teamod:lightly_dried_tea_leaf",
+    "teamod:lightly_dried_tea_leaf",
+    "teamod:lightly_dried_tea_leaf",
+    "teamod:lightly_dried_tea_leaf"
   ],
   "result": {
     "count": 1,
