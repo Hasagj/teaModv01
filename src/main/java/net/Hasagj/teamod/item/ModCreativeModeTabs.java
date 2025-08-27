@@ -28,6 +28,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BLACK_TEA_LEAVES);
                         output.accept(ModItems.PALE_TEA_LEAVES);
                         output.accept(ModItems.CACTUS_TEA_LEAVES);
+                        output.accept(ModItems.CHORUS_TEA_LEAVES);
                         output.accept(ModBlocks.HIBISCUS_SAPLING.get());
                         output.accept(ModBlocks.FLOWERLESS_LEAVES.get());
                         output.accept(ModBlocks.HIBISCUS_LEAVES.get());
@@ -72,6 +73,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CHAKHAI_PALE_TEA);
                         output.accept(ModItems.CHAKHAI_PITCHER_TEA);
                         output.accept(ModItems.CHAKHAI_CACTUS_TEA);
+                        output.accept(ModItems.CHAKHAI_CHORUS_TEA);
                         output.accept(ModItems.CUP_BLACK_TEA);
                         output.accept(ModItems.CUP_GREEN_TEA);
                         output.accept(ModItems.CUP_HIBISCUS_TEA);
@@ -79,6 +81,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CUP_PALE_TEA);
                         output.accept(ModItems.CUP_PITCHER_TEA);
                         output.accept(ModItems.CUP_CACTUS_TEA);
+                        output.accept(ModItems.CUP_CHORUS_TEA);
 
                     }).build());
 

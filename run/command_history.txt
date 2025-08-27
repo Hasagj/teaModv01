@@ -1,50 +1,50 @@
-/effect give @s teamod:thorny infinite
-/damage @s 3
-/damage @s 3 minecraft:arrow
-/damage @s 3 minecraft:arrow by @s
-/damage @s 3 minecraft:arrow by @s from @s
-/effect give @s teamod:thorny infinite
-/effect clear
-/effect give @s teamod:thorny infinite
-/effect clear
-/effect give @s teamod:thorny infinite
-/effect clear
-/effect give @s teamod:thorny infinite
-/effect give f281886f-e777-4c4c-870c-d3c52b35f0cc teamod:thorny infinite
-/effect clear
-/effect give @s teamod:thorny infinite
-/locate structure minecraft:ancient_city
-/locate structure minecraft:village_plains
-/effect clear
-/effect give @s minecraft:wither 600 2
-/effect give @s teamod:thorny infinite
-/effect give @s minecraft:wither 600 4
-/effect give @s minecraft:wither 600 10
-/effect give @s minecraft:wither 600 50
-/effect give @s minecraft:wither 600 255
-/effect clear @s minecraft:wither
-/effect clear
-/effect give @s teamod:bitter infinite
-/effect clear
-/effect give @s teamod:doom
-/effect give @s teamod:doom infinite
-/effect clear
-/effect give @s minecraft:instant_damage 1 1
-/effect give @s teamod:doom infinite
-/give @s teamod:broken_totem
-/effect give @s teamod:doom infinite
-/give @s teamod:broken_totem
+/gamerule commandBlockOutput false
+/tp @e[type=minecraft:slime] @s
+/give @a teamod:tea_handbook
 /time set day
-/give @s teamod:cactus_tea_leaves
-/clear
-/effect give @a teamod:bitter
+/give @a teamod:tea_handbook
 /effect clear
-/effect give @a teamod:sweet
+/locate structure minecraft:village_desert
+/tp @s 5840 ~ -1568
+/locate biome minecraft:cherry_grove
+/tp @s 1962 67 -2352
+/locate biome minecraft:sparse_jungle
+/tp @s 1345 117 -3344
+/locate biome minecraft:sparse_jungle
+/tp @s 48 64 1919
+/locate biome minecraft:sparse_jungle
+/tp @s 159 140 -560
+/tp @e[type=minecraft:villager] @s
+/effect give
+/effect give 48b12d29-f82e-4502-ae7f-91295513add5 teamod:ends_blessing infinite
+/give @a teamod:tea_handbook
+/advancement revoke @a only teamod:stomach_of_steel
+/effect give @a minecraft:hunger
 /effect clear
-/effect give @a teamod:appetite
+/advancement revoke @a only teamod:trees_has_eyes
+/time set
+/time set night
+/effect clear
+/effect give @a minecraft:hunger 10 255
 /time set day
-/gamerule doDaylightCycle false
-/effect give @s minecraft:hunger 2 255
+/advancement revoke @a only teamod:bon_appetit
 /effect clear
-/give @s teamod:cup_daisy_tea
-/gamerule doDaylightCycle true
+/advancement revoke @a only teamod:dolce_vita
+/kill
+/advancement revoke @a only teamod:dolce_vita
+/effect clear
+/kill
+/effect give @a teamod:bitter infinite
+/effect clear
+/effect give @a teamod:bitter infinite
+/effect clear
+/effect give @a teamod:bitter infinite
+/locate structure minecraft:buried_treasure
+/tp @s -55 ~ 601
+/locate structure minecraft:shipwreck
+/tp @s -208 ~ 384
+/locate structure minecraft:stronghold
+/tp @s -2080 ~ -160
+/effect clear
+/give @s teamod:tea_handbook
+/time set day

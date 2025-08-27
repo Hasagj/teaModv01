@@ -1,0 +1,38 @@
+{
+  "parent": "teamod:bon_appetit",
+  "criteria": {
+    "alive": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "effects": "teamod:sweet"
+          }
+        ]
+      },
+      "trigger": "minecraft:entity_killed_player"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.teamod.dolce_vita.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "icon": {
+      "id": "minecraft:sweet_berries"
+    },
+    "title": {
+      "translate": "advancement.teamod.dolce_vita.title"
+    }
+  },
+  "requirements": [
+    [
+      "alive"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -10,7 +10,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "teamod:chakhai_pale_tea_block",
+          "block": "teamod:chakhai_cactus_tea_block",
           "condition": "minecraft:block_state_property",
           "properties": {
             "is_tea_inside": "0"

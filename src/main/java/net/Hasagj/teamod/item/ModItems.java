@@ -72,6 +72,12 @@ public class ModItems {
             (properties) -> new Item(properties));
     public static final DeferredItem<Item> CACTUS_TEA_LEAVES = ITEMS.registerItem("cactus_tea_leaves",
             (properties) -> new Item(properties));
+    public static final DeferredItem<Item> CHORUS_TEA_LEAVES = ITEMS.registerItem("chorus_tea_leaves",
+            (properties) -> new Item(properties));
+
+    public static final DeferredItem<Item> TEA_HANDBOOK = ITEMS.registerItem("tea_handbook",
+            (properties) -> new TeaHandbookItem(properties.stacksTo(1)));
+
 
     public static final DeferredItem<Item> APPLE_SLICE = ITEMS.registerItem("apple_slice",
             (properties) -> new Item(properties.food(new FoodProperties.Builder().nutrition(1).saturationModifier(0.15f).build())));
@@ -93,7 +99,7 @@ public class ModItems {
                     .usingConvertsTo(CUP.get())) {
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
-                    component.accept(Component.translatable("tooltip.teamod.cup_green_tea.tooltip").withColor(0x808080));
+                    component.accept(Component.translatable("tooltip.teamod.cup_green_tea.tooltip").withColor(0xADFF2F));
                     super.appendHoverText(stack, context, display, component, tooltipFlag);
                 }
             });
@@ -104,7 +110,7 @@ public class ModItems {
 
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
-                    component.accept(Component.translatable("tooltip.teamod.cup_black_tea.tooltip").withColor(0x808080));
+                    component.accept(Component.translatable("tooltip.teamod.cup_black_tea.tooltip").withColor(0xA0522D));
                     super.appendHoverText(stack, context, display, component, tooltipFlag);
                 }
             }
@@ -115,7 +121,7 @@ public class ModItems {
                     .usingConvertsTo(CUP.get())) {
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
-                    component.accept(Component.translatable("tooltip.teamod.cup_hibiscus_tea.tooltip").withColor(0x808080));
+                    component.accept(Component.translatable("tooltip.teamod.cup_hibiscus_tea.tooltip").withColor(0xFF0000));
                     super.appendHoverText(stack, context, display, component, tooltipFlag);
                 }
             }
@@ -127,7 +133,7 @@ public class ModItems {
                     .usingConvertsTo(CUP.get())) {
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
-                    component.accept(Component.translatable("tooltip.teamod.cup_daisy_tea.tooltip").withColor(0x808080));
+                    component.accept(Component.translatable("tooltip.teamod.cup_daisy_tea.tooltip").withColor(0xFFD700));
                     super.appendHoverText(stack, context, display, component, tooltipFlag);
                 }
             });
@@ -139,7 +145,7 @@ public class ModItems {
                             .soundAfterConsume(Holder.direct(SoundEvents.CREAKING_ACTIVATE)).build()).usingConvertsTo(CUP.get())) {
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
-                    component.accept(Component.translatable("tooltip.teamod.cup_pale_tea.tooltip").withColor(0x808080));
+                    component.accept(Component.translatable("tooltip.teamod.cup_pale_tea.tooltip").withColor(0xFF4500));
                     super.appendHoverText(stack, context, display, component, tooltipFlag);
 
                 }
@@ -164,6 +170,18 @@ public class ModItems {
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
                     component.accept(Component.translatable("tooltip.teamod.cup_cactus_tea.tooltip").withColor(0x006734));
+                    super.appendHoverText(stack, context, display, component, tooltipFlag);
+
+                }
+            });
+    public static final DeferredItem<Item> CUP_CHORUS_TEA = ITEMS.registerItem("cup_chorus_tea",
+            (properties) -> new Item(properties.stacksTo(1)
+                    .component(DataComponents.CONSUMABLE, Consumables.defaultDrink()
+                            .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(ModEffects.ENDS_BLESSING_EFFECT, 6000)))
+                            .build()).usingConvertsTo(CUP.get())) {
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
+                    component.accept(Component.translatable("tooltip.teamod.cup_chorus_tea.tooltip").withColor(0xC71585));
                     super.appendHoverText(stack, context, display, component, tooltipFlag);
 
                 }
@@ -195,6 +213,8 @@ public class ModItems {
             (properties) -> new BlockItem(ModBlocks.CHAKHAI_PITCHER_TEA_BLOCK.get(), properties.stacksTo(1)));
     public static final DeferredItem<Item> CHAKHAI_CACTUS_TEA = ITEMS.registerItem("chakhai_cactus_tea",
             (properties) -> new BlockItem(ModBlocks.CHAKHAI_CACTUS_TEA_BLOCK.get(), properties.stacksTo(1)));
+    public static final DeferredItem<Item> CHAKHAI_CHORUS_TEA = ITEMS.registerItem("chakhai_chorus_tea",
+            (properties) -> new BlockItem(ModBlocks.CHAKHAI_CHORUS_TEA_BLOCK.get(), properties.stacksTo(1)));
 
     public static final DeferredItem<Item> RAW_CHAKHAI = ITEMS.registerItem("raw_chakhai",
             (properties) -> new Item(properties.stacksTo(1)));

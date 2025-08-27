@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_cup": {
+      "conditions": {
+        "items": [
+          {
+            "items": "teamod:raw_cup"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "teamod:cup"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_cup"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "teamod:cup"
+    ]
+  }
+}

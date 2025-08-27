@@ -1,0 +1,41 @@
+{
+  "parent": "teamod:dolce_vita",
+  "criteria": {
+    "drink_milk": {
+      "conditions": {
+        "item": {
+          "items": "minecraft:milk_bucket"
+        },
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "effects": "teamod:bitter"
+          }
+        ]
+      },
+      "trigger": "minecraft:using_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.teamod.overdue.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "icon": {
+      "id": "minecraft:milk_bucket"
+    },
+    "title": {
+      "translate": "advancement.teamod.overdue.title"
+    }
+  },
+  "requirements": [
+    [
+      "drink_milk"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

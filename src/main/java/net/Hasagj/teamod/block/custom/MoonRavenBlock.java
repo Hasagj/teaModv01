@@ -87,6 +87,9 @@ public class MoonRavenBlock extends HorizontalDirectionalBlock {
         tea_list.add(ModItems.CUP_HIBISCUS_TEA.get());
         tea_list.add(ModItems.CUP_DAISY_TEA.get());
         tea_list.add(ModItems.CUP_PALE_TEA.get());
+        tea_list.add(ModItems.CUP_PITCHER_TEA.get());
+        tea_list.add(ModItems.CUP_CACTUS_TEA.get());
+        tea_list.add(ModItems.CUP_CHORUS_TEA.get());
         for (Item tea : tea_list) {
             if (stack.is(tea)) {
                 stack.shrink(1);
@@ -96,12 +99,14 @@ public class MoonRavenBlock extends HorizontalDirectionalBlock {
                 } else if (!player.getInventory().add(new ItemStack(ModItems.CUP.get()))) {
                     player.drop(new ItemStack(ModItems.CUP.get()), false);
                 }
-                if (!level.isRaining()) {
-                    level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BEACON_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    player.hurt(player.damageSources().magic(), 2F);
+                if (!level.isRaining() && level instanceof ServerLevel serverLevel) {
+                    serverLevel.sendParticles(ParticleTypes.ANGRY_VILLAGER, pos.getX(), pos.getY(), pos.getZ(), 10, 0.5, 0.5, 0.5, 1);
+                    player.hurtServer(serverLevel, player.damageSources().magic(), 2F);
 
                 } else {
-                    level.addParticle(ParticleTypes.HAPPY_VILLAGER, pos.getX(), pos.getY(), pos.getZ(), 0.0D, 0.0D, 0.0D);
+                    if (level instanceof ServerLevel serverLevel) {
+                        serverLevel.sendParticles(ParticleTypes.HAPPY_VILLAGER, pos.getX(), pos.getY(), pos.getZ(), 10, 0.5, 0.5, 0.5, 1);
+                    }
                     if (server != null) {
                         server.getCommands().performPrefixedCommand(
                                 server.createCommandSourceStack()

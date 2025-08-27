@@ -39,6 +39,10 @@ public record PressRecipe(Ingredient inputItem1,
         return list;
     }
 
+    public ItemStack getResultItem(HolderLookup.Provider provider) {
+        return output;
+    }
+
     @Override
     public boolean matches(PressRecipeInput pressRecipeInput, Level level) {
         if (level.isClientSide()) {

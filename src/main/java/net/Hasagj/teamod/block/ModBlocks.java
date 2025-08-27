@@ -54,6 +54,8 @@ public class ModBlocks {
             (properties) -> new ChakhaiPitcherTeaBlock(properties.noOcclusion().instabreak().sound(SoundType.DECORATED_POT)));
     public static final DeferredBlock<Block> CHAKHAI_CACTUS_TEA_BLOCK = registerBlock("chakhai_cactus_tea_block",
             (properties) -> new ChakhaiCactusTeaBlock(properties.noOcclusion().instabreak().sound(SoundType.DECORATED_POT)));
+    public static final DeferredBlock<Block> CHAKHAI_CHORUS_TEA_BLOCK = registerBlock("chakhai_chorus_tea_block",
+            (properties) -> new ChakhaiChorusTeaBlock(properties.noOcclusion().instabreak().sound(SoundType.DECORATED_POT)));
 
     public static final DeferredBlock<Block> PRESS = registerBlock("press", PressBlock::new);
     public static final DeferredBlock<Block> CAULDRON_ON_FIRE = registerBlock("cauldron_on_fire",

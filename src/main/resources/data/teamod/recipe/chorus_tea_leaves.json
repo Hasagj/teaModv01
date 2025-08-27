@@ -1,0 +1,16 @@
+{
+  "type": "teamod:press",
+  "ingredient1": "minecraft:chorus_fruit",
+  "ingredient2": "minecraft:chorus_fruit",
+  "ingredient3": "minecraft:chorus_fruit",
+  "ingredient4": "minecraft:chorus_fruit",
+  "ingredient5": "minecraft:chorus_flower",
+  "ingredient6": "minecraft:chorus_fruit",
+  "ingredient7": "minecraft:popped_chorus_fruit",
+  "ingredient8": "minecraft:popped_chorus_fruit",
+  "ingredient9": "minecraft:popped_chorus_fruit",
+  "result": {
+    "count": 2,
+    "id": "teamod:chorus_tea_leaves"
+  }
+}

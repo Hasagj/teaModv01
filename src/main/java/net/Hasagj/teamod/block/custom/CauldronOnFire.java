@@ -1,6 +1,7 @@
 package net.hasagj.teamod.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.hasagj.teamod.damage.ModDamageTypes;
 import net.hasagj.teamod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -28,6 +29,7 @@ import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -35,6 +37,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -43,17 +46,12 @@ import org.jetbrains.annotations.Nullable;
 public class CauldronOnFire extends HorizontalDirectionalBlock {
     public static final MapCodec<CauldronOnFire> CODEC = simpleCodec(CauldronOnFire::new);
     public static final IntegerProperty IS_FULL = IntegerProperty.create("is_full", 0, 2);
-    private static final VoxelShape SHAPE = Shapes.or(
+    private static final VoxelShape SHAPE = Shapes.join(
             // Дно
-            Block.box(1, 2, 1, 15, 5, 15),
+            Block.box(0, 0, 0, 16, 16, 16),
             // Левая стенка
-            Block.box(0, 2, 0, 2, 18, 16),
-            // Правая стенка
-            Block.box(14, 2, 0, 16, 18, 16),
-            // Задняя стенка
-            Block.box(2, 2, 0, 14, 18, 2),
-            // Передняя стенка
-            Block.box(2, 2, 14, 14, 18, 16)
+            Block.box(2, 6, 2, 14, 16, 14),
+            BooleanOp.ONLY_FIRST
     );
 
     public CauldronOnFire(Properties properties) {
@@ -65,6 +63,10 @@ public class CauldronOnFire extends HorizontalDirectionalBlock {
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return SHAPE;
+    }
+    @Override
+    protected RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
     }
 
     @Override
@@ -91,7 +93,7 @@ public class CauldronOnFire extends HorizontalDirectionalBlock {
         boolean flag = false;
         if (state.getValue(IS_FULL) == 0) {
             if (stack.is(Items.WATER_BUCKET) || stack.is(ModItems.BOILED_WATER.get())) {
-                stack.shrink(1);
+                stack.consume(1, player);
                 level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
                 if (stack.isEmpty()) {
                     player.setItemInHand(hand, new ItemStack(Items.BUCKET));
@@ -150,11 +152,17 @@ public class CauldronOnFire extends HorizontalDirectionalBlock {
         else if (n == 2 && random.nextInt(4) == 0) {
             level.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, (double)pos.getX() + (double)random.nextInt(16)/16, (double)pos.getY() + 1, (double)pos.getZ() + (double)random.nextInt(16)/16, 0, 0.02, 0);
         }
+
+        if (n == 2 && random.nextInt(4) == 0) {
+            for (Player player : level.players()) {
+                player.playSound(SoundEvents.BUBBLE_COLUMN_UPWARDS_AMBIENT, 0.25F, 1.2F);
+            }
+        }
     }
 
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effect) {
-        if (entity instanceof LivingEntity livingEntity && entity.getType() != EntityType.ZOMBIFIED_PIGLIN && entity.getType() != EntityType.WITHER_SKELETON && entity.getType() != EntityType.MAGMA_CUBE && !((LivingEntity) entity).hasEffect(MobEffects.FIRE_RESISTANCE) ) {
-            entity.hurt(entity.damageSources().campfire(), 1F);
+        if (level instanceof ServerLevel serverLevel && entity instanceof LivingEntity livingEntity && state.getValue(IS_FULL) == 2 && !((LivingEntity) entity).hasEffect(MobEffects.FIRE_RESISTANCE) ) {
+            livingEntity.hurtServer(serverLevel, ModDamageTypes.boil(serverLevel), 1F);
         }
 
     }

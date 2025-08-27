@@ -42,6 +42,8 @@ public class ModEffects {
                     .addAttributeModifier(Attributes.ATTACK_SPEED, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "thorny"), -100, AttributeModifier.Operation.ADD_VALUE));
     public static final Holder<MobEffect> BITTER_EFFECT = MOB_EFFECTS.register("bitter",
             () -> new BitterEffect(MobEffectCategory.HARMFUL, 0x000000));
+    public static final Holder<MobEffect> ENDS_BLESSING_EFFECT = MOB_EFFECTS.register("ends_blessing",
+            () -> new EndsBlessingEffect(MobEffectCategory.BENEFICIAL, 0xC71585));
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);
     }

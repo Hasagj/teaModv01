@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_tea_pot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "teamod:raw_tea_pot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "teamod:tea_pot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_tea_pot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "teamod:tea_pot"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_chakhai": {
+      "conditions": {
+        "items": [
+          {
+            "items": "teamod:raw_chakhai"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "teamod:chakhai"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_chakhai"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "teamod:chakhai"
+    ]
+  }
+}

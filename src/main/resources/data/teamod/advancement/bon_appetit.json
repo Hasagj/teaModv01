@@ -1,0 +1,101 @@
+{
+  "parent": "teamod:joule_per_coulomb",
+  "criteria": {
+    "spider_eye": {
+      "conditions": {
+        "item": {
+          "items": "minecraft:spider_eye"
+        },
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "effects": "teamod:gardens_blessing"
+          }
+        ]
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "rotten_flesh": {
+      "conditions": {
+        "item": {
+          "items": "minecraft:rotten_flesh"
+        },
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "effects": "teamod:gardens_blessing"
+          }
+        ]
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "pufferfish": {
+      "conditions": {
+        "item": {
+          "items": "minecraft:pufferfish"
+        },
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "effects": "teamod:gardens_blessing"
+          }
+        ]
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "chicken": {
+      "conditions": {
+        "item": {
+          "items": "minecraft:chicken"
+        },
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "effects": "teamod:gardens_blessing"
+          }
+        ]
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "poisonous_potato": {
+      "conditions": {
+        "item": {
+          "items": "minecraft:poisonous_potato"
+        },
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "effects": "teamod:gardens_blessing"
+          }
+        ]
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.teamod.bon_appetit.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "icon": {
+      "id": "teamod:pitcher_turnip"
+    },
+    "title": {
+      "translate": "advancement.teamod.bon_appetit.title"
+    }
+  },
+  "requirements": [
+    [
+      "spider_eye", "rotten_flesh", "pufferfish", "chicken", "poisonous_potato"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

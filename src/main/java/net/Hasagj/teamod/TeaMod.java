@@ -2,6 +2,7 @@ package net.hasagj.teamod;
 
 import net.hasagj.teamod.block.ModBlocks;
 import net.hasagj.teamod.block.entity.ModBlockEntities;
+import net.hasagj.teamod.damage.ModDamageTypes;
 import net.hasagj.teamod.effect.ModEffects;
 import net.hasagj.teamod.event.*;
 import net.hasagj.teamod.item.ModCreativeModeTabs;
@@ -74,6 +75,8 @@ public class TeaMod
         new FinishUseEvent();
         new PreDamageEvent();
         new StartUseEvent();
+        new ImpactEvent();
+        new OnClientTickEvent();
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

@@ -1,0 +1,47 @@
+{
+  "parent": "teamod:use_tea_pot",
+  "criteria": {
+    "kill_creaking": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:creaking"
+            }
+          }
+        ],
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "effects": "teamod:gardens_blessing"
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.teamod.trees_has_eyes.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "icon": {
+      "id": "minecraft:open_eyeblossom"
+    },
+    "title": {
+      "translate": "advancement.teamod.trees_has_eyes.title"
+    }
+  },
+  "requirements": [
+    [
+      "kill_creaking"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

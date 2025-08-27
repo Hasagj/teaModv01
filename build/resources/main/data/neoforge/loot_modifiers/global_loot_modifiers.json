@@ -1,7 +1,11 @@
 {
   "entries": [
     "teamod:moon_raven_from_desert_village",
-    "teamod:pitcher_turnip"
+    "teamod:pitcher_turnip",
+    "teamod:tea_handbook_from_bonus",
+    "teamod:tea_handbook_from_library",
+    "teamod:tea_handbook_from_shipwreck",
+    "teamod:tea_handbook_from_treasure"
   ],
   "replace": false
 }

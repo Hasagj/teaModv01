@@ -59,9 +59,10 @@ public class OnTickEvent {
 
             }
 
-            if (player.hasEffect(ModEffects.THORNY_EFFECT) && player.getEffect(ModEffects.THORNY_EFFECT).endsWithin(1)) {
+            if (!player.hasEffect(ModEffects.THORNY_EFFECT) && player.getStingerCount() >= 20) {
                 player.setStingerCount(0);
             }
+
 
 
             

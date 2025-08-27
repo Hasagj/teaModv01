@@ -1,0 +1,44 @@
+{
+  "parent": "teamod:use_tea_pot",
+  "criteria": {
+    "remove_poison": {
+      "conditions": {
+        "effects": {
+          "teamod:solid": {},
+          "minecraft:poison": {}
+        }
+      },
+      "trigger": "minecraft:effects_changed"
+    },
+    "remove_hunger": {
+      "conditions": {
+        "effects": {
+          "teamod:solid": {},
+          "minecraft:hunger": {}
+        }
+      },
+      "trigger": "minecraft:effects_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.teamod.stomach_of_steel.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "icon": {
+      "id": "teamod:hibiscus_flower"
+    },
+    "title": {
+      "translate": "advancement.teamod.stomach_of_steel.title"
+    }
+  },
+  "requirements": [
+    [
+      "remove_poison", "remove_hunger"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
