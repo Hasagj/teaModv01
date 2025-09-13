@@ -11,7 +11,7 @@ loaderVersion="[4,)" #mandatory
 
 # The license for you mod. This is mandatory metadata and allows for easier comprehension of your redistributive properties.
 # Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
-license="All Rights Reserved"
+license="MIT"
 
 # A URL to refer people to when problems occur with this mod
 #issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
@@ -23,10 +23,10 @@ license="All Rights Reserved"
 modId="teamod" #mandatory
 
 # The version number of the mod
-version="1.0.0-1.21.5" #mandatory
+version="1.0.1-1.21.5" #mandatory
 
 # A display name for the mod
-displayName="Tea Mod" #mandatory
+displayName="Tea Ceremony" #mandatory
 
 # A URL to query for updates for this mod. See the JSON update specification https://docs.neoforged.net/docs/misc/updatechecker/
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
@@ -44,7 +44,7 @@ displayName="Tea Mod" #mandatory
 authors="Hasagj" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
-description='''Mc Mod'''
+description='''This mod allows you to host a tea ceremony right in your Minecraft world.'''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.
 #[[mixins]]

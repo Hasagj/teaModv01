@@ -2,6 +2,7 @@ package net.hasagj.teamod.event;
 
 import net.hasagj.teamod.effect.ModEffects;
 import net.hasagj.teamod.item.ModItems;
+import net.hasagj.teamod.trigger.ModTriggers;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
@@ -37,7 +38,7 @@ public class StartUseEvent {
                 if (usingItem.is(Items.MILK_BUCKET)) {
                     player.stopUsingItem();
                     if (player instanceof ServerPlayer serverPlayer) {
-                        CriteriaTriggers.USING_ITEM.trigger(serverPlayer, player.getItemInHand(InteractionHand.MAIN_HAND));
+                        ModTriggers.BITTER_TRIGGER.get().trigger(serverPlayer);
                     }
                     player.getItemInHand(InteractionHand.MAIN_HAND).shrink(1);
                     player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.BUCKET));

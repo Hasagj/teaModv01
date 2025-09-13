@@ -2,7 +2,9 @@ package net.hasagj.teamod.event;
 
 
 import net.hasagj.teamod.effect.ModEffects;
+import net.hasagj.teamod.trigger.ModTriggers;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -51,6 +53,7 @@ public class ImpactEvent {
                         }
                     }
                     player.getFoodData().eat(-1, -1);
+                    ModTriggers.TELEPORT_TRIGGER.get().trigger((ServerPlayer) player);
                     event.setCanceled(true);
                 }
             }

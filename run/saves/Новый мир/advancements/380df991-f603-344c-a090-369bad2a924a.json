@@ -1,90 +1,308 @@
 {
   "minecraft:recipes/decorations/crafting_table": {
     "criteria": {
-      "unlock_right_away": "2025-08-26 22:32:45 +0300"
+      "unlock_right_away": "2025-08-27 20:11:54 +0300"
     },
     "done": true
   },
   "minecraft:adventure/adventuring_time": {
     "criteria": {
-      "minecraft:deep_cold_ocean": "2025-08-26 22:33:34 +0300",
-      "minecraft:beach": "2025-08-26 22:33:00 +0300",
-      "minecraft:forest": "2025-08-26 22:32:58 +0300",
-      "minecraft:river": "2025-08-26 22:33:21 +0300",
-      "minecraft:swamp": "2025-08-26 22:32:46 +0300",
-      "minecraft:plains": "2025-08-26 22:34:15 +0300"
+      "minecraft:frozen_ocean": "2025-08-27 20:12:22 +0300",
+      "minecraft:taiga": "2025-08-27 20:20:57 +0300",
+      "minecraft:deep_frozen_ocean": "2025-08-27 20:17:38 +0300",
+      "minecraft:river": "2025-08-27 20:18:02 +0300",
+      "minecraft:snowy_taiga": "2025-08-27 20:11:55 +0300",
+      "minecraft:snowy_beach": "2025-08-27 20:12:18 +0300",
+      "minecraft:plains": "2025-08-27 20:17:51 +0300"
     },
     "done": false
   },
   "minecraft:recipes/transportation/mangrove_boat": {
     "criteria": {
-      "in_water": "2025-08-26 22:33:15 +0300"
+      "in_water": "2025-08-27 20:12:54 +0300"
     },
     "done": true
   },
   "minecraft:recipes/transportation/acacia_boat": {
     "criteria": {
-      "in_water": "2025-08-26 22:33:15 +0300"
+      "in_water": "2025-08-27 20:12:54 +0300"
     },
     "done": true
   },
   "minecraft:recipes/transportation/cherry_boat": {
     "criteria": {
-      "in_water": "2025-08-26 22:33:15 +0300"
+      "in_water": "2025-08-27 20:12:54 +0300"
     },
     "done": true
   },
   "minecraft:recipes/transportation/pale_oak_boat": {
     "criteria": {
-      "in_water": "2025-08-26 22:33:15 +0300"
+      "in_water": "2025-08-27 20:12:54 +0300"
     },
     "done": true
   },
   "minecraft:recipes/transportation/bamboo_raft": {
     "criteria": {
-      "in_water": "2025-08-26 22:33:15 +0300"
+      "in_water": "2025-08-27 20:12:54 +0300"
     },
     "done": true
   },
   "minecraft:recipes/transportation/spruce_boat": {
     "criteria": {
-      "in_water": "2025-08-26 22:33:15 +0300"
+      "in_water": "2025-08-27 20:12:54 +0300"
     },
     "done": true
   },
   "minecraft:recipes/transportation/birch_boat": {
     "criteria": {
-      "in_water": "2025-08-26 22:33:15 +0300"
+      "in_water": "2025-08-27 20:12:54 +0300"
     },
     "done": true
   },
   "minecraft:recipes/transportation/oak_boat": {
     "criteria": {
-      "in_water": "2025-08-26 22:33:15 +0300"
+      "in_water": "2025-08-27 20:12:54 +0300"
     },
     "done": true
   },
   "minecraft:recipes/transportation/jungle_boat": {
     "criteria": {
-      "in_water": "2025-08-26 22:33:15 +0300"
+      "in_water": "2025-08-27 20:12:54 +0300"
     },
     "done": true
   },
   "minecraft:recipes/transportation/dark_oak_boat": {
     "criteria": {
-      "in_water": "2025-08-26 22:33:15 +0300"
+      "in_water": "2025-08-27 20:12:54 +0300"
     },
     "done": true
   },
-  "minecraft:story/follow_ender_eye": {
+  "minecraft:recipes/misc/popped_chorus_fruit": {
     "criteria": {
-      "in_stronghold": "2025-08-26 22:34:27 +0300"
+      "has_chorus_fruit": "2025-08-27 20:15:36 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/purpur_block": {
+    "criteria": {
+      "has_chorus_fruit_popped": "2025-08-27 20:15:55 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/end_rod": {
+    "criteria": {
+      "has_chorus_fruit_popped": "2025-08-27 20:15:55 +0300"
+    },
+    "done": true
+  },
+  "teamod:use_tea_pot": {
+    "criteria": {
+      "use_tea_pot": "2025-08-27 20:16:43 +0300"
     },
     "done": true
   },
   "teamod:root": {
     "criteria": {
-      "has_tea_leaf": "2025-08-26 22:35:31 +0300"
+      "has_tea_leaf": "2025-08-27 20:16:52 +0300"
+    },
+    "done": true
+  },
+  "minecraft:husbandry/root": {
+    "criteria": {
+      "consumed_item": "2025-08-27 20:17:28 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/composter": {
+    "criteria": {
+      "has_wood_slab": "2025-08-27 20:18:18 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/barrel": {
+    "criteria": {
+      "has_wood_slab": "2025-08-27 20:18:18 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/birch_button": {
+    "criteria": {
+      "has_planks": "2025-08-27 20:18:27 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/birch_door": {
+    "criteria": {
+      "has_planks": "2025-08-27 20:18:27 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/birch_fence": {
+    "criteria": {
+      "has_planks": "2025-08-27 20:18:27 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/birch_trapdoor": {
+    "criteria": {
+      "has_planks": "2025-08-27 20:18:27 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/stick": {
+    "criteria": {
+      "has_planks": "2025-08-27 20:18:27 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/birch_sign": {
+    "criteria": {
+      "has_planks": "2025-08-27 20:18:27 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/birch_fence_gate": {
+    "criteria": {
+      "has_planks": "2025-08-27 20:18:27 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/birch_pressure_plate": {
+    "criteria": {
+      "has_planks": "2025-08-27 20:18:27 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/birch_slab": {
+    "criteria": {
+      "has_planks": "2025-08-27 20:18:27 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/birch_stairs": {
+    "criteria": {
+      "has_planks": "2025-08-27 20:18:27 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/brewing/cauldron": {
+    "criteria": {
+      "has_water_bucket": "2025-08-27 20:20:51 +0300"
+    },
+    "done": true
+  },
+  "teamod:stomach_of_steel": {
+    "criteria": {
+      "remove_poison": "2025-08-27 20:22:17 +0300"
+    },
+    "done": true
+  },
+  "teamod:the_dreamworker": {
+    "criteria": {
+      "has_effect": "2025-08-27 20:22:47 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/charcoal": {
+    "criteria": {
+      "has_log": "2025-08-27 20:23:26 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/pale_oak_planks": {
+    "criteria": {
+      "has_log": "2025-08-27 20:23:26 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/pale_oak_wood": {
+    "criteria": {
+      "has_log": "2025-08-27 20:23:26 +0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/root": {
+    "criteria": {
+      "killed_something": "2025-08-27 20:24:22 +0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/kill_all_mobs": {
+    "criteria": {
+      "minecraft:creaking": "2025-08-27 20:24:22 +0300"
+    },
+    "done": false
+  },
+  "minecraft:adventure/kill_a_mob": {
+    "criteria": {
+      "minecraft:creaking": "2025-08-27 20:24:22 +0300"
+    },
+    "done": true
+  },
+  "teamod:trees_has_eyes": {
+    "criteria": {
+      "kill_creaking": "2025-08-27 20:24:22 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/resin_block": {
+    "criteria": {
+      "has_resin_clump": "2025-08-27 20:24:38 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/resin_brick": {
+    "criteria": {
+      "has_resin_clump": "2025-08-27 20:24:38 +0300"
+    },
+    "done": true
+  },
+  "teamod:joule_per_coulomb": {
+    "criteria": {
+      "has_effect": "2025-08-27 20:24:56 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/brewing/fermented_spider_eye": {
+    "criteria": {
+      "has_spider_eye": "2025-08-27 20:25:37 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/food/cooked_chicken_from_campfire_cooking": {
+    "criteria": {
+      "has_chicken": "2025-08-27 20:25:43 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/food/cooked_chicken": {
+    "criteria": {
+      "has_chicken": "2025-08-27 20:25:43 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/food/cooked_chicken_from_smoking": {
+    "criteria": {
+      "has_chicken": "2025-08-27 20:25:43 +0300"
+    },
+    "done": true
+  },
+  "teamod:bon_appetit": {
+    "criteria": {
+      "spider_eye": "2025-08-27 20:26:03 +0300"
+    },
+    "done": true
+  },
+  "minecraft:husbandry/balanced_diet": {
+    "criteria": {
+      "spider_eye": "2025-08-27 20:26:03 +0300",
+      "sweet_berries": "2025-08-27 20:26:31 +0300"
+    },
+    "done": false
+  },
+  "teamod:overdue": {
+    "criteria": {
+      "drink_milk": "2025-08-27 20:27:08 +0300"
     },
     "done": true
   },

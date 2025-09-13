@@ -2,25 +2,7 @@
   "parent": "teamod:use_tea_pot",
   "criteria": {
     "kill_creaking": {
-      "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "type": "minecraft:creaking"
-            }
-          }
-        ],
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "effects": "teamod:gardens_blessing"
-          }
-        ]
-      },
-      "trigger": "minecraft:player_killed_entity"
+      "trigger": "teamod:creaking_trigger"
     }
   },
   "display": {

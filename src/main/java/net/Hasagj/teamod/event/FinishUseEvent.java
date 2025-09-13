@@ -2,6 +2,7 @@ package net.hasagj.teamod.event;
 
 import net.hasagj.teamod.effect.ModEffects;
 import net.hasagj.teamod.item.ModItems;
+import net.hasagj.teamod.trigger.ModTriggers;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
@@ -54,7 +55,9 @@ public class FinishUseEvent {
         if (entity.hasEffect(ModEffects.APPETITE_EFFECT) && entity.level() instanceof ServerLevel level) {
             if (entity instanceof Player player && usedItem.getItem().components().has(DataComponents.FOOD)) {
                 player.getFoodData().eat((int) (usedItem.getItem().components().get(DataComponents.FOOD).nutrition() * 0.5F) + 1, 0);
-
+                if (usedItem.is(Items.POISONOUS_POTATO) || usedItem.is(Items.SPIDER_EYE) || usedItem.is(Items.CHICKEN) || usedItem.is(Items.PUFFERFISH) || usedItem.is(Items.ROTTEN_FLESH)) {
+                    ModTriggers.APPETITE_TRIGGER.get().trigger((ServerPlayer) player);
+                }
             }
 
         }

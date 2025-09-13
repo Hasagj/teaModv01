@@ -128,5 +128,11 @@
   "advancement.teamod.dolce_vita.title": "Dolce vita",
   "advancement.teamod.dolce_vita.description": "Cheat death with the help of the Sweet effect",
   "advancement.teamod.overdue.title": "Overdue...",
-  "advancement.teamod.overdue.description": "Attempt to remove 'Bitter' with milk"
+  "advancement.teamod.overdue.description": "Attempt to remove 'Bitter' with milk",
+  "advancement.teamod.sweet_but_stinging.title": "Sweet but stinging",
+  "advancement.teamod.sweet_but_stinging.description": "Reach the maximum damage fron the 'Thorny' effect",
+  "advancement.teamod.bristleback.title": "Bristle back",
+  "advancement.teamod.bristleback.description": "Become truly thorny",
+  "advancement.teamod.not_today.title": "Not today... Wait, that's already been said",
+  "advancement.teamod.not_today.description": "Dodge a projectile with the 'End's Blessing'"
 }

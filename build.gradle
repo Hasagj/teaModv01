@@ -14,7 +14,7 @@
             distributionType = Wrapper.DistributionType.BIN
         }
 
-        version = "1.0.0-1.21.5"
+        version = "1.0.1-1.21.5"
         group = mod_group_id
 
         repositories {

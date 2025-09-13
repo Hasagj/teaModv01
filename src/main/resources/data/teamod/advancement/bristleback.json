@@ -1,0 +1,32 @@
+{
+  "parent": "teamod:sweet_but_stinging",
+  "criteria": {
+    "thorns": {
+      "trigger": "teamod:bristleback_trigger"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.teamod.bristleback.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true,
+    "icon": {
+      "id": "minecraft:cactus"
+    },
+    "title": {
+      "translate": "advancement.teamod.bristleback.title"
+    }
+  },
+  "rewards": {
+    "experience": 100
+  },
+  "requirements": [
+    [
+      "thorns"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

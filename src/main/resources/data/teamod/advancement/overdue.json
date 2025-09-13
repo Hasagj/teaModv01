@@ -2,19 +2,7 @@
   "parent": "teamod:dolce_vita",
   "criteria": {
     "drink_milk": {
-      "conditions": {
-        "item": {
-          "items": "minecraft:milk_bucket"
-        },
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "effects": "teamod:bitter"
-          }
-        ]
-      },
-      "trigger": "minecraft:using_item"
+      "trigger": "teamod:bitter_trigger"
     }
   },
   "display": {

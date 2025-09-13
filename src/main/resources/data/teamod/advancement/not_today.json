@@ -1,0 +1,29 @@
+{
+  "parent": "teamod:use_tea_pot",
+  "criteria": {
+    "teleport": {
+      "trigger": "teamod:teleport_trigger"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.teamod.not_today.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "icon": {
+      "id": "minecraft:chorus_fruit"
+    },
+    "title": {
+      "translate": "advancement.teamod.not_today.title"
+    }
+  },
+  "requirements": [
+    [
+      "teleport"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

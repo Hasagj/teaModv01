@@ -1,50 +1,50 @@
-/gamerule commandBlockOutput false
-/tp @e[type=minecraft:slime] @s
-/give @a teamod:tea_handbook
+/advancement revoke @s everything
+/effect give @s teamod:sweet infinite
+/effect clear
+/advancement revoke @s everything
+/effect give @a teamod:appetite infinite
+/advancement revoke @s everything
+/effect clear
+/advancement revoke @s everything
+/effect give @a teamod:gardens_blessing infinite
+/effect clear
+/advancement revoke @s everything
+/effect give @a teamod:gardens_blessing infinite
+/advancement revoke @s everything
+/effect clear
+/effect give @a teamod:gardens_blessing infinite
+/effect clear
 /time set day
-/give @a teamod:tea_handbook
+/tag @s list
+/item modify entity @s armor.head
+/data get entity @s SelectedItem
+/enchant @a minecraft:thorns 3
+/effect give @a teamod:thorny infinite
 /effect clear
-/locate structure minecraft:village_desert
-/tp @s 5840 ~ -1568
-/locate biome minecraft:cherry_grove
-/tp @s 1962 67 -2352
-/locate biome minecraft:sparse_jungle
-/tp @s 1345 117 -3344
-/locate biome minecraft:sparse_jungle
-/tp @s 48 64 1919
-/locate biome minecraft:sparse_jungle
-/tp @s 159 140 -560
-/tp @e[type=minecraft:villager] @s
-/effect give
-/effect give 48b12d29-f82e-4502-ae7f-91295513add5 teamod:ends_blessing infinite
-/give @a teamod:tea_handbook
-/advancement revoke @a only teamod:stomach_of_steel
-/effect give @a minecraft:hunger
+/effect give @a teamod:thorny infinite
 /effect clear
-/advancement revoke @a only teamod:trees_has_eyes
-/time set
-/time set night
-/effect clear
-/effect give @a minecraft:hunger 10 255
+/enchant @a minecraft:thorns 3
+/effect give @a teamod:thorny infinite
+/advancement revoke @a everything
+/enchant @a minecraft:thorns 3
+/advancement revoke @a everything
+/enchant @a minecraft:thorns 3
 /time set day
-/advancement revoke @a only teamod:bon_appetit
+/xp set @a 0
+/xp set @a 0 levels
 /effect clear
-/advancement revoke @a only teamod:dolce_vita
-/kill
-/advancement revoke @a only teamod:dolce_vita
-/effect clear
-/kill
-/effect give @a teamod:bitter infinite
-/effect clear
-/effect give @a teamod:bitter infinite
-/effect clear
-/effect give @a teamod:bitter infinite
-/locate structure minecraft:buried_treasure
-/tp @s -55 ~ 601
-/locate structure minecraft:shipwreck
-/tp @s -208 ~ 384
-/locate structure minecraft:stronghold
-/tp @s -2080 ~ -160
-/effect clear
-/give @s teamod:tea_handbook
+/effect give @a teamod:thorny infinite
+/fill ~ ~ ~ ~30 ~ ~30 minecraft:bedrock
+/data get entity
+/data get entity 2bf9055b-bf37-48c4-b4dc-703f7d34c3dd Health
+/give @s minecraft:command_block
+/gamerule commandBlockOutput true
+/advancement revoke @a everything
+/effect give @a minecraft:absorption infinite 255 true
+/data get entity 2bf9055b-bf37-48c4-b4dc-703f7d34c3dd Health
+/advancement grant @a everything
 /time set day
+/effect clear
+/fill ~ ~ ~ ~30 ~5 ~30 minecraft:bedrock
+/advancement revoke @a everything
+/effect clear

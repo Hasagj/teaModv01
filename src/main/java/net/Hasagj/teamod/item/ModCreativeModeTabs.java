@@ -51,6 +51,7 @@ public class ModCreativeModeTabs {
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "tea_items_tab"))
                     .title(Component.translatable("creativetab.teamod.dishes"))
                     .displayItems((itemDisplayParameters, output) -> {
+                        output.accept(ModItems.TEA_HANDBOOK);
                         output.accept(ModItems.RAW_CUP);
                         output.accept(ModItems.RAW_TEA_POT);
                         output.accept(ModItems.RAW_CHAKHAI);

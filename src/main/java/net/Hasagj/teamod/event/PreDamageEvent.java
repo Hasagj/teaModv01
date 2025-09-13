@@ -1,6 +1,7 @@
 package net.hasagj.teamod.event;
 
 import net.hasagj.teamod.effect.ModEffects;
+import net.hasagj.teamod.trigger.ModTriggers;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.client.multiplayer.chat.report.ReportEnvironment;
 import net.minecraft.core.particles.ColorParticleOption;
@@ -55,7 +56,7 @@ public class PreDamageEvent {
                             30,
                             0.5, 0.5, 0.5,
                             0);
-                    CriteriaTriggers.ENTITY_KILLED_PLAYER.trigger(serverPlayer, player, player.damageSources().magic());
+                    ModTriggers.SWEET_TRIGGER.get().trigger(serverPlayer);
                 }
             }
 
@@ -80,6 +81,7 @@ public class PreDamageEvent {
                         mob.hurt(mob.damageSources().cactus(), mob.getStingerCount() + 1);
                         if (mob.getStingerCount() >= 7) {
                             mob.setStingerCount(7);
+                            ModTriggers.STINGING_TRIGGER.get().trigger((ServerPlayer) player);
                         } else {
                             mob.setStingerCount(mob.getStingerCount() + 1);
                         }

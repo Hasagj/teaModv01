@@ -2,16 +2,7 @@
   "parent": "teamod:bon_appetit",
   "criteria": {
     "alive": {
-      "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "effects": "teamod:sweet"
-          }
-        ]
-      },
-      "trigger": "minecraft:entity_killed_player"
+      "trigger": "teamod:sweet_trigger"
     }
   },
   "display": {

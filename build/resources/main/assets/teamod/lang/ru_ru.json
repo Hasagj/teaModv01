@@ -39,7 +39,7 @@
   "item.teamod.apple_slice": "Яблочная долька",
   "item.teamod.dried_apple_slice": "Сушёная яблочная долька",
   "item.teamod.boiled_water": "Кипячёная вода",
-  "item.teamod.tea_handbook": "Чайный справочник    ",
+  "item.teamod.tea_handbook": "Чайный справочник",
 
 
   "item.teamod.moon_raven": "Лунный Ворон",
@@ -124,6 +124,12 @@
   "advancement.teamod.dolce_vita.description": "Избегите смерти с помощью эффекта \"Сладость\"",
   "advancement.teamod.overdue.title": "Просрочено...",
   "advancement.teamod.overdue.description": "Попытайтесь снять \"Горечь\" молоком",
+  "advancement.teamod.sweet_but_stinging.title": "И хочется и колется",
+  "advancement.teamod.sweet_but_stinging.description": "Добейтесь максимального урона от эффекта \"Шипастая кожа\"",
+  "advancement.teamod.bristleback.title": "Bristle back",
+  "advancement.teamod.bristleback.description": "Станьте по-настоящему колючим",
+  "advancement.teamod.not_today.title": "Не дождётесь... Стоп, это уже было",
+  "advancement.teamod.not_today.description": "Увернитесь от снаряда с помощью \"Благословения края\"",
 
   "block.teamod.press": "Пресс"
 

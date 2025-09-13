@@ -23,10 +23,10 @@ license="${mod_license}"
 modId="teamod" #mandatory
 
 # The version number of the mod
-version="1.0.0-1.21.5" #mandatory
+version="1.0.1-1.21.5" #mandatory
 
 # A display name for the mod
-displayName="Tea Mod" #mandatory
+displayName="Tea Ceremony" #mandatory
 
 # A URL to query for updates for this mod. See the JSON update specification https://docs.neoforged.net/docs/misc/updatechecker/
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional

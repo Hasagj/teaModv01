@@ -13,6 +13,7 @@ import net.hasagj.teamod.particle.OrangeEyesParticles;
 import net.hasagj.teamod.recipe.ModRecipes;
 import net.hasagj.teamod.screen.ModMenuTypes;
 import net.hasagj.teamod.screen.custom.PressScreen;
+import net.hasagj.teamod.trigger.ModTriggers;
 import net.minecraft.client.Minecraft;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
@@ -61,6 +62,7 @@ public class TeaMod
         ModRecipes.register(modEventBus);
         ModLootModifiers.register(modEventBus);
         ModParticles.register(modEventBus);
+        ModTriggers.register(modEventBus);
 
 
 
@@ -77,6 +79,7 @@ public class TeaMod
         new StartUseEvent();
         new ImpactEvent();
         new OnClientTickEvent();
+        new DeathEvent();
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

@@ -1,0 +1,29 @@
+{
+  "parent": "teamod:use_tea_pot",
+  "criteria": {
+    "sting": {
+      "trigger": "teamod:stinging_trigger"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.teamod.sweet_but_stinging.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "icon": {
+      "id": "minecraft:cactus_flower"
+    },
+    "title": {
+      "translate": "advancement.teamod.sweet_but_stinging.title"
+    }
+  },
+  "requirements": [
+    [
+      "sting"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
