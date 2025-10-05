@@ -45,7 +45,7 @@ public class PreDamageEvent {
                 if (damageAmount >= player.getHealth() && player.getFoodData().getFoodLevel() != 0) {
                     event.setNewDamage(0);
                     player.setHealth(1);
-                    player.heal(player.getFoodData().getFoodLevel());
+                    player.heal(player.getFoodData().getFoodLevel() - 1);
                     player.getFoodData().setFoodLevel(0);
                     player.getFoodData().setSaturation(0);
                     player.removeEffect(ModEffects.SWEET_EFFECT);

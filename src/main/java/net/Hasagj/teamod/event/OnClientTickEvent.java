@@ -1,7 +1,16 @@
 package net.hasagj.teamod.event;
 
+import com.mojang.blaze3d.framegraph.FrameGraphBuilder;
+import com.mojang.blaze3d.pipeline.RenderTarget;
+import com.mojang.blaze3d.systems.RenderPass;
+import com.mojang.blaze3d.systems.RenderSystem;
+import net.hasagj.teamod.TeaMod;
 import net.hasagj.teamod.effect.ModEffects;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.LevelTargetBundle;
+import net.minecraft.client.renderer.PostChain;
+import net.minecraft.client.renderer.PostChainConfig;
+import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -17,6 +26,10 @@ import net.neoforged.neoforge.client.ClientHooks;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.common.NeoForge;
 
+import java.util.List;
+import java.util.Map;
+import java.util.OptionalInt;
+
 public class OnClientTickEvent {
     public OnClientTickEvent() {
         // Регистрируем событие в NeoForge
@@ -24,11 +37,13 @@ public class OnClientTickEvent {
     }
     @SubscribeEvent
     public void onTick(ClientTickEvent.Post event) {
+
         if (Minecraft.getInstance().player != null) {
             Player player = Minecraft.getInstance().player;
-
             if (player.hasEffect(ModEffects.ENDS_BLESSING_EFFECT) ) {
-                Minecraft.getInstance().gameRenderer.setPostEffect(ResourceLocation.withDefaultNamespace("invert"));
+                Minecraft.getInstance().gameRenderer.setPostEffect(ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID,"inversion"));
+            } else if (player.hasEffect(ModEffects.DROWSY_EFFECT) ) {
+                Minecraft.getInstance().gameRenderer.setPostEffect(ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID,"grayscale"));
             } else if (!player.isSpectator()){
                 Minecraft.getInstance().gameRenderer.clearPostEffect();
             }

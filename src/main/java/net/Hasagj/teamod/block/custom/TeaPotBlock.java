@@ -1,5 +1,7 @@
 package net.hasagj.teamod.block.custom;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import com.mojang.serialization.MapCodec;
@@ -30,6 +32,7 @@ import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.fml.common.Mod;
 import org.jetbrains.annotations.Nullable;
 
 public class TeaPotBlock extends HorizontalDirectionalBlock {
@@ -98,80 +101,11 @@ public class TeaPotBlock extends HorizontalDirectionalBlock {
                 level.setBlockAndUpdate(pos, state.setValue(IS_WATER_INSIDE, true));
             }
         }
+
         if (i == 0) {
             Item item = stack.getItem();
-            if (stack.is(ModItems.GREEN_TEA_LEAVES)) {
-                stack.consume(1, player);
-                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-
-                flag = true;
-                level.setBlockAndUpdate(pos, state.setValue(WHAT_LEAVES_INSIDE, 1));
-
-            }
-            if (stack.is(ModItems.BLACK_TEA_LEAVES)) {
-                stack.consume(1, player);
-                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-
-                flag = true;
-                level.setBlockAndUpdate(pos, state.setValue(WHAT_LEAVES_INSIDE, 2));
-
-
-            }
-            if (stack.is(ModItems.DRIED_HIBISCUS_PETALS)) {
-                stack.consume(1, player);
-                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-
-                flag = true;
-                level.setBlockAndUpdate(pos, state.setValue(WHAT_LEAVES_INSIDE, 3));
-
-
-            }
-            if (stack.is(ModItems.DAISY_TEA_LEAVES)) {
-                stack.consume(1, player);
-                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-
-                flag = true;
-                level.setBlockAndUpdate(pos, state.setValue(WHAT_LEAVES_INSIDE, 4));
-
-
-            }
-            if (stack.is(ModItems.PALE_TEA_LEAVES)) {
-                stack.consume(1, player);
-                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-
-                flag = true;
-                level.setBlockAndUpdate(pos, state.setValue(WHAT_LEAVES_INSIDE, 5));
-
-
-            }
-            if (stack.is(ModItems.DRIED_PITCHER_PLANT)) {
-                stack.consume(1, player);
-                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-
-                flag = true;
-                level.setBlockAndUpdate(pos, state.setValue(WHAT_LEAVES_INSIDE, 6));
-
-
-            }
-            if (stack.is(ModItems.CACTUS_TEA_LEAVES)) {
-                stack.consume(1, player);
-                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-
-                flag = true;
-                level.setBlockAndUpdate(pos, state.setValue(WHAT_LEAVES_INSIDE, 7));
-
-
-            }
-            if (stack.is(ModItems.CHORUS_TEA_LEAVES)) {
-                stack.consume(1, player);
-                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-
-                flag = true;
-                level.setBlockAndUpdate(pos, state.setValue(WHAT_LEAVES_INSIDE, 8));
-
-
-            }
-            if (!level.isClientSide() && flag) {
+            checkLeaves(stack, state, level, pos, player);
+            if (!level.isClientSide()) {
                 player.awardStat(Stats.ITEM_USED.get(item));
             }
 
@@ -182,115 +116,37 @@ public class TeaPotBlock extends HorizontalDirectionalBlock {
         }
 
 
-        if (state.getValue(WHAT_TEA_INSIDE) != 0) {
-            if (state.getValue(WHAT_TEA_INSIDE) == 1) {
-                if (stack.is(ModItems.CHAKHAI)) {
-                    stack.consume(1, player);
-                    level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    if (stack.isEmpty()) {
-                        player.setItemInHand(hand, new ItemStack((ItemLike) ModItems.CHAKHAI_GREEN_TEA));
-                    } else if (!player.getInventory().add(new ItemStack((ItemLike) ModItems.CHAKHAI_GREEN_TEA))) {
-                        player.drop(new ItemStack((ItemLike) ModItems.CHAKHAI_GREEN_TEA), false);
-                    }
-                    level.setBlockAndUpdate(pos, state.setValue(IS_WATER_INSIDE, false).setValue(WHAT_TEA_INSIDE, 0).setValue(WHAT_LEAVES_INSIDE, 0));
-
-                }
-            }
-            if (state.getValue(WHAT_TEA_INSIDE) == 2) {
-                if (stack.is(ModItems.CHAKHAI)) {
-                    stack.consume(1, player);
-                    level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    if (stack.isEmpty()) {
-                        player.setItemInHand(hand, new ItemStack((ItemLike) ModItems.CHAKHAI_BLACK_TEA));
-                    } else if (!player.getInventory().add(new ItemStack((ItemLike) ModItems.CHAKHAI_BLACK_TEA))) {
-                        player.drop(new ItemStack((ItemLike) ModItems.CHAKHAI_BLACK_TEA), false);
-                    }
-                    level.setBlockAndUpdate(pos, state.setValue(IS_WATER_INSIDE, false).setValue(WHAT_TEA_INSIDE, 0).setValue(WHAT_LEAVES_INSIDE, 0));
-                }
-            }
-            if (state.getValue(WHAT_TEA_INSIDE) == 3) {
-                if (stack.is(ModItems.CHAKHAI)) {
-                    stack.consume(1, player);
-                    level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    if (stack.isEmpty()) {
-                        player.setItemInHand(hand, new ItemStack((ItemLike) ModItems.CHAKHAI_HIBISCUS_TEA));
-                    } else if (!player.getInventory().add(new ItemStack((ItemLike) ModItems.CHAKHAI_HIBISCUS_TEA))) {
-                        player.drop(new ItemStack((ItemLike) ModItems.CHAKHAI_HIBISCUS_TEA), false);
-                    }
-                    level.setBlockAndUpdate(pos, state.setValue(IS_WATER_INSIDE, false).setValue(WHAT_TEA_INSIDE, 0).setValue(WHAT_LEAVES_INSIDE, 0));
-                }
-            }
-            if (state.getValue(WHAT_TEA_INSIDE) == 4) {
-                if (stack.is(ModItems.CHAKHAI)) {
-                    stack.consume(1, player);
-                    level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    if (stack.isEmpty()) {
-                        player.setItemInHand(hand, new ItemStack((ItemLike) ModItems.CHAKHAI_DAISY_TEA));
-                    } else if (!player.getInventory().add(new ItemStack((ItemLike) ModItems.CHAKHAI_DAISY_TEA))) {
-                        player.drop(new ItemStack((ItemLike) ModItems.CHAKHAI_DAISY_TEA), false);
-                    }
-                    level.setBlockAndUpdate(pos, state.setValue(IS_WATER_INSIDE, false).setValue(WHAT_TEA_INSIDE, 0).setValue(WHAT_LEAVES_INSIDE, 0));
-
-                }
-            }
-            if (state.getValue(WHAT_TEA_INSIDE) == 5) {
-                if (stack.is(ModItems.CHAKHAI)) {
-                    stack.consume(1, player);
-                    level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    if (stack.isEmpty()) {
-                        player.setItemInHand(hand, new ItemStack((ItemLike) ModItems.CHAKHAI_PALE_TEA));
-                    } else if (!player.getInventory().add(new ItemStack((ItemLike) ModItems.CHAKHAI_PALE_TEA))) {
-                        player.drop(new ItemStack((ItemLike) ModItems.CHAKHAI_PALE_TEA), false);
-                    }
-                    level.setBlockAndUpdate(pos, state.setValue(IS_WATER_INSIDE, false).setValue(WHAT_TEA_INSIDE, 0).setValue(WHAT_LEAVES_INSIDE, 0));
-
-                }
-            }
-            if (state.getValue(WHAT_TEA_INSIDE) == 6) {
-                if (stack.is(ModItems.CHAKHAI)) {
-                    stack.consume(1, player);
-                    level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    if (stack.isEmpty()) {
-                        player.setItemInHand(hand, new ItemStack((ItemLike) ModItems.CHAKHAI_PITCHER_TEA));
-                    } else if (!player.getInventory().add(new ItemStack((ItemLike) ModItems.CHAKHAI_PITCHER_TEA))) {
-                        player.drop(new ItemStack((ItemLike) ModItems.CHAKHAI_PITCHER_TEA), false);
-                    }
-                    level.setBlockAndUpdate(pos, state.setValue(IS_WATER_INSIDE, false).setValue(WHAT_TEA_INSIDE, 0).setValue(WHAT_LEAVES_INSIDE, 0));
-
-                }
-            }
-            if (state.getValue(WHAT_TEA_INSIDE) == 7) {
-                if (stack.is(ModItems.CHAKHAI)) {
-                    stack.consume(1, player);
-                    level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    if (stack.isEmpty()) {
-                        player.setItemInHand(hand, new ItemStack((ItemLike) ModItems.CHAKHAI_CACTUS_TEA));
-                    } else if (!player.getInventory().add(new ItemStack((ItemLike) ModItems.CHAKHAI_CACTUS_TEA))) {
-                        player.drop(new ItemStack((ItemLike) ModItems.CHAKHAI_CACTUS_TEA), false);
-                    }
-                    level.setBlockAndUpdate(pos, state.setValue(IS_WATER_INSIDE, false).setValue(WHAT_TEA_INSIDE, 0).setValue(WHAT_LEAVES_INSIDE, 0));
-
-                }
-            }
-            if (state.getValue(WHAT_TEA_INSIDE) == 8) {
-                if (stack.is(ModItems.CHAKHAI)) {
-                    stack.consume(1, player);
-                    level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    if (stack.isEmpty()) {
-                        player.setItemInHand(hand, new ItemStack((ItemLike) ModItems.CHAKHAI_CHORUS_TEA));
-                    } else if (!player.getInventory().add(new ItemStack((ItemLike) ModItems.CHAKHAI_CHORUS_TEA))) {
-                        player.drop(new ItemStack((ItemLike) ModItems.CHAKHAI_CHORUS_TEA), false);
-                    }
-                    level.setBlockAndUpdate(pos, state.setValue(IS_WATER_INSIDE, false).setValue(WHAT_TEA_INSIDE, 0).setValue(WHAT_LEAVES_INSIDE, 0));
-
-                }
-            }
+        if (stack.is(ModItems.CHAKHAI)) {
+            fillChakhai(stack, state, level, pos, player, hand);
             return InteractionResult.SUCCESS;
-        }else {
+        } else {
             return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
         }
 
     }
+    private void checkLeaves(ItemStack leaves, BlockState state, Level level, BlockPos pos, Player player) {
+        List<Item> leaves_list = List.of(ModItems.GREEN_TEA_LEAVES.get(), ModItems.BLACK_TEA_LEAVES.get(), ModItems.DRIED_HIBISCUS_PETALS.get(), ModItems.DAISY_TEA_LEAVES.get(), ModItems.PALE_TEA_LEAVES.get(), ModItems.DRIED_PITCHER_PLANT.get(), ModItems.CACTUS_TEA_LEAVES.get(), ModItems.CHORUS_TEA_LEAVES.get(), ModItems.DRIED_TORCHFLOWER.get());
+        if (leaves_list.contains(leaves.getItem())) {
+            leaves.consume(1, player);
+            level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+            level.setBlockAndUpdate(pos, state.setValue(WHAT_LEAVES_INSIDE, leaves_list.indexOf(leaves.getItem()) + 1));
+        }
+
+    }
+    private void fillChakhai(ItemStack chakhai, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
+        List<Item> tea_list = List.of(ModItems.CHAKHAI_GREEN_TEA.get(), ModItems.CHAKHAI_BLACK_TEA.get(), ModItems.CHAKHAI_HIBISCUS_TEA.get(), ModItems.CHAKHAI_DAISY_TEA.get(), ModItems.CHAKHAI_PALE_TEA.get(), ModItems.CHAKHAI_PITCHER_TEA.get(), ModItems.CHAKHAI_CACTUS_TEA.get(), ModItems.CHAKHAI_CHORUS_TEA.get(), ModItems.CHAKHAI_ANCIENT_TEA.get());
+
+        chakhai.consume(1, player);
+        level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+        if (chakhai.isEmpty()) {
+            player.setItemInHand(hand, new ItemStack(tea_list.get(state.getValue(WHAT_TEA_INSIDE) - 1)));
+        } else if (!player.getInventory().add(new ItemStack(tea_list.get(state.getValue(WHAT_TEA_INSIDE) - 1)))) {
+            player.drop(new ItemStack(tea_list.get(state.getValue(WHAT_TEA_INSIDE) - 1)), false);
+        }
+        level.setBlockAndUpdate(pos, state.setValue(IS_WATER_INSIDE, false).setValue(WHAT_TEA_INSIDE, 0).setValue(WHAT_LEAVES_INSIDE, 0));
+
+    }
+
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         int n = state.getValue(WHAT_TEA_INSIDE);

@@ -37,6 +37,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DRIED_DAISY);
                         output.accept(ModItems.DAISY_TEA_LEAVES);
                         output.accept(ModItems.DRIED_PITCHER_PLANT);
+                        output.accept(ModItems.DRIED_TORCHFLOWER);
                         output.accept(ModItems.APPLE_SLICE);
                         output.accept(ModItems.PITCHER_TURNIP);
                         output.accept(ModItems.DRIED_APPLE_SLICE);
@@ -75,6 +76,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CHAKHAI_PITCHER_TEA);
                         output.accept(ModItems.CHAKHAI_CACTUS_TEA);
                         output.accept(ModItems.CHAKHAI_CHORUS_TEA);
+                        output.accept(ModItems.CHAKHAI_ANCIENT_TEA);
                         output.accept(ModItems.CUP_BLACK_TEA);
                         output.accept(ModItems.CUP_GREEN_TEA);
                         output.accept(ModItems.CUP_HIBISCUS_TEA);
@@ -83,6 +85,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CUP_PITCHER_TEA);
                         output.accept(ModItems.CUP_CACTUS_TEA);
                         output.accept(ModItems.CUP_CHORUS_TEA);
+                        output.accept(ModItems.CUP_ANCIENT_TEA);
 
                     }).build());
 

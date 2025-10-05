@@ -19,11 +19,13 @@
   "item.teamod.cup_pitcher_tea": "Pitcher tea",
   "item.teamod.cup_cactus_tea": "Cactus tea",
   "item.teamod.cup_chorus_tea": "Chorus tea",
+  "item.teamod.cup_ancient_tea": "Ancient tea",
   "item.teamod.tea_seeds": "Tea seeds",
   "item.teamod.hibiscus": "Hibiscus",
   "item.teamod.hibiscus_flower": "Hibiscus flower",
   "item.teamod.dried_hibiscus_petals": "Dried hibiscus petals",
   "item.teamod.dried_pitcher_plant": "Dried pitcher plant",
+  "item.teamod.dried_torchflower_plant": "Dried torchflower",
   "item.teamod.pitcher_turnip": "Pitcher turnip",
   "item.teamod.dried_daisy": "Dried daisy",
   "item.teamod.daisy_tea_leaves": "Daisy tea leaves",
@@ -37,6 +39,7 @@
   "item.teamod.chakhai_pitcher_tea": "Chakhai with pitcher tea",
   "item.teamod.chakhai_cactus_tea": "Chakhai with cactus tea",
   "item.teamod.chakhai_chorus_tea": "Chakhai with chorus tea",
+  "item.teamod.chakhai_ancient_tea": "Chakhai with ancient tea",
   "item.teamod.apple_slice": "Apple slice",
   "item.teamod.dried_apple_slice": "Dried apple slice",
   "item.teamod.boiled_water": "Boiled water",
@@ -72,7 +75,9 @@
   "text.item.teamod.text21": "Cactus tea initiates the growth of cactus spines on your skin. Every time you take damage (1 heart or more), spines shoot out from your body in all directions, damaging everyone within a 7-block radius. These spines get stuck in the bodies of affected enemies, causing them to take increasing damage (up to 3.5 hearts). Be careful, the shooting spines damage your armor. Also, your attack speed is reduced because the spines hinder movement.",
   "text.item.teamod.text22": "Ingredients for brewing tea can also be found in the End. It's not hard to guess that this is chorus fruit (crafted using a press).",
   "text.item.teamod.text23": "You've probably felt some envy watching Endermen's ability to teleport, specifically to dodge projectiles. Now you can too! You just need to drink chorus tea, but be careful, because besides teleportation you also inherit a fear of water and distorted vision.",
-  "text.item.teamod.text24": "In desert villages, in the chests of ordinary houses, you can find a Moon Raven. It is an idol for the desert villagers; they pray to it for rain. You, however, can use it as a tea spirit. You need to pour tea onto the Moon Raven, and it will give you clear weather, but using it during clear weather will anger it.",
+  "text.item.teamod.text24": "Let's go back to the ancients! The torchflower, which can also be grown from seeds found by the sniffer, can be dried and used as tea leaves for a brand nw tea.",
+  "text.item.teamod.text25": "A slightly sweet and EXTREMELY hot ancient tea made by brewing dried torchflowers will help you ignite the \"Primordial Flame\"! That’s the name of the effect you’ll get after tasting this tea. With it, you’ll be able to smelt items within a 10-block radius around you. But be careful — dropped iron and gold tools can also melt! And one more thing — don’t even try cooking food with this power... unless you’re into eating coal. (This effect drains hunger depending on how many items are smelted.)",
+  "text.item.teamod.text26": "In desert villages, in the chests of ordinary houses, you can find a Moon Raven. It is an idol for the desert villagers; they pray to it for rain. You, however, can use it as a tea spirit. You need to pour tea onto the Moon Raven, and it will give you clear weather, but using it during clear weather will anger it.",
 
 
   "block.teamod.tea_bush": "Tea Bush",
@@ -94,6 +99,7 @@
   "effect.teamod.bitter": "Bitter",
   "effect.teamod.thorny": "Thorny",
   "effect.teamod.ends_blessing": "End's blessing",
+  "effect.teamod.primordial_flame": "Primordial flame",
 
   "tooltip.teamod.cup_green_tea.tooltip": "Just green tea, no more",
   "tooltip.teamod.cup_black_tea.tooltip": "Just black tea, no more",
@@ -103,11 +109,13 @@
   "tooltip.teamod.cup_pitcher_tea.tooltip": "It's missing something...",
   "tooltip.teamod.cup_cactus_tea.tooltip": "Smells like sand",
   "tooltip.teamod.cup_chorus_tea.tooltip": "It reflects nothing...",
+  "tooltip.teamod.cup_ancient_tea.tooltip": "It's VERY hot",
 
   "death.attack.water_damage": "%1$s reached the end",
   "death.attack.boil_damage": "%1$s boiled alive",
 
   "teamod.skipping_night": "A little nap",
+  "teamod.cant_skip_night": "Can't sleep now",
 
   "block.teamod.press": "Press",
 

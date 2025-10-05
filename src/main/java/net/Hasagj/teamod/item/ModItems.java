@@ -2,7 +2,6 @@ package net.hasagj.teamod.item;
 
 import net.hasagj.teamod.TeaMod;
 import net.hasagj.teamod.block.ModBlocks;
-import net.hasagj.teamod.block.custom.ChakhaiBlackTeaBlock;
 import net.hasagj.teamod.effect.ModEffects;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.Holder;
@@ -34,6 +33,7 @@ import net.minecraft.world.item.consume_effects.ClearAllStatusEffectsConsumeEffe
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -73,6 +73,8 @@ public class ModItems {
     public static final DeferredItem<Item> CACTUS_TEA_LEAVES = ITEMS.registerItem("cactus_tea_leaves",
             (properties) -> new Item(properties));
     public static final DeferredItem<Item> CHORUS_TEA_LEAVES = ITEMS.registerItem("chorus_tea_leaves",
+            (properties) -> new Item(properties));
+    public static final DeferredItem<Item> DRIED_TORCHFLOWER = ITEMS.registerItem("dried_torchflower",
             (properties) -> new Item(properties));
 
     public static final DeferredItem<Item> TEA_HANDBOOK = ITEMS.registerItem("tea_handbook",
@@ -129,7 +131,7 @@ public class ModItems {
 
     public static final DeferredItem<Item> CUP_DAISY_TEA = ITEMS.registerItem("cup_daisy_tea",
             (properties) -> new Item(properties.stacksTo(1).component(DataComponents.CONSUMABLE, Consumables.defaultDrink()
-                    .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(ModEffects.DROWSY_EFFECT, 1200, 0))).build())
+                    .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(ModEffects.DROWSY_EFFECT, 2400, 0))).build())
                     .usingConvertsTo(CUP.get())) {
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
@@ -186,6 +188,18 @@ public class ModItems {
 
                 }
             });
+    public static final DeferredItem<Item> CUP_ANCIENT_TEA = ITEMS.registerItem("cup_ancient_tea",
+            (properties) -> new Item(properties.stacksTo(1)
+                    .component(DataComponents.CONSUMABLE, Consumables.defaultDrink()
+                            .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(ModEffects.PRIMORDIAL_FLAME_EFFECT, 12000)))
+                            .build()).usingConvertsTo(CUP.get())) {
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
+                    component.accept(Component.translatable("tooltip.teamod.cup_ancient_tea.tooltip").withColor(0xF5AD27));
+                    super.appendHoverText(stack, context, display, component, tooltipFlag);
+
+                }
+            });
 
     public static final DeferredItem<Item> TEA_POT = ITEMS.registerItem("tea_pot",
             (properties) -> new BlockItem(ModBlocks.TEA_POT_BLOCK.get(), properties.stacksTo(1)));
@@ -198,24 +212,25 @@ public class ModItems {
 
 
     public static final DeferredItem<Item> CHAKHAI = ITEMS.registerItem("chakhai",
-            (properties) -> new BlockItem(ModBlocks.CHAKHAI_BLOCK.get(), properties.stacksTo(1)));
+            (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(), 0, properties.stacksTo(1)));
     public static final DeferredItem<Item> CHAKHAI_GREEN_TEA = ITEMS.registerItem("chakhai_green_tea",
-            (properties) -> new BlockItem(ModBlocks.CHAKHAI_GREEN_TEA_BLOCK.get(), properties.stacksTo(1)));
+            (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),1 ,properties.stacksTo(1)));
     public static final DeferredItem<Item> CHAKHAI_BLACK_TEA = ITEMS.registerItem("chakhai_black_tea",
-            (properties) -> new BlockItem(ModBlocks.CHAKHAI_BLACK_TEA_BLOCK.get(), properties.stacksTo(1)));
+            (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),2 ,properties.stacksTo(1)));
     public static final DeferredItem<Item> CHAKHAI_HIBISCUS_TEA = ITEMS.registerItem("chakhai_hibiscus_tea",
-            (properties) -> new BlockItem(ModBlocks.CHAKHAI_HIBISCUS_TEA_BLOCK.get(), properties.stacksTo(1)));
+            (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),3 ,properties.stacksTo(1)));
     public static final DeferredItem<Item> CHAKHAI_DAISY_TEA = ITEMS.registerItem("chakhai_daisy_tea",
-            (properties) -> new BlockItem(ModBlocks.CHAKHAI_DAISY_TEA_BLOCK.get(), properties.stacksTo(1)));
+            (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),4 ,properties.stacksTo(1)));
     public static final DeferredItem<Item> CHAKHAI_PALE_TEA = ITEMS.registerItem("chakhai_pale_tea",
-            (properties) -> new BlockItem(ModBlocks.CHAKHAI_PALE_TEA_BLOCK.get(), properties.stacksTo(1)));
+            (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),5 ,properties.stacksTo(1)));
     public static final DeferredItem<Item> CHAKHAI_PITCHER_TEA = ITEMS.registerItem("chakhai_pitcher_tea",
-            (properties) -> new BlockItem(ModBlocks.CHAKHAI_PITCHER_TEA_BLOCK.get(), properties.stacksTo(1)));
+            (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),6 ,properties.stacksTo(1)));
     public static final DeferredItem<Item> CHAKHAI_CACTUS_TEA = ITEMS.registerItem("chakhai_cactus_tea",
-            (properties) -> new BlockItem(ModBlocks.CHAKHAI_CACTUS_TEA_BLOCK.get(), properties.stacksTo(1)));
+            (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),7 ,properties.stacksTo(1)));
     public static final DeferredItem<Item> CHAKHAI_CHORUS_TEA = ITEMS.registerItem("chakhai_chorus_tea",
-            (properties) -> new BlockItem(ModBlocks.CHAKHAI_CHORUS_TEA_BLOCK.get(), properties.stacksTo(1)));
-
+            (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),8 ,properties.stacksTo(1)));
+    public static final DeferredItem<Item> CHAKHAI_ANCIENT_TEA = ITEMS.registerItem("chakhai_ancient_tea",
+            (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),9 ,properties.stacksTo(1)));
     public static final DeferredItem<Item> RAW_CHAKHAI = ITEMS.registerItem("raw_chakhai",
             (properties) -> new Item(properties.stacksTo(1)));
     public static final DeferredItem<Item> MOON_RAVEN = ITEMS.registerItem("moon_raven",

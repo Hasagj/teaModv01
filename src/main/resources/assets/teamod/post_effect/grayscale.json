@@ -1,0 +1,64 @@
+{
+  "targets": {
+    "swap": {}
+  },
+  "passes": [
+    {
+      "vertex_shader": "teamod:post/grayscale",
+      "fragment_shader": "teamod:post/grayscale",
+      "inputs": [
+        {
+          "sampler_name": "In",
+          "target": "minecraft:main"
+        }
+      ],
+      "output": "swap",
+      "uniforms": [
+        {
+          "name": "RedMatrix",
+          "type": "vec3",
+          "values": [ 1.0, 0.0, 0.0]
+        },
+        {
+          "name": "GreenMatrix",
+          "type": "vec3",
+          "values": [ 0.0, 1.0, 0.0 ]
+        },
+        {
+          "name": "BlueMatrix",
+          "type": "vec3",
+          "values": [ 0.0, 0.0, 1.0]
+        },
+        {
+          "name": "Saturation",
+          "type": "float",
+          "values": [0.3]
+        }
+
+      ]
+    },
+    {
+      "vertex_shader": "minecraft:post/sobel",
+      "fragment_shader": "minecraft:post/bits",
+      "inputs": [
+        {
+          "sampler_name": "In",
+          "target": "swap"
+        }
+      ],
+      "output": "minecraft:main",
+      "uniforms": [
+        {
+          "name": "Resolution",
+          "type": "float",
+          "values": [ 64.0 ]
+        },
+        {
+          "name": "MosaicSize",
+          "type": "float",
+          "values": [ 1.0 ]
+        }
+      ]
+    }
+  ]
+}

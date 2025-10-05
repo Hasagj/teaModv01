@@ -9,10 +9,13 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Pose;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.dimension.DimensionType;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
@@ -40,16 +43,15 @@ public class AutoSleepEvent {
         List<ServerPlayer> players = world.players();
         // Проверка: все активные игроки имеют эффект сонливости
         boolean allDrowsy = players.stream()
-                .filter(p -> p.isAlive() && !p.isSpectator())
+                .filter(p -> p.isAlive() && !p.isSpectator() && p.level().dimension() == ServerLevel.OVERWORLD)
                 .allMatch(p -> p.hasEffect(ModEffects.DROWSY_EFFECT));
         for (ServerPlayer player : world.players()) {
-            if (!player.isSleeping() && allDrowsy && !players.isEmpty() && !player.isSpectator() && player.isAlive()) {;
+            if (!player.isSleeping() && player.getFoodData().getFoodLevel() >= 12 && allDrowsy && !players.isEmpty() && !player.isSpectator() && player.isAlive() && world.dimension() == Level.OVERWORLD) {;
                 player.canEat(false);
-                player.setDeltaMovement(0, 0, 0); // Останавливаем движение
-                player.resetFallDistance(); // Чтобы не получить урон
-                player.setOnGround(true);
                 player.stopUsingItem();
                 player.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 40, 255, true, false));
+                player.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 40, 255, true, false));
+                player.addEffect(new MobEffectInstance(MobEffects.MINING_FATIGUE, 40, 255, true, false));
                 player.displayClientMessage(Component.translatable("teamod.skipping_night"), true);
                 if (lastSleepTime == -1) {
                     lastSleepTime = world.getDayTime(); // Сохраняем момент начала сна
@@ -57,10 +59,13 @@ public class AutoSleepEvent {
                 if (world.getDayTime() - lastSleepTime >= 100) {
 
                     // Задержка на 100 тиков (~5 секунд)
-                    world.setDayTime(world.getDayTime() + 6000); // Устанавливаем время на начало дня
+                    world.setDayTime(world.getDayTime() + 12000); // Устанавливаем время на начало дня
                     lastSleepTime = -1; // Сбрасываем таймер
                     world.players().forEach(element -> element.removeEffect(ModEffects.DROWSY_EFFECT));
+                    world.players().forEach(element -> element.getFoodData().eat(-12, 0));
                 }
+            } else if (!player.isSleeping() && player.getFoodData().getFoodLevel() < 12 && allDrowsy && !players.isEmpty() && !player.isSpectator() && player.isAlive() && world.dimension() == Level.OVERWORLD){
+                player.displayClientMessage(Component.translatable("teamod.cant_skip_night"), true);
             }
 
 

@@ -3,10 +3,13 @@ package net.hasagj.teamod.event;
 import net.hasagj.teamod.effect.ModEffects;
 import net.hasagj.teamod.particle.ModParticles;
 import net.hasagj.teamod.trigger.ModTriggers;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
@@ -20,31 +23,38 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.creaking.Creaking;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.item.enchantment.*;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.storage.loot.predicates.EnchantmentActiveCheck;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class OnTickEvent {
     public OnTickEvent() {
         // Регистрируем событие в NeoForge
         NeoForge.EVENT_BUS.register(this);
     }
+    private final Map<UUID, Integer> mapTimer = new HashMap<>();
+
     @SubscribeEvent
     public void onWorldTick(LevelTickEvent.Pre event) {
         if (!(event.getLevel() instanceof ServerLevel world)) return;
@@ -107,5 +117,49 @@ public class OnTickEvent {
             
         }
 
+//        КОД ДЛЯ ПОЛУЧЕНИЯ ПРЕДМЕТА ПО ЕГО РЕЦЕПТУ
+        RecipeManager recipeManager = world.getServer().getRecipeManager();
+        for (ServerPlayer player : world.players()) {
+            if (player.hasEffect(ModEffects.PRIMORDIAL_FLAME_EFFECT) && !world.isClientSide) {
+                for (ItemEntity item : world.getEntitiesOfClass(ItemEntity.class, player.getBoundingBox().inflate(10))) {
+                    Optional<RecipeHolder<SmeltingRecipe>> recipe = recipeManager.getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(item.getItem()), world);
+
+                    if (!mapTimer.containsKey(item.getUUID()) && recipe.isPresent()) {
+                        mapTimer.put(item.getUUID(), (int) Math.floor(item.getItem().getCount() * 0.125D) * 40 + 140);
+                    }
+                }
+                for (ItemEntity item : world.getEntitiesOfClass(ItemEntity.class, player.getBoundingBox().inflate(10))) {
+                    Optional<RecipeHolder<SmeltingRecipe>> recipe = recipeManager.getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(item.getItem()), world);
+                    if (player.getFoodData().getFoodLevel() - (int)Math.floor(item.getItem().getCount() * 0.125D) >= 6 && !mapTimer.isEmpty() && mapTimer.get(item.getUUID()) != null) {
+                        if (mapTimer.get(item.getUUID()) == 0 && mapTimer.get(item.getUUID()) != null) {
+                            recipe.ifPresent(smeltingRecipeRecipeHolder -> item.setItem(new ItemStack(item.getItem().has(DataComponents.FOOD) ? Items.CHARCOAL : smeltingRecipeRecipeHolder.value().assemble(new SingleRecipeInput(item.getItem()), HolderLookup.Provider.create(Stream.of())).getItem(), item.getItem().getCount())));
+                            mapTimer.remove(item.getUUID());
+                            world.sendParticles(ParticleTypes.TRIAL_SPAWNER_DETECTED_PLAYER,
+                                    item.getX(), item.getY(), item.getZ(),
+                                    15,
+                                    0.1, 0.1, 0.1,
+                                    0);
+                            player.getFoodData().eat((int)Math.floor(item.getItem().getCount() * 0.125D) > 0 ? (int)Math.floor(item.getItem().getCount() * 0.125D) * -1 : -1, 0);
+                            break;
+                        } else if (mapTimer.get(item.getUUID()) != null) {
+                            mapTimer.replace(item.getUUID(), mapTimer.get(item.getUUID()) - 1);
+                            world.sendParticles(ParticleTypes.SMOKE,
+                                    item.getX(), item.getY(), item.getZ(),
+                                    1,
+                                    0.1, 0.1, 0.1,
+                                    0);
+                            if (mapTimer.get(item.getUUID()) % 5 == 0) {
+                                world.sendParticles(ParticleTypes.TRIAL_SPAWNER_DETECTED_PLAYER,
+                                        item.getX(), item.getY(), item.getZ(),
+                                        1,
+                                        0.1, 0.1, 0.1,
+                                        0);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
+
 }

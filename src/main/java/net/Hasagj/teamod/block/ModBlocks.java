@@ -39,23 +39,7 @@ public class ModBlocks {
 
 
     public static final DeferredBlock<Block> CHAKHAI_BLOCK = registerBlock("chakhai_block",
-            (properties) -> new ChakhaiBlock(properties.noOcclusion().instabreak().sound(SoundType.DECORATED_POT)));
-    public static final DeferredBlock<Block> CHAKHAI_GREEN_TEA_BLOCK = registerBlock("chakhai_green_tea_block",
-            (properties) -> new ChakhaiGreenTeaBlock(properties.noOcclusion().instabreak().sound(SoundType.DECORATED_POT)));
-    public static final DeferredBlock<Block> CHAKHAI_BLACK_TEA_BLOCK = registerBlock("chakhai_black_tea_block",
-            (properties) -> new ChakhaiBlackTeaBlock(properties.noOcclusion().instabreak().sound(SoundType.DECORATED_POT)));
-    public static final DeferredBlock<Block> CHAKHAI_HIBISCUS_TEA_BLOCK = registerBlock("chakhai_hibiscus_tea_block",
-            (properties) -> new ChakhaiHibiscusTeaBlock(properties.noOcclusion().instabreak().sound(SoundType.DECORATED_POT)));
-    public static final DeferredBlock<Block> CHAKHAI_DAISY_TEA_BLOCK = registerBlock("chakhai_daisy_tea_block",
-            (properties) -> new ChakhaiDaisyTeaBlock(properties.noOcclusion().instabreak().sound(SoundType.DECORATED_POT)));
-    public static final DeferredBlock<Block> CHAKHAI_PALE_TEA_BLOCK = registerBlock("chakhai_pale_tea_block",
-            (properties) -> new ChakhaiPaleTeaBlock(properties.noOcclusion().instabreak().sound(SoundType.DECORATED_POT)));
-    public static final DeferredBlock<Block> CHAKHAI_PITCHER_TEA_BLOCK = registerBlock("chakhai_pitcher_tea_block",
-            (properties) -> new ChakhaiPitcherTeaBlock(properties.noOcclusion().instabreak().sound(SoundType.DECORATED_POT)));
-    public static final DeferredBlock<Block> CHAKHAI_CACTUS_TEA_BLOCK = registerBlock("chakhai_cactus_tea_block",
-            (properties) -> new ChakhaiCactusTeaBlock(properties.noOcclusion().instabreak().sound(SoundType.DECORATED_POT)));
-    public static final DeferredBlock<Block> CHAKHAI_CHORUS_TEA_BLOCK = registerBlock("chakhai_chorus_tea_block",
-            (properties) -> new ChakhaiChorusTeaBlock(properties.noOcclusion().instabreak().sound(SoundType.DECORATED_POT)));
+            (properties) -> new ChakhaiBlockTest(properties.noOcclusion().instabreak().sound(SoundType.DECORATED_POT)));
 
     public static final DeferredBlock<Block> PRESS = registerBlock("press", PressBlock::new);
     public static final DeferredBlock<Block> CAULDRON_ON_FIRE = registerBlock("cauldron_on_fire",

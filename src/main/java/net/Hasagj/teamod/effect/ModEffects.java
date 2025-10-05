@@ -24,11 +24,7 @@ public class ModEffects {
                     .addAttributeModifier(Attributes.ARMOR, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "solid"), 6, AttributeModifier.Operation.ADD_VALUE)
                     .addAttributeModifier(Attributes.ARMOR_TOUGHNESS, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "solid"), 2, AttributeModifier.Operation.ADD_VALUE));
     public static final Holder<MobEffect> DROWSY_EFFECT = MOB_EFFECTS.register("drowsy",
-            () -> new DrowsyEffect(MobEffectCategory.NEUTRAL, 0xae34eb)
-                    .addAttributeModifier(Attributes.ATTACK_SPEED, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "drowsy"), -0.95, AttributeModifier.Operation.ADD_VALUE)
-                    .addAttributeModifier(Attributes.BLOCK_INTERACTION_RANGE, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "drowsy"), -0.95, AttributeModifier.Operation.ADD_VALUE)
-                    .addAttributeModifier(Attributes.BLOCK_BREAK_SPEED, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "drowsy"), -0.95, AttributeModifier.Operation.ADD_VALUE)
-                    .addAttributeModifier(Attributes.MOVEMENT_SPEED, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "drowsy"), -0.95, AttributeModifier.Operation.ADD_VALUE));
+            () -> new DrowsyEffect(MobEffectCategory.NEUTRAL, 0xae34eb));
     public static final Holder<MobEffect> GARDENS_BLESSING_EFFECT = MOB_EFFECTS.register("gardens_blessing",
             () -> new GardensBlessingEffect(MobEffectCategory.BENEFICIAL, 0xff8c00));
     public static final Holder<MobEffect> POTENTIAL_EFFECT = MOB_EFFECTS.register("potential",
@@ -44,6 +40,8 @@ public class ModEffects {
             () -> new BitterEffect(MobEffectCategory.HARMFUL, 0x000000));
     public static final Holder<MobEffect> ENDS_BLESSING_EFFECT = MOB_EFFECTS.register("ends_blessing",
             () -> new EndsBlessingEffect(MobEffectCategory.BENEFICIAL, 0xC71585));
+    public static final Holder<MobEffect> PRIMORDIAL_FLAME_EFFECT = MOB_EFFECTS.register("primordial_flame",
+            () -> new PrimordialFlameEffect(MobEffectCategory.BENEFICIAL, 0xF54627));
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);
     }

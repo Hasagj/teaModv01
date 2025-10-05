@@ -1,19 +1,154 @@
 {
   "variants": {
-    "facing=north": {
+    "facing=north,is_tea_inside=0": {
       "model": "teamod:block/chakhai_block",
       "y": 90
     },
-    "facing=south": {
+    "facing=south,is_tea_inside=0": {
       "model": "teamod:block/chakhai_block",
       "y": 270
     },
-    "facing=east": {
+    "facing=east,is_tea_inside=0": {
       "model": "teamod:block/chakhai_block",
       "y": 180
     },
-    "facing=west": {
+    "facing=west,is_tea_inside=0": {
       "model": "teamod:block/chakhai_block"
+    },
+    "facing=north,is_tea_inside=1": {
+      "model": "teamod:block/chakhai_green_tea_block",
+      "y": 90
+    },
+    "facing=south,is_tea_inside=1": {
+      "model": "teamod:block/chakhai_green_tea_block",
+      "y": 270
+    },
+    "facing=east,is_tea_inside=1": {
+      "model": "teamod:block/chakhai_green_tea_block",
+      "y": 180
+    },
+    "facing=west,is_tea_inside=1": {
+      "model": "teamod:block/chakhai_green_tea_block"
+    },
+    "facing=north,is_tea_inside=2": {
+      "model": "teamod:block/chakhai_black_tea_block",
+      "y": 90
+    },
+    "facing=south,is_tea_inside=2": {
+      "model": "teamod:block/chakhai_black_tea_block",
+      "y": 270
+    },
+    "facing=east,is_tea_inside=2": {
+      "model": "teamod:block/chakhai_black_tea_block",
+      "y": 180
+    },
+    "facing=west,is_tea_inside=2": {
+      "model": "teamod:block/chakhai_black_tea_block"
+    },
+    "facing=north,is_tea_inside=3": {
+      "model": "teamod:block/chakhai_hibiscus_tea_block",
+      "y": 90
+    },
+    "facing=south,is_tea_inside=3": {
+      "model": "teamod:block/chakhai_hibiscus_tea_block",
+      "y": 270
+    },
+    "facing=east,is_tea_inside=3": {
+      "model": "teamod:block/chakhai_hibiscus_tea_block",
+      "y": 180
+    },
+    "facing=west,is_tea_inside=3": {
+      "model": "teamod:block/chakhai_hibiscus_tea_block"
+    },
+    "facing=north,is_tea_inside=4": {
+      "model": "teamod:block/chakhai_green_tea_block",
+      "y": 90
+    },
+    "facing=south,is_tea_inside=4": {
+      "model": "teamod:block/chakhai_green_tea_block",
+      "y": 270
+    },
+    "facing=east,is_tea_inside=4": {
+      "model": "teamod:block/chakhai_green_tea_block",
+      "y": 180
+    },
+    "facing=west,is_tea_inside=4": {
+      "model": "teamod:block/chakhai_green_tea_block"
+    },
+    "facing=north,is_tea_inside=5": {
+      "model": "teamod:block/chakhai_pale_tea_block",
+      "y": 90
+    },
+    "facing=south,is_tea_inside=5": {
+      "model": "teamod:block/chakhai_pale_tea_block",
+      "y": 270
+    },
+    "facing=east,is_tea_inside=5": {
+      "model": "teamod:block/chakhai_pale_tea_block",
+      "y": 180
+    },
+    "facing=west,is_tea_inside=5": {
+      "model": "teamod:block/chakhai_pale_tea_block"
+    },
+    "facing=north,is_tea_inside=6": {
+      "model": "teamod:block/chakhai_pitcher_tea_block",
+      "y": 90
+    },
+    "facing=south,is_tea_inside=6": {
+      "model": "teamod:block/chakhai_pitcher_tea_block",
+      "y": 270
+    },
+    "facing=east,is_tea_inside=6": {
+      "model": "teamod:block/chakhai_pitcher_tea_block",
+      "y": 180
+    },
+    "facing=west,is_tea_inside=6": {
+      "model": "teamod:block/chakhai_pitcher_tea_block"
+    },
+    "facing=north,is_tea_inside=7": {
+      "model": "teamod:block/chakhai_green_tea_block",
+      "y": 90
+    },
+    "facing=south,is_tea_inside=7": {
+      "model": "teamod:block/chakhai_green_tea_block",
+      "y": 270
+    },
+    "facing=east,is_tea_inside=7": {
+      "model": "teamod:block/chakhai_green_tea_block",
+      "y": 180
+    },
+    "facing=west,is_tea_inside=7": {
+      "model": "teamod:block/chakhai_green_tea_block"
+    },
+    "facing=north,is_tea_inside=8": {
+      "model": "teamod:block/chakhai_chorus_tea_block",
+      "y": 90
+    },
+    "facing=south,is_tea_inside=8": {
+      "model": "teamod:block/chakhai_chorus_tea_block",
+      "y": 270
+    },
+    "facing=east,is_tea_inside=8": {
+      "model": "teamod:block/chakhai_chorus_tea_block",
+      "y": 180
+    },
+    "facing=west,is_tea_inside=8": {
+      "model": "teamod:block/chakhai_chorus_tea_block"
+    },
+    "facing=north,is_tea_inside=9": {
+      "model": "teamod:block/chakhai_ancient_tea_block",
+      "y": 90
+    },
+    "facing=south,is_tea_inside=9": {
+      "model": "teamod:block/chakhai_ancient_tea_block",
+      "y": 270
+    },
+    "facing=east,is_tea_inside=9": {
+      "model": "teamod:block/chakhai_ancient_tea_block",
+      "y": 180
+    },
+    "facing=west,is_tea_inside=9": {
+      "model": "teamod:block/chakhai_ancient_tea_block"
     }
   }
 }

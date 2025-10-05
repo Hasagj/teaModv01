@@ -52,10 +52,9 @@ public class TeaMod
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
-        ModCreativeModeTabs.register(modEventBus);
-
-        ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModCreativeModeTabs.register(modEventBus);
+        ModItems.register(modEventBus);
         ModEffects.register(modEventBus);
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
@@ -80,6 +79,8 @@ public class TeaMod
         new ImpactEvent();
         new OnClientTickEvent();
         new DeathEvent();
+        new CameraEvent();
+        new RenderEvent();
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

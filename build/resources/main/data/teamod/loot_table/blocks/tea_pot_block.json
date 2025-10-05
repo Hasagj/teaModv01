@@ -53,6 +53,139 @@
         }
       ],
       "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "teamod:tea_pot_block",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "what_leaves_inside": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "teamod:dried_hibiscus_petals"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "teamod:tea_pot_block",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "what_leaves_inside": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "teamod:daisy_tea_leaves"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "teamod:tea_pot_block",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "what_leaves_inside": "5"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "teamod:pale_tea_leaves"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "teamod:tea_pot_block",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "what_leaves_inside": "6"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "teamod:dried_pitcher_plant"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "teamod:tea_pot_block",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "what_leaves_inside": "7"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "teamod:cactus_tea_leaves"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "teamod:tea_pot_block",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "what_leaves_inside": "8"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "teamod:chorus_tea_leaves"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "teamod:tea_pot_block",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "what_leaves_inside": "9"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "teamod:dried_torchflower"
+        }
+      ],
+      "rolls": 1.0
     }
   ],
   "random_sequence": "teamod:blocks/tea_pot_block"

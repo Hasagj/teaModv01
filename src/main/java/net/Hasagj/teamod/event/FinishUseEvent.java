@@ -24,13 +24,20 @@ public class FinishUseEvent {
         // Регистрируем событие в NeoForge
         NeoForge.EVENT_BUS.register(this);
     }
+    public static int bitterNutrition;
     @SubscribeEvent
     public void onItemUseFinish(LivingEntityUseItemEvent.Finish event) {
         LivingEntity entity = event.getEntity();
         ItemStack usedItem = event.getItem();
 
 
-
+        if (entity instanceof Player player && usedItem.is(ModItems.CUP_DAISY_TEA)) {
+            for (ItemStack tea : player.getInventory()) {
+                if (tea.is(ModItems.CUP_DAISY_TEA)) {
+                    player.getCooldowns().addCooldown(tea, 600);
+                }
+            }
+        }
         if (entity.hasEffect(ModEffects.POTENTIAL_EFFECT) && entity.level() instanceof ServerLevel level) {
             if (usedItem.is(ModItems.PITCHER_TURNIP)) {
                 entity.addEffect(new MobEffectInstance(ModEffects.APPETITE_EFFECT, 2400));
@@ -63,14 +70,15 @@ public class FinishUseEvent {
         }
 
         if (entity.hasEffect(ModEffects.BITTER_EFFECT) && entity.level() instanceof ServerLevel level) {
-
             if (entity instanceof ServerPlayer player) {
+                if (player.getFoodData().getFoodLevel() == 20) {
+                    player.getFoodData().setFoodLevel(18);
+                }
                 if (usedItem.has(DataComponents.FOOD)) {
                     int nutrition = Objects.requireNonNull(usedItem.get(DataComponents.FOOD)).nutrition();
-                    float saturation = Objects.requireNonNull(usedItem.get(DataComponents.FOOD)).saturation();
-                    boolean canAlwaysEat = Objects.requireNonNull(usedItem.get(DataComponents.FOOD)).canAlwaysEat();
-
-                    player.getFoodData().eat(nutrition > 2 ? (int)(nutrition * -0.75) : -1, saturation * -1);
+                    bitterNutrition = nutrition;
+                    player.getFoodData().setFoodLevel(nutrition > 2 ? player.getFoodData().getFoodLevel() - nutrition + (int)(nutrition * 0.25) : player.getFoodData().getFoodLevel() - nutrition + 1);
+                    player.getFoodData().setSaturation(0);
                     level.sendParticles(ParticleTypes.ITEM_SLIME,
                             entity.getX(), entity.getY() + 1, entity.getZ(),
                             10,
