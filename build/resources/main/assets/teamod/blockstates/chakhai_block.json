@@ -149,6 +149,21 @@
     },
     "facing=west,is_tea_inside=9": {
       "model": "teamod:block/chakhai_ancient_tea_block"
+    },
+    "facing=north,is_tea_inside=10": {
+      "model": "teamod:block/chakhai_wanderers_tea_block",
+      "y": 90
+    },
+    "facing=south,is_tea_inside=10": {
+      "model": "teamod:block/chakhai_wanderers_tea_block",
+      "y": 270
+    },
+    "facing=east,is_tea_inside=10": {
+      "model": "teamod:block/chakhai_wanderers_tea_block",
+      "y": 180
+    },
+    "facing=west,is_tea_inside=10": {
+      "model": "teamod:block/chakhai_wanderers_tea_block"
     }
   }
 }

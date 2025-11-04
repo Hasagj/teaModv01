@@ -54,7 +54,7 @@ public class OnTickEvent {
         NeoForge.EVENT_BUS.register(this);
     }
     private final Map<UUID, Integer> mapTimer = new HashMap<>();
-
+    private int teleport = 10;
     @SubscribeEvent
     public void onWorldTick(LevelTickEvent.Pre event) {
         if (!(event.getLevel() instanceof ServerLevel world)) return;
@@ -113,7 +113,6 @@ public class OnTickEvent {
             }
 
 
-
             
         }
 
@@ -132,6 +131,9 @@ public class OnTickEvent {
                     Optional<RecipeHolder<SmeltingRecipe>> recipe = recipeManager.getRecipeFor(RecipeType.SMELTING, new SingleRecipeInput(item.getItem()), world);
                     if (player.getFoodData().getFoodLevel() - (int)Math.floor(item.getItem().getCount() * 0.125D) >= 6 && !mapTimer.isEmpty() && mapTimer.get(item.getUUID()) != null) {
                         if (mapTimer.get(item.getUUID()) == 0 && mapTimer.get(item.getUUID()) != null) {
+                            if (item.getItem().has(DataComponents.FOOD)) {
+                                ModTriggers.FLAME_TRIGGER.get().trigger(player);
+                            }
                             recipe.ifPresent(smeltingRecipeRecipeHolder -> item.setItem(new ItemStack(item.getItem().has(DataComponents.FOOD) ? Items.CHARCOAL : smeltingRecipeRecipeHolder.value().assemble(new SingleRecipeInput(item.getItem()), HolderLookup.Provider.create(Stream.of())).getItem(), item.getItem().getCount())));
                             mapTimer.remove(item.getUUID());
                             world.sendParticles(ParticleTypes.TRIAL_SPAWNER_DETECTED_PLAYER,

@@ -19,6 +19,8 @@ public class ModTriggers {
     public static final Supplier<BristleBackTrigger> BRISTLEBACK_TRIGGER = CRITERIA.register("bristleback_trigger", BristleBackTrigger::new);
     public static final Supplier<StingingTrigger> STINGING_TRIGGER = CRITERIA.register("stinging_trigger", StingingTrigger::new);
     public static final Supplier<TeleportTrigger> TELEPORT_TRIGGER = CRITERIA.register("teleport_trigger", TeleportTrigger::new);
+    public static final Supplier<FlameTrigger> FLAME_TRIGGER = CRITERIA.register("flame_trigger", FlameTrigger::new);
+
 
 
     public static void register(IEventBus bus) {

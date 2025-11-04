@@ -34,13 +34,11 @@ public class BlockInteractionEvent {
                 state.getBlock() == Blocks.CAMPFIRE &&
                 heldItem.getItem() == Items.CAULDRON && !player.isCrouching()) {
 
-            // Пример действия: заменить камень на светящийся блок
+
             level.setBlock(pos, ModBlocks.CAULDRON_ON_FIRE.get().defaultBlockState(), 3);
             heldItem.shrink(1);
-            // Звук
-            level.playSound(null, pos, SoundEvents.STONE_PLACE, SoundSource.BLOCKS, 1.0f, 1.0f);
 
-            // Предотвратить стандартное поведение
+            level.playSound(null, pos, SoundEvents.STONE_PLACE, SoundSource.BLOCKS, 1.0f, 1.0f);
             event.setCanceled(true);
         }
     }

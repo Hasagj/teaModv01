@@ -20,6 +20,7 @@
   "item.teamod.cup_cactus_tea": "Cactus tea",
   "item.teamod.cup_chorus_tea": "Chorus tea",
   "item.teamod.cup_ancient_tea": "Ancient tea",
+  "item.teamod.cup_wanderers_tea": "Wanderer's tea",
   "item.teamod.tea_seeds": "Tea seeds",
   "item.teamod.hibiscus": "Hibiscus",
   "item.teamod.hibiscus_flower": "Hibiscus flower",
@@ -29,6 +30,7 @@
   "item.teamod.pitcher_turnip": "Pitcher turnip",
   "item.teamod.dried_daisy": "Dried daisy",
   "item.teamod.daisy_tea_leaves": "Daisy tea leaves",
+  "item.teamod.strange_petals": "Strange petals",
   "item.teamod.tea_pot": "Tea pot",
   "item.teamod.chakhai": "Chakhai",
   "item.teamod.chakhai_green_tea": "Chakhai with green tea",
@@ -40,15 +42,26 @@
   "item.teamod.chakhai_cactus_tea": "Chakhai with cactus tea",
   "item.teamod.chakhai_chorus_tea": "Chakhai with chorus tea",
   "item.teamod.chakhai_ancient_tea": "Chakhai with ancient tea",
+  "item.teamod.chakhai_wanderers_tea": "Chakhai with wanderer's tea",
   "item.teamod.apple_slice": "Apple slice",
   "item.teamod.dried_apple_slice": "Dried apple slice",
   "item.teamod.boiled_water": "Boiled water",
   "item.teamod.tea_handbook": "Tea handbook",
+  "item.teamod.kaolin": "Kaolin",
+  "item.teamod.yixing_clay": "Yixing clay",
+  "item.teamod.broken_recovery_compass": "Broken recovery compass",
 
 
 
   "item.teamod.moon_raven": "Moon Raven",
-  "tooltip.teamod.moon_raven.tooltip": "Tea spirit",
+  "item.teamod.fragment_head": "Figurine fragment",
+  "item.teamod.fragment_body": "Figurine fragment",
+  "item.teamod.fragment_legs": "Figurine fragment",
+  "item.teamod.the_wise_man": "The wise man",
+  "item.teamod.clay_cod": "Clay cod",
+  "item.teamod.clay_salmon": "Clay salmon",
+  "item.teamod.pisces": "Pisces",
+  "tooltip.teamod.spirit.tooltip": "Tea Spirit",
 
   "text.item.teamod.read_button": "Read",
   "text.item.teamod.hide_text_button": "Close",
@@ -77,7 +90,14 @@
   "text.item.teamod.text23": "You've probably felt some envy watching Endermen's ability to teleport, specifically to dodge projectiles. Now you can too! You just need to drink chorus tea, but be careful, because besides teleportation you also inherit a fear of water and distorted vision.",
   "text.item.teamod.text24": "Let's go back to the ancients! The torchflower, which can also be grown from seeds found by the sniffer, can be dried and used as tea leaves for a brand nw tea.",
   "text.item.teamod.text25": "A slightly sweet and EXTREMELY hot ancient tea made by brewing dried torchflowers will help you ignite the \"Primordial Flame\"! That’s the name of the effect you’ll get after tasting this tea. With it, you’ll be able to smelt items within a 10-block radius around you. But be careful — dropped iron and gold tools can also melt! And one more thing — don’t even try cooking food with this power... unless you’re into eating coal. (This effect drains hunger depending on how many items are smelted.)",
-  "text.item.teamod.text26": "In desert villages, in the chests of ordinary houses, you can find a Moon Raven. It is an idol for the desert villagers; they pray to it for rain. You, however, can use it as a tea spirit. You need to pour tea onto the Moon Raven, and it will give you clear weather, but using it during clear weather will anger it.",
+  "text.item.teamod.text26": "Wandering traders are mysterious fellows. Many think they deal in junk, but take a closer look at the strange petals they sell — they might prove invaluable in a moment of need.",
+  "text.item.teamod.text27": "Those strange petals can be brewed into Wanderer’s Tea. Drink it, and in an instant you’ll find yourself back home, beside your warm bed.",
+  "text.item.teamod.text28": "Long ago, lush green tropics stood where deserts now lie. The ancient villagers grew weary of the endless rains and prayed day after day to the Moon Raven to make them stop. To their misfortune, they prayed too much — the tropics dried up completely. The idols of the Moon Raven now rest in villagers’ chests as reminders of times long past. Offer the Moon Raven a cup of tea, and sunlight will pierce the clouds. (But beware — the Moon Raven dislikes being disturbed when the weather is fair.)",
+  "text.item.teamod.text29": "If luck smiles upon you during your excavations in the Trail Ruins, you may uncover fragments of a figurine. Gather them all, and the reward will be well worth it!",
+  "text.item.teamod.text30": "Ordinary materials won’t do for binding the fragments together. You’ll need Yixing Clay — rich in minerals, with kaolin as its key ingredient, sometimes found while digging regular clay.",
+  "text.item.teamod.text31": "Combine the fragments found in the Trail Ruins, and you’ll obtain The Wise Man Figurine. Its origins are unknown, though it’s believed to have served as an idol to the ancient villagers. Offer the Wise Man a cup of tea, and it will absorb 20 of your experience levels. To retrieve the stored experience, brush the figurine clean. (The Wise Man will not absorb your experience if you have fewer than 20 levels.)",
+  "text.item.teamod.text32": "The village well is a far more mysterious place than most believe. Villagers often drop all sorts of things into it — buckets, emeralds, and... clay figurines? No one knows how these miraculous clay fish ended up there, nor what ancient power has been slumbering within their well all this time...",
+  "text.item.teamod.text33": "Unite the Clay Cod and the Clay Salmon, and you’ll create another figurine with a simple name — Pisces. Once you offer Pisces a cup of tea, they can transfer enchantments from one item to another. But enchantments are fickle things — failure may result in lost magic and severe damage to the final item. (Pisces cannot hold enchantments for long, so perform the ritual immediately.)",
 
 
   "block.teamod.tea_bush": "Tea Bush",
@@ -110,12 +130,15 @@
   "tooltip.teamod.cup_cactus_tea.tooltip": "Smells like sand",
   "tooltip.teamod.cup_chorus_tea.tooltip": "It reflects nothing...",
   "tooltip.teamod.cup_ancient_tea.tooltip": "It's VERY hot",
+  "tooltip.teamod.cup_wanderers_tea.tooltip": "Something strange",
 
   "death.attack.water_damage": "%1$s reached the end",
   "death.attack.boil_damage": "%1$s boiled alive",
 
   "teamod.skipping_night": "A little nap",
   "teamod.cant_skip_night": "Can't sleep now",
+
+  "sounds.teamod.teleport": "Teleportation",
 
   "block.teamod.press": "Press",
 
@@ -138,9 +161,17 @@
   "advancement.teamod.overdue.title": "Overdue...",
   "advancement.teamod.overdue.description": "Attempt to remove 'Bitter' with milk",
   "advancement.teamod.sweet_but_stinging.title": "Sweet but stinging",
-  "advancement.teamod.sweet_but_stinging.description": "Reach the maximum damage fron the 'Thorny' effect",
+  "advancement.teamod.sweet_but_stinging.description": "Reach the maximum damage from the 'Thorny' effect",
   "advancement.teamod.bristleback.title": "Bristle back",
   "advancement.teamod.bristleback.description": "Become truly thorny",
   "advancement.teamod.not_today.title": "Not today... Wait, that's already been said",
-  "advancement.teamod.not_today.description": "Dodge a projectile with the 'End's Blessing'"
+  "advancement.teamod.not_today.description": "Dodge a projectile with the 'End's Blessing'",
+  "advancement.teamod.ancient_family_recipe.title": "Ancient family recipe",
+  "advancement.teamod.ancient_family_recipe.description": "Burn a meal while under the effect of 'Primordial flame'",
+  "advancement.teamod.hey-ya-hey.title": "Hey Ya Hey!",
+  "advancement.teamod.hey-ya-hey.description": "Offer the Moon Raven a cup of tea",
+  "advancement.teamod.thirst_of_knowledge.title": "The thirst of knowledge",
+  "advancement.teamod.thirst_of_knowledge.description": "Offer The Wise Man a cup of tea",
+  "advancement.teamod.neither_fish_nor_fowl.title": "Neither fish nor fowl",
+  "advancement.teamod.neither_fish_nor_fowl.description": "Catch clay cod or clay salmon"
 }

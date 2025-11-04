@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "teamod:block/the_wise_man"
+    },
+    "facing=south": {
+      "model": "teamod:block/the_wise_man",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "teamod:block/the_wise_man",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "teamod:block/the_wise_man",
+      "y": 270
+    }
+  }
+}

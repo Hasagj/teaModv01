@@ -49,7 +49,10 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> MOON_RAVEN_BLOCK = BLOCKS.registerBlock("moon_raven",
             MoonRavenBlock::new);
-
+    public static final DeferredBlock<Block> THE_WISE_MAN_BLOCK = BLOCKS.registerBlock("the_wise_man",
+            TheWiseManBlock::new);
+    public static final DeferredBlock<Block> PISCES_BLOCK = BLOCKS.registerBlock("pisces",
+            PiscesBlock::new);
 
 
 

@@ -62,7 +62,7 @@ public class TeaHandbookScreen extends Screen {
 
     private void updateButtonVisibility() {
         this.backButton.visible = this.currentPage > 1 && this.currentText == 0;
-        this.forwardButton.visible = this.currentPage < 27 && this.currentText == 0;
+        this.forwardButton.visible = this.currentPage < 34 && this.currentText == 0;
         this.readButton.visible = this.currentText == 0 && this.currentPage > 1;
         this.hideTextButton.visible = this.currentText > 0;
     }

@@ -1,6 +1,7 @@
 package net.hasagj.teamod.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.hasagj.teamod.block.ModBlocks;
 import net.hasagj.teamod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -30,6 +31,7 @@ import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.pathfinder.PathComputationType;
@@ -50,6 +52,11 @@ public class MoonRavenBlock extends HorizontalDirectionalBlock {
     }
     public MoonRavenBlock(BlockBehaviour.Properties properties) {
         super(properties);
+    }
+
+    @Override
+    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean b) {
+        return new ItemStack(ModItems.MOON_RAVEN.get());
 
     }
 
@@ -78,47 +85,43 @@ public class MoonRavenBlock extends HorizontalDirectionalBlock {
         return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 
+
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         MinecraftServer server = level.getServer();
-        List<Item> tea_list = new ArrayList<>();
-        tea_list.add(ModItems.CUP_BLACK_TEA.get());
-        tea_list.add(ModItems.CUP_GREEN_TEA.get());
-        tea_list.add(ModItems.CUP_HIBISCUS_TEA.get());
-        tea_list.add(ModItems.CUP_DAISY_TEA.get());
-        tea_list.add(ModItems.CUP_PALE_TEA.get());
-        tea_list.add(ModItems.CUP_PITCHER_TEA.get());
-        tea_list.add(ModItems.CUP_CACTUS_TEA.get());
-        tea_list.add(ModItems.CUP_CHORUS_TEA.get());
-        for (Item tea : tea_list) {
-            if (stack.is(tea)) {
-                stack.shrink(1);
-                level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
-                if (stack.isEmpty()) {
-                    player.setItemInHand(hand, new ItemStack(ModItems.CUP.get()));
-                } else if (!player.getInventory().add(new ItemStack(ModItems.CUP.get()))) {
-                    player.drop(new ItemStack(ModItems.CUP.get()), false);
-                }
-                if (!level.isRaining() && level instanceof ServerLevel serverLevel) {
-                    serverLevel.sendParticles(ParticleTypes.ANGRY_VILLAGER, pos.getX(), pos.getY(), pos.getZ(), 10, 0.5, 0.5, 0.5, 1);
-                    player.hurtServer(serverLevel, player.damageSources().magic(), 2F);
-
-                } else {
-                    if (level instanceof ServerLevel serverLevel) {
-                        serverLevel.sendParticles(ParticleTypes.HAPPY_VILLAGER, pos.getX(), pos.getY(), pos.getZ(), 10, 0.5, 0.5, 0.5, 1);
-                    }
-                    if (server != null) {
-                        server.getCommands().performPrefixedCommand(
-                                server.createCommandSourceStack()
-                                        .withSuppressedOutput(),
-                                "weather clear 12000"
-                        );
-                    }
-                }
-                return InteractionResult.SUCCESS;
-            } else {
-                continue;
+        List<Item> tea_list = List.of(ModItems.CUP_GREEN_TEA.get(), ModItems.CUP_BLACK_TEA.get(), ModItems.CUP_HIBISCUS_TEA.get(), ModItems.CUP_DAISY_TEA.get(), ModItems.CUP_PALE_TEA.get(), ModItems.CUP_PITCHER_TEA.get(), ModItems.CUP_CACTUS_TEA.get(), ModItems.CUP_CHORUS_TEA.get(), ModItems.CUP_ANCIENT_TEA.get(), ModItems.CUP_WANDERERS_TEA.get());
+        if (tea_list.contains(stack.getItem()) && level instanceof ServerLevel serverLevel) {
+            stack.consume(1, player);
+            level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
+            serverLevel.sendParticles(ParticleTypes.SPLASH,
+                    pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F,
+                    30,
+                    0.25F, 0.25F, 0.25F,
+                    0);
+            if (stack.isEmpty()) {
+                player.setItemInHand(hand, new ItemStack(ModItems.CUP.get()));
+            } else if (!player.getInventory().add(new ItemStack(ModItems.CUP.get()))) {
+                player.drop(new ItemStack(ModItems.CUP.get()), false);
             }
+            if (!level.isRaining()) {
+                serverLevel.sendParticles(ParticleTypes.ANGRY_VILLAGER,
+                        pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
+                        5,
+                        0.2, 0.2, 0.2,
+                        0.3);
+                player.hurtServer(serverLevel, player.damageSources().magic(), 2F);
+
+            } else {
+                serverLevel.sendParticles(ParticleTypes.HAPPY_VILLAGER, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 5, 0.2, 0.2, 0.2, 1);
+                if (server != null) {
+                    server.getCommands().performPrefixedCommand(
+                            server.createCommandSourceStack()
+                                    .withSuppressedOutput(),
+                            "weather clear 12000"
+                    );
+                }
+            }
+            return InteractionResult.SUCCESS;
         }
         return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
     }

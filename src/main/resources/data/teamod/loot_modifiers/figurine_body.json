@@ -1,0 +1,20 @@
+{
+  "type": "teamod:change_loot",
+  "conditions": [
+    {
+      "condition": "all_of",
+      "terms": [
+        {
+          "condition": "neoforge:loot_table_id",
+          "loot_table_id": "minecraft:archaeology/trail_ruins_rare"
+        },
+        {
+          "condition": "minecraft:table_bonus",
+          "enchantment": "minecraft:fortune",
+          "chances": [0.2, 0.2, 0.2, 0.2]
+        }
+      ]
+    }
+  ],
+  "item": "teamod:fragment_body"
+}

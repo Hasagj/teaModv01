@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "teamod:block/moon_raven"
+    "model": "teamod:item/moon_raven"
   }
 }

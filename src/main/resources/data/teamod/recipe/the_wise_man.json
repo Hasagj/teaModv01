@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "teamod:yixing_clay",
+    "@": "teamod:fragment_head",
+    "U": "teamod:fragment_body",
+    "H": "teamod:fragment_legs"
+  },
+  "pattern": [
+    "#@#",
+    "#U#",
+    "#H#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "teamod:the_wise_man"
+  }
+}

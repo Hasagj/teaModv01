@@ -36,6 +36,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DRIED_HIBISCUS_PETALS);
                         output.accept(ModItems.DRIED_DAISY);
                         output.accept(ModItems.DAISY_TEA_LEAVES);
+                        output.accept(ModItems.STRANGE_PETALS);
                         output.accept(ModItems.DRIED_PITCHER_PLANT);
                         output.accept(ModItems.DRIED_TORCHFLOWER);
                         output.accept(ModItems.APPLE_SLICE);
@@ -60,7 +61,16 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.TEA_POT);
                         output.accept(ModItems.CHAKHAI);
                         output.accept(ModBlocks.PRESS.get());
-                        output.accept(ModBlocks.MOON_RAVEN_BLOCK.get());
+                        output.accept(ModItems.MOON_RAVEN);
+                        output.accept(ModItems.FRAGMENT_HEAD);
+                        output.accept(ModItems.FRAGMENT_BODY);
+                        output.accept(ModItems.FRAGMENT_LEGS);
+                        output.accept(ModItems.THE_WISE_MAN);
+                        output.accept(ModItems.CLAY_COD);
+                        output.accept(ModItems.CLAY_SALMON);
+                        output.accept(ModItems.PISCES);
+                        output.accept(ModItems.KAOLIN);
+                        output.accept(ModItems.YIXING_CLAY);
 
 
                     }).build());
@@ -69,24 +79,25 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.teamod.cups"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.CHAKHAI_BLACK_TEA);
-                        output.accept(ModItems.CHAKHAI_GREEN_TEA);
-                        output.accept(ModItems.CHAKHAI_HIBISCUS_TEA);
-                        output.accept(ModItems.CHAKHAI_DAISY_TEA);
-                        output.accept(ModItems.CHAKHAI_PALE_TEA);
-                        output.accept(ModItems.CHAKHAI_PITCHER_TEA);
-                        output.accept(ModItems.CHAKHAI_CACTUS_TEA);
-                        output.accept(ModItems.CHAKHAI_CHORUS_TEA);
-                        output.accept(ModItems.CHAKHAI_ANCIENT_TEA);
                         output.accept(ModItems.CUP_BLACK_TEA);
+                        output.accept(ModItems.CHAKHAI_GREEN_TEA);
                         output.accept(ModItems.CUP_GREEN_TEA);
+                        output.accept(ModItems.CHAKHAI_HIBISCUS_TEA);
                         output.accept(ModItems.CUP_HIBISCUS_TEA);
+                        output.accept(ModItems.CHAKHAI_DAISY_TEA);
                         output.accept(ModItems.CUP_DAISY_TEA);
+                        output.accept(ModItems.CHAKHAI_PALE_TEA);
                         output.accept(ModItems.CUP_PALE_TEA);
+                        output.accept(ModItems.CHAKHAI_PITCHER_TEA);
                         output.accept(ModItems.CUP_PITCHER_TEA);
+                        output.accept(ModItems.CHAKHAI_CACTUS_TEA);
                         output.accept(ModItems.CUP_CACTUS_TEA);
+                        output.accept(ModItems.CHAKHAI_CHORUS_TEA);
                         output.accept(ModItems.CUP_CHORUS_TEA);
+                        output.accept(ModItems.CHAKHAI_ANCIENT_TEA);
                         output.accept(ModItems.CUP_ANCIENT_TEA);
-
+                        output.accept(ModItems.CHAKHAI_WANDERERS_TEA);
+                        output.accept(ModItems.CUP_WANDERERS_TEA);
                     }).build());
 
 

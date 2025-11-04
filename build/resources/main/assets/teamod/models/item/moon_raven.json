@@ -1,3 +1,6 @@
 {
-  "parent": "teamod:block/moon_raven"
+  "parent":  "minecraft:item/generated",
+  "textures": {
+    "layer0": "teamod:item/moon_raven"
+  }
 }

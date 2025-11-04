@@ -125,7 +125,7 @@ public class TeaPotBlock extends HorizontalDirectionalBlock {
 
     }
     private void checkLeaves(ItemStack leaves, BlockState state, Level level, BlockPos pos, Player player) {
-        List<Item> leaves_list = List.of(ModItems.GREEN_TEA_LEAVES.get(), ModItems.BLACK_TEA_LEAVES.get(), ModItems.DRIED_HIBISCUS_PETALS.get(), ModItems.DAISY_TEA_LEAVES.get(), ModItems.PALE_TEA_LEAVES.get(), ModItems.DRIED_PITCHER_PLANT.get(), ModItems.CACTUS_TEA_LEAVES.get(), ModItems.CHORUS_TEA_LEAVES.get(), ModItems.DRIED_TORCHFLOWER.get());
+        List<Item> leaves_list = List.of(ModItems.GREEN_TEA_LEAVES.get(), ModItems.BLACK_TEA_LEAVES.get(), ModItems.DRIED_HIBISCUS_PETALS.get(), ModItems.DAISY_TEA_LEAVES.get(), ModItems.PALE_TEA_LEAVES.get(), ModItems.DRIED_PITCHER_PLANT.get(), ModItems.CACTUS_TEA_LEAVES.get(), ModItems.CHORUS_TEA_LEAVES.get(), ModItems.DRIED_TORCHFLOWER.get(), ModItems.STRANGE_PETALS.get());
         if (leaves_list.contains(leaves.getItem())) {
             leaves.consume(1, player);
             level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -134,7 +134,7 @@ public class TeaPotBlock extends HorizontalDirectionalBlock {
 
     }
     private void fillChakhai(ItemStack chakhai, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
-        List<Item> tea_list = List.of(ModItems.CHAKHAI_GREEN_TEA.get(), ModItems.CHAKHAI_BLACK_TEA.get(), ModItems.CHAKHAI_HIBISCUS_TEA.get(), ModItems.CHAKHAI_DAISY_TEA.get(), ModItems.CHAKHAI_PALE_TEA.get(), ModItems.CHAKHAI_PITCHER_TEA.get(), ModItems.CHAKHAI_CACTUS_TEA.get(), ModItems.CHAKHAI_CHORUS_TEA.get(), ModItems.CHAKHAI_ANCIENT_TEA.get());
+        List<Item> tea_list = List.of(ModItems.CHAKHAI_GREEN_TEA.get(), ModItems.CHAKHAI_BLACK_TEA.get(), ModItems.CHAKHAI_HIBISCUS_TEA.get(), ModItems.CHAKHAI_DAISY_TEA.get(), ModItems.CHAKHAI_PALE_TEA.get(), ModItems.CHAKHAI_PITCHER_TEA.get(), ModItems.CHAKHAI_CACTUS_TEA.get(), ModItems.CHAKHAI_CHORUS_TEA.get(), ModItems.CHAKHAI_ANCIENT_TEA.get(), ModItems.CHAKHAI_WANDERERS_TEA.get());
 
         chakhai.consume(1, player);
         level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);

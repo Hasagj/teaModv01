@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "yixing_clay",
+
+  "ingredients": [
+    "teamod:kaolin",
+    "minecraft:iron_nugget",
+    "minecraft:quartz",
+    "minecraft:clay_ball"
+  ],
+  "result": {
+    "count": 1,
+    "id": "teamod:yixing_clay"
+  }
+}

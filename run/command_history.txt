@@ -1,50 +1,50 @@
-/effect give @s teamod:appetite infinite
-/effect give @a minecraft:hunger 5 255
-/effect give @a teamod:primordial_flame infinite
-/effect give @a minecraft:hunger 5 255
-/effect give @a teamod:primordial_flame infinite
-/effect give @a minecraft:hunger 5 255
+/setblock ~ ~ ~ minecraft:nether_portal
+/setblock ~ ~ ~ minecraft:end_portal
+/kill @e[type=!minecraft:player]
+/kill
+/kill 8c47c9e0-dac4-4187-ba17-82f416393f9d
+/setblock ~ ~ ~ minecraft:nether_portal
+/setblock ~ ~ ~ minecraft:end_portal
+/kill @e[type=minecraft:ender_dragon]
+/setblock ~ ~ ~ minecraft:nether_portal
+/tp 33d65888-9deb-4524-9766-d933922e756f ~100000 ~ ~100000
+/tick sprint 600s
+/tick sprint 12000s
+/kill
 /effect clear
-/effect give @s teamod:appetite infinite
-/effect give @a minecraft:hunger 5 255
-/effect give @s teamod:sweet infinite
-/effect give @a minecraft:hunger 5 255
+/tick sprint 600s
 /effect clear
-/effect give @a teamod:primordial_flame infinite
-/effect clear
-/effect give @a teamod:ends_blessing infinite
-/effect give @e teamod:ends_blessing infinite
-/effect clear
-/effect give @a minecraft:hunger 5 255
-/effect give @s teamod:appetite infinite
-/effect clear
-/effect give @a teamod:primordial_flame infinite 0 true
-/effect clear
-/effect give @e teamod:ends_blessing infinite
-/effect give @e teamod:ends_blessing infinite 0 true
-/effect clear
-/effect give @a minecraft:hunger 5 255
-/effect give @s teamod:appetite infinite
-/effect clear
-/effect give @a teamod:primordial_flame infinite 0 true
-/effect give @a teamod:primordial_flame infinite
-/effect clear
-/effect give @e teamod:ends_blessing infinite
-/effect clear @e
-/effect give @a teamod:ends_blessing infinite
-/effect clear
-/effect give @a minecraft:hunger 5 255
-/effect give @s teamod:appetite infinite
-/effect clear
-/effect give @s teamod:bitter infinite
-/effect give @a minecraft:hunger 5 255
-/effect give @a minecraft:hunger 5 255w
-/effect give @a minecraft:hunger 5 255
-/effect clear
-/effect give @a minecraft:hunger 5 255
-/effect give @s teamod:bitter infinite
-/effect clear
-/effect give @s teamod:bitter infinite
-/effect give @a minecraft:hunger 5 255
-/effect clear
-/effect clear @e
+/tick sprint 600s
+/tick sprint 60s
+/tick sprint 600s
+/kill
+/tick sprint 600s
+/kill
+/gamerule keepInventory true
+/tick sprint 600s
+/kill
+/tick sprint 600s
+/kill
+/gamerule keepInventory true
+/kill
+/tick sprint 600s
+/give @s teamod:broken_recovery_compass
+/tick sprint 600s
+/kill
+/tick sprint 600s
+/kill
+/tick sprint 600s
+/kill
+/gamerule keepInventory true
+/kill
+/tick sprint 600s
+/give @s teamod:broken_recovery_compass
+/tick sprint 600s
+/kill/
+/kill
+/advancement grant @a everything
+/advancement revoke @a everything
+/experience add @a 10000
+/advancement revoke @a everything
+/advancement grant @a everything
+/tick sprint 600s

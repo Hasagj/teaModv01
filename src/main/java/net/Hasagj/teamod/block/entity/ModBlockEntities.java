@@ -17,6 +17,7 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("press_be", () -> new BlockEntityType<>(
                     PressBlockEntity::new, ModBlocks.PRESS.get()));
 
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

@@ -76,6 +76,8 @@ public class ModItems {
             (properties) -> new Item(properties));
     public static final DeferredItem<Item> DRIED_TORCHFLOWER = ITEMS.registerItem("dried_torchflower",
             (properties) -> new Item(properties));
+    public static final DeferredItem<Item> STRANGE_PETALS = ITEMS.registerItem("strange_petals",
+            (properties) -> new Item(properties));
 
     public static final DeferredItem<Item> TEA_HANDBOOK = ITEMS.registerItem("tea_handbook",
             (properties) -> new TeaHandbookItem(properties.stacksTo(1)));
@@ -89,7 +91,7 @@ public class ModItems {
             (properties) -> new Item(properties.food(new FoodProperties.Builder().nutrition(3).saturationModifier(1f).build())));
 
     public static final DeferredItem<Item> BOILED_WATER = ITEMS.registerItem("boiled_water",
-            (properties) -> new Item(properties));
+            (properties) -> new Item(properties.stacksTo(1)));
 
     public static final DeferredItem<Item> RAW_CUP = ITEMS.registerItem("raw_cup",
             (properties) -> new Item(properties.stacksTo(1)));
@@ -130,7 +132,7 @@ public class ModItems {
     );
 
     public static final DeferredItem<Item> CUP_DAISY_TEA = ITEMS.registerItem("cup_daisy_tea",
-            (properties) -> new Item(properties.stacksTo(1).component(DataComponents.CONSUMABLE, Consumables.defaultDrink()
+            (properties) -> new Item(properties.stacksTo(1).useCooldown(10).component(DataComponents.CONSUMABLE, Consumables.defaultDrink()
                     .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(ModEffects.DROWSY_EFFECT, 2400, 0))).build())
                     .usingConvertsTo(CUP.get())) {
                 @Override
@@ -200,6 +202,16 @@ public class ModItems {
 
                 }
             });
+    public static final DeferredItem<Item> CUP_WANDERERS_TEA = ITEMS.registerItem("cup_wanderers_tea",
+            (properties) -> new Item(properties.stacksTo(1).useCooldown(300)
+                    .component(DataComponents.CONSUMABLE, Consumables.defaultDrink().build()).usingConvertsTo(CUP.get())) {
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
+                    component.accept(Component.translatable("tooltip.teamod.cup_wanderers_tea.tooltip").withColor(0x1A2C3C));
+                    super.appendHoverText(stack, context, display, component, tooltipFlag);
+
+                }
+            });
 
     public static final DeferredItem<Item> TEA_POT = ITEMS.registerItem("tea_pot",
             (properties) -> new BlockItem(ModBlocks.TEA_POT_BLOCK.get(), properties.stacksTo(1)));
@@ -207,6 +219,12 @@ public class ModItems {
     public static final DeferredItem<Item> RAW_TEA_POT = ITEMS.registerItem("raw_tea_pot",
             (properties) -> new Item(properties.stacksTo(1)));
 
+    public static final DeferredItem<Item> KAOLIN = ITEMS.registerItem("kaolin",
+            (properties) -> new Item(properties));
+    public static final DeferredItem<Item> YIXING_CLAY = ITEMS.registerItem("yixing_clay",
+            (properties) -> new Item(properties));
+    public static final DeferredItem<Item> BROKEN_RECOVERY_COMPASS = ITEMS.registerItem("broken_recovery_compass",
+            (properties) -> new Item(properties));
 
 
 
@@ -231,19 +249,48 @@ public class ModItems {
             (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),8 ,properties.stacksTo(1)));
     public static final DeferredItem<Item> CHAKHAI_ANCIENT_TEA = ITEMS.registerItem("chakhai_ancient_tea",
             (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),9 ,properties.stacksTo(1)));
+    public static final DeferredItem<Item> CHAKHAI_WANDERERS_TEA = ITEMS.registerItem("chakhai_wanderers_tea",
+            (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),10 ,properties.stacksTo(1)));
     public static final DeferredItem<Item> RAW_CHAKHAI = ITEMS.registerItem("raw_chakhai",
             (properties) -> new Item(properties.stacksTo(1)));
     public static final DeferredItem<Item> MOON_RAVEN = ITEMS.registerItem("moon_raven",
-            (properties) -> new BlockItem(ModBlocks.MOON_RAVEN_BLOCK.get(), properties.stacksTo(1).rarity(Rarity.RARE)){
+            (properties) -> new BlockItem(ModBlocks.MOON_RAVEN_BLOCK.get(), properties.stacksTo(1).rarity(Rarity.UNCOMMON)){
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
-                    component.accept(Component.translatable("tooltip.teamod.moon_raven.tooltip").withColor(0x808080));
+                    component.accept(Component.translatable("tooltip.teamod.spirit.tooltip").withColor(0x808080));
                     super.appendHoverText(stack, context, display, component, tooltipFlag);
 
                 }
             }) ;
+    public static final DeferredItem<Item> FRAGMENT_HEAD = ITEMS.registerItem("fragment_head",
+            (properties) -> new Item(properties.stacksTo(1)));
+    public static final DeferredItem<Item> FRAGMENT_BODY = ITEMS.registerItem("fragment_body",
+            (properties) -> new Item(properties.stacksTo(1)));
+    public static final DeferredItem<Item> FRAGMENT_LEGS = ITEMS.registerItem("fragment_legs",
+            (properties) -> new Item(properties.stacksTo(1)));
+    public static final DeferredItem<Item> THE_WISE_MAN = ITEMS.registerItem("the_wise_man",
+            (properties) -> new BlockItem(ModBlocks.THE_WISE_MAN_BLOCK.get(), properties.stacksTo(1).rarity(Rarity.RARE)){
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
+                    component.accept(Component.translatable("tooltip.teamod.spirit.tooltip").withColor(0x808080));
+                    super.appendHoverText(stack, context, display, component, tooltipFlag);
 
+                }
+            }) ;
+    public static final DeferredItem<Item> CLAY_SALMON = ITEMS.registerItem("clay_salmon",
+            (properties) -> new Item(properties.stacksTo(1).rarity(Rarity.RARE)));
+    public static final DeferredItem<Item> CLAY_COD = ITEMS.registerItem("clay_cod",
+            (properties) -> new Item(properties.stacksTo(1).rarity(Rarity.RARE)));
 
+    public static final DeferredItem<Item> PISCES = ITEMS.registerItem("pisces",
+            (properties) -> new BlockItem(ModBlocks.PISCES_BLOCK.get(), properties.stacksTo(1).rarity(Rarity.RARE)){
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
+                    component.accept(Component.translatable("tooltip.teamod.spirit.tooltip").withColor(0x808080));
+                    super.appendHoverText(stack, context, display, component, tooltipFlag);
+
+                }
+            }) ;
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

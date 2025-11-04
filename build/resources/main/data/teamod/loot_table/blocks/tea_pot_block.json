@@ -186,6 +186,25 @@
         }
       ],
       "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "teamod:tea_pot_block",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "what_leaves_inside": "10"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "teamod:strange_petals"
+        }
+      ],
+      "rolls": 1.0
     }
   ],
   "random_sequence": "teamod:blocks/tea_pot_block"

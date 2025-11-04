@@ -1,0 +1,42 @@
+{
+  "parent": "teamod:root",
+  "criteria": {
+    "use_spirit": {
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": "teamod:moon_raven"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_used_on_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.teamod.hey-ya-hey.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "teamod:moon_raven"
+    },
+    "title": {
+      "translate": "advancement.teamod.hey-ya-hey.title"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "use_spirit"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
