@@ -16,7 +16,6 @@ public class SolidEffect extends MobEffect {
     public SolidEffect(MobEffectCategory category, int color) {super(category, color);}
     @Override
     public boolean applyEffectTick(ServerLevel level, LivingEntity livingEntity, int amplifier) {
-        Player p = (Player) livingEntity;
         if(livingEntity.hasEffect(MobEffects.POISON) || livingEntity.hasEffect(MobEffects.HUNGER)) {
             livingEntity.removeEffect(MobEffects.POISON);
             livingEntity.removeEffect(MobEffects.HUNGER);

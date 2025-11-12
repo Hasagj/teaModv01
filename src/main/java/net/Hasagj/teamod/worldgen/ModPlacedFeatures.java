@@ -18,6 +18,7 @@ public class ModPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> TEA_BUSH_PLACED_KEY = registerKey("tea_bush_placed");
     public static final ResourceKey<PlacedFeature> HIBISCUS_PLACED_KEY = registerKey("hibiscus_placed");
+    public static final ResourceKey<PlacedFeature> CRIMSON_BUSH_PLACED_KEY = registerKey("crimson_bush_placed");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         var configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -29,6 +30,8 @@ public class ModPlacedFeatures {
 
         register(context, TEA_BUSH_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.TEA_BUSH_KEY),
                 List.of(RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
+        register(context, CRIMSON_BUSH_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.CRIMSON_BUSH_KEY),
+                List.of(RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome()));
     }
 
     private static ResourceKey<PlacedFeature> registerKey(String name) {

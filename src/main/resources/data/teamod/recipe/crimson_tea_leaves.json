@@ -1,0 +1,16 @@
+{
+  "type": "teamod:press",
+  "ingredient1": "minecraft:nether_wart",
+  "ingredient2": "teamod:crimson_tea_leaf",
+  "ingredient3": "minecraft:nether_wart",
+  "ingredient4": "teamod:crimson_tea_leaf",
+  "ingredient5": "teamod:crimson_tea_leaf",
+  "ingredient6": "teamod:crimson_tea_leaf",
+  "ingredient7": "minecraft:nether_wart",
+  "ingredient8": "teamod:crimson_tea_leaf",
+  "ingredient9": "minecraft:nether_wart",
+  "result": {
+    "count": 1,
+    "id": "teamod:crimson_tea_leaves"
+  }
+}

@@ -22,12 +22,11 @@ public class BlockItemState extends BlockItem {
     @Override
     protected boolean updateCustomBlockEntityTag(BlockPos pos, Level level, Player player, ItemStack stack, BlockState state) {
         if (!level.isClientSide) {
-            // Берём уже установленный state (с учётом FACING и прочего)
+
             BlockState placedState = level.getBlockState(pos);
 
-            // Если у блока есть свойство COLOR — меняем только его
             if (placedState.hasProperty(ChakhaiBlockTest.IS_TEA_INSIDE)) {
-                placedState = placedState.setValue(ChakhaiBlockTest.IS_TEA_INSIDE, tea);
+                placedState = placedState.setValue(ChakhaiBlockTest.IS_TEA_INSIDE, tea).setValue(ChakhaiBlockTest.COUNT, 6 - stack.getDamageValue());
                 level.setBlock(pos, placedState, 3);
             }
         }

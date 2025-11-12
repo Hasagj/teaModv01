@@ -51,7 +51,7 @@ damageTiltStrength:1.0
 highContrast:false
 highContrastBlockOutline:false
 narratorHotkey:true
-resourcePacks:["vanilla"]
+resourcePacks:[]
 incompatibleResourcePacks:[]
 lastServer:26.140.163.77:57159
 lang:ru_ru

@@ -25,6 +25,9 @@ public class ModBlocks {
     public static final DeferredBlock<Block> TEA_BUSH = registerBlock("tea_bush",
             (properties) -> new TeaBushBlock(properties.mapColor(MapColor.PLANT).strength(0.2F)
                     .randomTicks().sound(SoundType.CROP).noOcclusion().pushReaction(PushReaction.DESTROY).noCollission()));
+    public static final DeferredBlock<Block> CRIMSON_BUSH = registerBlock("crimson_bush",
+            (properties) -> new CrimsonBushBlock(properties.mapColor(MapColor.CRIMSON_NYLIUM).strength(0.2F)
+                    .randomTicks().sound(SoundType.CROP).noOcclusion().pushReaction(PushReaction.DESTROY).noCollission()));
     public static final DeferredBlock<Block> HIBISCUS_SAPLING = registerBlock("hibiscus_sapling",
             (properties) -> new ModSaplingBlock(ModTreeGrowers.HIBISCUS, properties.mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak()
                     .sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY).noCollission(), () -> Blocks.GRASS_BLOCK));

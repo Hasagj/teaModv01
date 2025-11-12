@@ -1,50 +1,50 @@
+/locate biome minecraft:crimson_forest
+/tp @s 186 78 -148
 /setblock ~ ~ ~ minecraft:nether_portal
-/setblock ~ ~ ~ minecraft:end_portal
-/kill @e[type=!minecraft:player]
-/kill
-/kill 8c47c9e0-dac4-4187-ba17-82f416393f9d
+/place feature teamod:crimson_bush
 /setblock ~ ~ ~ minecraft:nether_portal
-/setblock ~ ~ ~ minecraft:end_portal
-/kill @e[type=minecraft:ender_dragon]
+/locate biome minecraft:crimson_forest
+/tp @s 99 64 111
+/forceload query ~ ~
+/datapack list enabled
+/neoforge data_components list
+/neoforge dimensions
+/neoforge mods
+/neoforge generate start ~ ~ ~
 /setblock ~ ~ ~ minecraft:nether_portal
-/tp 33d65888-9deb-4524-9766-d933922e756f ~100000 ~ ~100000
-/tick sprint 600s
-/tick sprint 12000s
-/kill
+/locate biome minecraft:crimson_forest
+/tp @s -113 60 96
+/place feature teamod:crimson_bush
+/setblock ~ ~ ~ minecraft:nether_portal
+/locate biome minecraft:crimson_forest
+/tp @s 149 58 153
+/tick freeze
+/give @s teamod:cup_crimson_tea
+/give @s teamod:nether_cup_crimson_tea
+/tick unfreeze
+/tick freeze
+/tick unfreeze
+/tick freeze
+/give @a minecraft:command_block
+/tick unfreeze
+/tick freeze
+/tick unfreeze
 /effect clear
-/tick sprint 600s
+/tick sprint 10s
 /effect clear
-/tick sprint 600s
-/tick sprint 60s
-/tick sprint 600s
-/kill
-/tick sprint 600s
-/kill
-/gamerule keepInventory true
-/tick sprint 600s
-/kill
-/tick sprint 600s
-/kill
-/gamerule keepInventory true
-/kill
-/tick sprint 600s
-/give @s teamod:broken_recovery_compass
-/tick sprint 600s
-/kill
-/tick sprint 600s
-/kill
-/tick sprint 600s
-/kill
-/gamerule keepInventory true
-/kill
-/tick sprint 600s
-/give @s teamod:broken_recovery_compass
-/tick sprint 600s
-/kill/
-/kill
-/advancement grant @a everything
-/advancement revoke @a everything
-/experience add @a 10000
-/advancement revoke @a everything
-/advancement grant @a everything
-/tick sprint 600s
+/effect give @a teamod:seas_blessing infinite
+/time set night
+/effect give @a teamod:seas_blessing infinite
+/effect clear
+/effect give @a teamod:seas_blessing infinite
+/tick sprint 1d
+/effect give @a teamod:seas_blessing infinite
+/effect give 943f7c5e-2030-40fa-9f32-e46c3c0413ea teamod:ends_blessing infinite
+/effect give @a teamod:seas_blessing infinite
+/kill 943f7c5e-2030-40fa-9f32-e46c3c0413ea
+/effect give @a teamod:seas_blessing infinite
+/time set noon
+/kill @e
+/effect give @a teamod:seas_blessing infinite
+/effect clear
+/effect give @a teamod:seas_blessing infinite

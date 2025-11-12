@@ -9,7 +9,8 @@
     "teamod:figurine_head",
     "teamod:figurine_body",
     "teamod:figurine_legs",
-    "teamod:kaolin_from_clay"
+    "teamod:kaolin_from_clay",
+    "teamod:broken_nether_cup"
   ],
   "replace": false
 }

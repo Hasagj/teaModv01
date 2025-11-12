@@ -48,7 +48,7 @@ public class PreDamageEvent {
                     player.heal(player.getFoodData().getFoodLevel() - 1);
                     player.getFoodData().setFoodLevel(0);
                     player.getFoodData().setSaturation(0);
-                    player.removeEffect(ModEffects.SWEET_EFFECT);
+                    player.removeAllEffects();
                     player.addEffect(new MobEffectInstance(ModEffects.BITTER_EFFECT, 6000));
                     level.playSound(null, player.blockPosition(), SoundEvents.MACE_SMASH_GROUND, SoundSource.PLAYERS, 1F, 1F);
                     level.sendParticles(ParticleTypes.TRIAL_SPAWNER_DETECTED_PLAYER_OMINOUS,
@@ -85,11 +85,26 @@ public class PreDamageEvent {
                         } else {
                             mob.setStingerCount(mob.getStingerCount() + 1);
                         }
-                        mob.knockback(1, player.getX(), player.getZ());
+                        Vec3 direction = mob.position().subtract(event.getEntity().position()).normalize();
+                        mob.knockback(1.0F, -direction.x, -direction.z);
                     }
                 }
             }
 
+        }
+        if (event.getSource().getEntity() instanceof LivingEntity livingEntity && livingEntity.hasEffect(ModEffects.BLOODTHIRST_EFFECT)) {
+            livingEntity.heal(event.getOriginalDamage() * 0.5F);
+            if (livingEntity instanceof Player player) {
+                player.getFoodData().eat(1, 1);
+            }
+        }
+        if (event.getEntity().hasEffect(ModEffects.SEAS_BLESSING_EFFECT)  && event.getSource().getEntity() instanceof LivingEntity livingEntity && event.getEntity().level() instanceof ServerLevel serverLevel) {
+            if (event.getEntity().level().random.nextInt( event.getEntity().isInWater() ? 10 : 12) < 9) {
+                event.setNewDamage(0);
+                serverLevel.playSound(null, livingEntity.getOnPos(), SoundEvents.SHIELD_BLOCK.value(), SoundSource.PLAYERS, 1.0F, 1.0F);
+                Vec3 direction = livingEntity.position().subtract(event.getEntity().position()).normalize();
+                livingEntity.knockback(0.5F, -direction.x, -direction.z);
+            }
         }
 
     }

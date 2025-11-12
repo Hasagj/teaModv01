@@ -42,6 +42,18 @@ public class ModEffects {
             () -> new EndsBlessingEffect(MobEffectCategory.BENEFICIAL, 0xC71585));
     public static final Holder<MobEffect> PRIMORDIAL_FLAME_EFFECT = MOB_EFFECTS.register("primordial_flame",
             () -> new PrimordialFlameEffect(MobEffectCategory.BENEFICIAL, 0xF54627));
+    public static final Holder<MobEffect> BLEEDING_EFFECT = MOB_EFFECTS.register("bleeding",
+            () -> new BleedingEffect(MobEffectCategory.HARMFUL, 0xFF0000).addAttributeModifier(Attributes.MAX_HEALTH, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "bleeding"), -1, AttributeModifier.Operation.ADD_VALUE));
+    public static final Holder<MobEffect> BLOODTHIRST_EFFECT = MOB_EFFECTS.register("bloodthirst",
+            () -> new BloodthirstEffect(MobEffectCategory.BENEFICIAL, 0xFF1100).addAttributeModifier(Attributes.MAX_HEALTH, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "bloodthirst"), 1, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+    public static final Holder<MobEffect> SEAS_BLESSING_EFFECT = MOB_EFFECTS.register("seas_blessing",
+            () -> new SeasBlessingEffect(MobEffectCategory.BENEFICIAL, 0x005555)
+                    .addAttributeModifier(Attributes.SCALE, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "seas_blessing"), 1, AttributeModifier.Operation.ADD_VALUE)
+            .addAttributeModifier(Attributes.OXYGEN_BONUS, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "seas_blessing"), 20, AttributeModifier.Operation.ADD_VALUE)
+                    .addAttributeModifier(Attributes.KNOCKBACK_RESISTANCE, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "seas_blessing"), 10, AttributeModifier.Operation.ADD_VALUE)
+                    .addAttributeModifier(Attributes.EXPLOSION_KNOCKBACK_RESISTANCE, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "seas_blessing"), 10, AttributeModifier.Operation.ADD_VALUE));
+
+
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);
     }

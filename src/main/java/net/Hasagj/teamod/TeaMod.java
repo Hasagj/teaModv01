@@ -2,11 +2,11 @@ package net.hasagj.teamod;
 
 import net.hasagj.teamod.block.ModBlocks;
 import net.hasagj.teamod.block.entity.ModBlockEntities;
-import net.hasagj.teamod.damage.ModDamageTypes;
 import net.hasagj.teamod.effect.ModEffects;
 import net.hasagj.teamod.event.*;
 import net.hasagj.teamod.item.ModCreativeModeTabs;
 import net.hasagj.teamod.item.ModItems;
+import net.hasagj.teamod.layer.NautilusLayer;
 import net.hasagj.teamod.loot.ModLootModifiers;
 import net.hasagj.teamod.particle.ModParticles;
 import net.hasagj.teamod.particle.OrangeEyesParticles;
@@ -16,6 +16,10 @@ import net.hasagj.teamod.screen.custom.PressScreen;
 import net.hasagj.teamod.sound.ModSounds;
 import net.hasagj.teamod.trigger.ModTriggers;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.geom.EntityModelSet;
+import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.client.resources.PlayerSkin;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.slf4j.Logger;
@@ -142,6 +146,18 @@ public class TeaMod
         public static void registerScreens(RegisterMenuScreensEvent event) {
             event.register(ModMenuTypes.PRESS_MENU.get(), PressScreen::new);
         }
+        @SubscribeEvent
+        public static void registerLayers(EntityRenderersEvent.AddLayers event) {
+            EntityModelSet modelSet = event.getEntityModels();
+
+            // Есть два рендера игрока: для обычного и slim-скинов (alex)
+            for (PlayerSkin.Model skin : event.getSkins()) {
+                PlayerRenderer renderer = event.getSkin(skin);
+                if (renderer != null) renderer.addLayer(new NautilusLayer(renderer, modelSet));
+
+            }
+        }
+
 
     }
 }

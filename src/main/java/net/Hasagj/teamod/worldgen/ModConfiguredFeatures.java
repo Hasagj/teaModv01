@@ -34,6 +34,7 @@ import java.util.List;
 public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> TEA_BUSH_KEY = registerKey("tea_bush");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HIBISCUS_KEY = registerKey("hibiscus");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRIMSON_BUSH_KEY = registerKey("crimson_bush");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         register(context, HIBISCUS_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
@@ -55,6 +56,11 @@ public class ModConfiguredFeatures {
                         new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.TEA_BUSH.get()
                                 .defaultBlockState().setValue(SweetBerryBushBlock.AGE, 3))
                         ), List.of(Blocks.GRASS_BLOCK)));
+        register(context, CRIMSON_BUSH_KEY, Feature.RANDOM_PATCH,
+                FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.CRIMSON_BUSH.get()
+                                .defaultBlockState().setValue(SweetBerryBushBlock.AGE, 2))
+                        ), List.of(Blocks.CRIMSON_NYLIUM)));
 
     }
 

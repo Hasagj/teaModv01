@@ -18,6 +18,7 @@ public class ModBiomeModifiers {
 
     public static final ResourceKey<BiomeModifier> ADD_TEA_BUSH = registerKey("add_tea_bush");
     public static final ResourceKey<BiomeModifier> ADD_TREE_HIBISCUS = registerKey("add_tree_hibiscus");
+    public static final ResourceKey<BiomeModifier> ADD_CRIMSON_BUSH = registerKey("add_crimson_bush");
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
         var biomes = context.lookup(Registries.BIOME);
@@ -36,6 +37,10 @@ public class ModBiomeModifiers {
         context.register(ADD_TREE_HIBISCUS, new BiomeModifiers.AddFeaturesBiomeModifier(
                 HolderSet.direct(biomes.getOrThrow(Biomes.SPARSE_JUNGLE)),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.HIBISCUS_PLACED_KEY)),
+                GenerationStep.Decoration.VEGETAL_DECORATION));
+        context.register(ADD_CRIMSON_BUSH, new BiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(biomes.getOrThrow(Biomes.CRIMSON_FOREST)),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.CRIMSON_BUSH_PLACED_KEY)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
     }
 

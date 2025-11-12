@@ -24,6 +24,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.TEA_LEAF);
                         output.accept(ModItems.LIGHTLY_DRIED_TEA_LEAF);
                         output.accept(ModItems.DRIED_TEA_LEAF);
+                        output.accept(ModItems.CRIMSON_FRUIT);
+                        output.accept(ModItems.CRIMSON_TEA_LEAF);
                         output.accept(ModItems.GREEN_TEA_LEAVES);
                         output.accept(ModItems.BLACK_TEA_LEAVES);
                         output.accept(ModItems.PALE_TEA_LEAVES);
@@ -39,9 +41,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.STRANGE_PETALS);
                         output.accept(ModItems.DRIED_PITCHER_PLANT);
                         output.accept(ModItems.DRIED_TORCHFLOWER);
-                        output.accept(ModItems.APPLE_SLICE);
+                        output.accept(ModItems.CRIMSON_TEA_LEAVES);
                         output.accept(ModItems.PITCHER_TURNIP);
-                        output.accept(ModItems.DRIED_APPLE_SLICE);
                         output.accept(ModItems.BOILED_WATER);
 
 
@@ -60,6 +61,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CUP);
                         output.accept(ModItems.TEA_POT);
                         output.accept(ModItems.CHAKHAI);
+                        output.accept(ModItems.BROKEN_NETHER_CUP);
+                        output.accept(ModItems.NETHER_CUP);
                         output.accept(ModBlocks.PRESS.get());
                         output.accept(ModItems.MOON_RAVEN);
                         output.accept(ModItems.FRAGMENT_HEAD);
@@ -98,6 +101,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CUP_ANCIENT_TEA);
                         output.accept(ModItems.CHAKHAI_WANDERERS_TEA);
                         output.accept(ModItems.CUP_WANDERERS_TEA);
+                        output.accept(ModItems.CHAKHAI_CRIMSON_TEA);
                     }).build());
 
 

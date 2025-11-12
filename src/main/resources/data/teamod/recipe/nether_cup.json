@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "teamod:yixing_clay",
+    "$": "minecraft:nether_brick",
+    "@": "teamod:broken_nether_cup"
+  },
+  "pattern": [
+    "#$#",
+    "$@$",
+    "#$#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "teamod:nether_cup"
+  }
+}

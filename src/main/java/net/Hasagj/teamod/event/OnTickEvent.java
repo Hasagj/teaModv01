@@ -54,7 +54,6 @@ public class OnTickEvent {
         NeoForge.EVENT_BUS.register(this);
     }
     private final Map<UUID, Integer> mapTimer = new HashMap<>();
-    private int teleport = 10;
     @SubscribeEvent
     public void onWorldTick(LevelTickEvent.Pre event) {
         if (!(event.getLevel() instanceof ServerLevel world)) return;
