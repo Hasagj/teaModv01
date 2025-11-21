@@ -58,8 +58,7 @@ public class TheWiseManBlock extends HorizontalDirectionalBlock {
     }
     public TheWiseManBlock(BlockBehaviour.Properties properties) {
         super(properties);
-        this.registerDefaultState((BlockState)((BlockState)((BlockState)this.stateDefinition.any()).setValue(XP, 0)));
-        this.registerDefaultState((BlockState)((BlockState)((BlockState)this.stateDefinition.any()).setValue(CAN_COLLECT, false)));
+        this.registerDefaultState((BlockState)((BlockState)((BlockState)this.stateDefinition.any()).setValue(XP, 0).setValue(CAN_COLLECT, false)));
     }
 
     @Override

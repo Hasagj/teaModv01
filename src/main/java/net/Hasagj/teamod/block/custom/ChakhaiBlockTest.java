@@ -92,6 +92,7 @@ public class ChakhaiBlockTest extends HorizontalDirectionalBlock {
             player.setItemInHand(hand, new ItemStack(ModItems.NETHER_CUP_CRIMSON_TEA.get()));
             level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
             level.setBlockAndUpdate(pos, state.setValue(COUNT, state.getValue(COUNT) - 1).setValue(IS_TEA_INSIDE, state.getValue(COUNT) - 1 == 0 ? 0 : state.getValue(IS_TEA_INSIDE)));
+            state = level.getBlockState(pos);
             player.awardStat(Stats.ITEM_USED.get(item));
             return InteractionResult.SUCCESS;
         }

@@ -52,7 +52,7 @@ public class ModItems {
     public static final DeferredItem<Item> CRIMSON_TEA_LEAF = ITEMS.registerItem("crimson_tea_leaf",
             (properties) -> new Item(properties));
     public static final DeferredItem<Item> CRIMSON_FRUIT = ITEMS.registerItem("crimson_fruit",
-            (properties) -> new BlockItem(ModBlocks.CRIMSON_BUSH.get(), properties.food(new FoodProperties(3, 3, true), Consumables.defaultDrink().onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(ModEffects.BLEEDING_EFFECT, 300, 1))).build())));
+            (properties) -> new BlockItem(ModBlocks.CRIMSON_BUSH.get(), properties.food(new FoodProperties(3, 3, true), Consumables.defaultFood().onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(ModEffects.BLEEDING_EFFECT, 300, 1))).build())));
     public static final DeferredItem<Item> LIGHTLY_DRIED_TEA_LEAF = ITEMS.registerItem("lightly_dried_tea_leaf",
             (properties) -> new Item(properties));
     public static final DeferredItem<Item> DRIED_TEA_LEAF = ITEMS.registerItem("dried_tea_leaf",
@@ -152,7 +152,7 @@ public class ModItems {
     public static final DeferredItem<Item> CUP_PALE_TEA = ITEMS.registerItem("cup_pale_tea",
             (properties) -> new Item(properties.stacksTo(1)
                     .component(DataComponents.CONSUMABLE, Consumables.defaultDrink()
-                            .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(ModEffects.GARDENS_BLESSING_EFFECT, 6000, 0, true, false)))
+                            .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(ModEffects.GARDENS_BLESSING_EFFECT, 3600, 0, true, false)))
                             .soundAfterConsume(Holder.direct(SoundEvents.CREAKING_ACTIVATE)).build()).usingConvertsTo(CUP.get())) {
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {

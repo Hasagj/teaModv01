@@ -53,7 +53,7 @@ highContrastBlockOutline:false
 narratorHotkey:true
 resourcePacks:[]
 incompatibleResourcePacks:[]
-lastServer:26.140.163.77:57159
+lastServer:localhost
 lang:ru_ru
 chatVisibility:0
 chatOpacity:1.0

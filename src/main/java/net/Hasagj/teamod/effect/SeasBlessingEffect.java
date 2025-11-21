@@ -1,6 +1,7 @@
 package net.hasagj.teamod.effect;
 
 import net.hasagj.teamod.item.ModItems;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffect;

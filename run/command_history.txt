@@ -1,22 +1,3 @@
-/locate biome minecraft:crimson_forest
-/tp @s 186 78 -148
-/setblock ~ ~ ~ minecraft:nether_portal
-/place feature teamod:crimson_bush
-/setblock ~ ~ ~ minecraft:nether_portal
-/locate biome minecraft:crimson_forest
-/tp @s 99 64 111
-/forceload query ~ ~
-/datapack list enabled
-/neoforge data_components list
-/neoforge dimensions
-/neoforge mods
-/neoforge generate start ~ ~ ~
-/setblock ~ ~ ~ minecraft:nether_portal
-/locate biome minecraft:crimson_forest
-/tp @s -113 60 96
-/place feature teamod:crimson_bush
-/setblock ~ ~ ~ minecraft:nether_portal
-/locate biome minecraft:crimson_forest
 /tp @s 149 58 153
 /tick freeze
 /give @s teamod:cup_crimson_tea
@@ -48,3 +29,22 @@
 /effect give @a teamod:seas_blessing infinite
 /effect clear
 /effect give @a teamod:seas_blessing infinite
+/effect clear
+/effect give @a teamod:seas_blessing infinite
+/locate biome minecraft:ocean
+/tp @s 777 68 850
+/effect clear
+/give @s minecraft:debug_stick
+/effect give @a teamod:seas_blessing infinite
+/effect give 50b56cbe-1e89-4558-8504-856ca20fbbf1 minecraft:conduit_power infinite
+/effect clear
+/summon minecraft:husk ~ ~ ~ {NoAI:1b}
+/enchant @s minecraft:multishot
+/summon minecraft:husk ~ ~ ~ {NoAI:1b}
+/effect give @s teamod:gardens_blessing infinite
+/setblock ~ ~ ~ dirt
+/time set night
+/time set day
+/kill @e[type=!minecraft:player]
+/effect give @s teamod:gardens_blessing infinite 0 true
+/enchant @s minecraft:multishot

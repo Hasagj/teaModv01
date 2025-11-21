@@ -9,6 +9,7 @@ import net.hasagj.teamod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -29,6 +30,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -43,9 +45,7 @@ public class TeaPotBlock extends HorizontalDirectionalBlock {
     public static final BooleanProperty IS_WATER_INSIDE = BooleanProperty.create("is_water_inside");
     public TeaPotBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState((BlockState)((BlockState)((BlockState)this.stateDefinition.any()).setValue(WHAT_LEAVES_INSIDE, 0)));
-        this.registerDefaultState((BlockState)((BlockState)((BlockState)this.stateDefinition.any()).setValue(WHAT_TEA_INSIDE, 0)));
-        this.registerDefaultState((BlockState)((BlockState)((BlockState)this.stateDefinition.any()).setValue(IS_WATER_INSIDE, false)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(WHAT_LEAVES_INSIDE, 0).setValue(WHAT_TEA_INSIDE, 0).setValue(IS_WATER_INSIDE, false));
     }
 
     @Override
@@ -85,10 +85,7 @@ public class TeaPotBlock extends HorizontalDirectionalBlock {
 
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        boolean flag = false;
-        int i = (int) state.getValue(WHAT_LEAVES_INSIDE);
-        boolean j = (boolean)state.getValue(IS_WATER_INSIDE);
-        if (!j) {
+        if (!state.getValue(IS_WATER_INSIDE)) {
             if (stack.is(ModItems.BOILED_WATER.get())) {
                 stack.consume(1, player);
                 level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -97,12 +94,14 @@ public class TeaPotBlock extends HorizontalDirectionalBlock {
                 } else if (!player.getInventory().add(new ItemStack(Items.BUCKET))) {
                     player.drop(new ItemStack(Items.BUCKET), false);
                 }
-                flag = true;
-                level.setBlockAndUpdate(pos, state.setValue(IS_WATER_INSIDE, true));
+                BlockState newState = state.setValue(IS_WATER_INSIDE, true);
+                level.setBlock(pos, newState, 3);
+                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, newState));
+
             }
         }
 
-        if (i == 0) {
+        if (state.getValue(WHAT_LEAVES_INSIDE) == 0) {
             Item item = stack.getItem();
             checkLeaves(stack, state, level, pos, player);
             if (!level.isClientSide()) {
@@ -111,8 +110,14 @@ public class TeaPotBlock extends HorizontalDirectionalBlock {
 
 
         }
-        if (j && i != 0) {
-            level.setBlockAndUpdate(pos, state.setValue(WHAT_TEA_INSIDE, i));
+        if (state.getValue(IS_WATER_INSIDE) &&
+                state.getValue(WHAT_LEAVES_INSIDE) != 0 &&
+                state.getValue(WHAT_TEA_INSIDE) == 0) {
+
+            BlockState newState = state.setValue(WHAT_TEA_INSIDE, state.getValue(WHAT_LEAVES_INSIDE));
+            level.setBlock(pos, newState, 3);
+            level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, newState));
+
         }
 
         List<Item> tea_list = List.of(ModItems.CHAKHAI_GREEN_TEA.get(), ModItems.CHAKHAI_BLACK_TEA.get(), ModItems.CHAKHAI_HIBISCUS_TEA.get(), ModItems.CHAKHAI_DAISY_TEA.get(), ModItems.CHAKHAI_PALE_TEA.get(), ModItems.CHAKHAI_PITCHER_TEA.get(), ModItems.CHAKHAI_CACTUS_TEA.get(), ModItems.CHAKHAI_CHORUS_TEA.get(), ModItems.CHAKHAI_ANCIENT_TEA.get(), ModItems.CHAKHAI_WANDERERS_TEA.get(), ModItems.CHAKHAI_CRIMSON_TEA.get());
@@ -125,14 +130,15 @@ public class TeaPotBlock extends HorizontalDirectionalBlock {
         } else {
             return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
         }
-
     }
     private void checkLeaves(ItemStack leaves, BlockState state, Level level, BlockPos pos, Player player) {
         List<Item> leaves_list = List.of(ModItems.GREEN_TEA_LEAVES.get(), ModItems.BLACK_TEA_LEAVES.get(), ModItems.DRIED_HIBISCUS_PETALS.get(), ModItems.DAISY_TEA_LEAVES.get(), ModItems.PALE_TEA_LEAVES.get(), ModItems.DRIED_PITCHER_PLANT.get(), ModItems.CACTUS_TEA_LEAVES.get(), ModItems.CHORUS_TEA_LEAVES.get(), ModItems.DRIED_TORCHFLOWER.get(), ModItems.STRANGE_PETALS.get(), ModItems.CRIMSON_TEA_LEAVES.get());
         if (leaves_list.contains(leaves.getItem())) {
             leaves.consume(1, player);
             level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-            level.setBlockAndUpdate(pos, state.setValue(WHAT_LEAVES_INSIDE, leaves_list.indexOf(leaves.getItem()) + 1));
+            BlockState newState = state.setValue(WHAT_LEAVES_INSIDE, leaves_list.indexOf(leaves.getItem()) + 1);
+            level.setBlock(pos, newState, 3);
+            level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, newState));
         }
 
     }
@@ -142,8 +148,9 @@ public class TeaPotBlock extends HorizontalDirectionalBlock {
         ItemStack newStack = new ItemStack(tea_list.get(state.getValue(WHAT_TEA_INSIDE) - 1));
         newStack.setDamageValue(chakhai.is(ModItems.CHAKHAI) ? 5 : chakhai.getDamageValue() - 1);
         player.setItemInHand(hand, newStack);
-        level.setBlockAndUpdate(pos, state.setValue(IS_WATER_INSIDE, false).setValue(WHAT_TEA_INSIDE, 0).setValue(WHAT_LEAVES_INSIDE, 0));
-
+        BlockState newState = state.setValue(WHAT_LEAVES_INSIDE, 0).setValue(WHAT_TEA_INSIDE, 0).setValue(IS_WATER_INSIDE, false);
+        level.setBlock(pos, newState, 3);
+        level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, newState));
     }
 
     @Override

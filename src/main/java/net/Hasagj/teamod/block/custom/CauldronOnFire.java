@@ -47,9 +47,7 @@ public class CauldronOnFire extends HorizontalDirectionalBlock {
     public static final MapCodec<CauldronOnFire> CODEC = simpleCodec(CauldronOnFire::new);
     public static final IntegerProperty IS_FULL = IntegerProperty.create("is_full", 0, 2);
     private static final VoxelShape SHAPE = Shapes.join(
-            // Дно
             Block.box(0, 0, 0, 16, 16, 16),
-            // Левая стенка
             Block.box(2, 6, 2, 14, 16, 14),
             BooleanOp.ONLY_FIRST
     );
@@ -102,6 +100,7 @@ public class CauldronOnFire extends HorizontalDirectionalBlock {
                 }
                 flag = true;
                 level.setBlockAndUpdate(pos, state.setValue(IS_FULL, 1));
+                state = level.getBlockState(pos);
                 level.scheduleTick(pos, this, 300);
             }
             return InteractionResult.SUCCESS;
@@ -117,6 +116,7 @@ public class CauldronOnFire extends HorizontalDirectionalBlock {
                 }
                 flag = true;
                 level.setBlockAndUpdate(pos, state.setValue(IS_FULL, 0));
+                state = level.getBlockState(pos);
             }
             return InteractionResult.SUCCESS;
         }
@@ -131,6 +131,7 @@ public class CauldronOnFire extends HorizontalDirectionalBlock {
                 }
                 flag = true;
                 level.setBlockAndUpdate(pos, state.setValue(IS_FULL, 0));
+                state = level.getBlockState(pos);
             }
             return InteractionResult.SUCCESS;
         } else {
@@ -140,6 +141,7 @@ public class CauldronOnFire extends HorizontalDirectionalBlock {
     public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (state.getValue(IS_FULL) == 1) {
             level.setBlock(pos, state.setValue(IS_FULL, 2), 3);
+            state = level.getBlockState(pos);
         }
     }
 

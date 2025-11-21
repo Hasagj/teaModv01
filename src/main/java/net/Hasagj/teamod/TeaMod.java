@@ -90,6 +90,7 @@ public class TeaMod
         new FishingEvent();
         new EntitySpawnEvent();
         new AnvilEvent();
+        new OnEntityTickEvent();
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

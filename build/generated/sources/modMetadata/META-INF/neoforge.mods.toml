@@ -23,7 +23,7 @@ license="MIT"
 modId="teamod" #mandatory
 
 # The version number of the mod
-version="1.2.0-1.21.5" #mandatory
+version="1.2.0.exclusive-1.21.5" #mandatory
 
 # A display name for the mod
 displayName="Tea Ceremony" #mandatory

@@ -125,6 +125,7 @@ public class PiscesBlock extends HorizontalDirectionalBlock {
                 return InteractionResult.SUCCESS;
             } else if (state.getValue(ACTIVE) && stack.has(DataComponents.ENCHANTABLE) && state.getValue(HAS_ENCH)) {
                 level.setBlockAndUpdate(pos, state.setValue(ACTIVE, false).setValue(HAS_ENCH, false));
+                state = level.getBlockState(pos);
                 if (level.random.nextInt(100) <= 20) {
                     stack.hurtWithoutBreaking(stack.getMaxDamage() - 1, player);
                     serverLevel.sendParticles(ParticleTypes.ANGRY_VILLAGER,

@@ -10,7 +10,7 @@
   "ingredient8": "minecraft:open_eyeblossom",
   "ingredient9": "teamod:dried_tea_leaf",
   "result": {
-    "count": 2,
+    "count": 1,
     "id": "teamod:pale_tea_leaves"
   }
 }
