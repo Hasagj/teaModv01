@@ -191,6 +191,15 @@ public class RenderEvent {
                 }
             }
         }
+        if (player.hasEffect(ModEffects.RESONANCE_EFFECT) && !player.isSpectator()) {
+            int left = mc.getWindow().getGuiScaledWidth() / 2;
+            int top = mc.getWindow().getGuiScaledHeight() / 2;
+            if (OnClientTickEvent.HOLD_TIME != 0) {
+                graphics.blit(RenderType.GUI_TEXTURED, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "textures/gui/hud/charge/charge" + (int)(OnClientTickEvent.HOLD_TIME / 20 + 1) + ".png"), left - 16, top - 16, 0, 0, 32, 32, 32, 32);
+
+            }
+
+        }
 
     }
 

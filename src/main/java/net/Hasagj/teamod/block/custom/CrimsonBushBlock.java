@@ -15,6 +15,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.monster.hoglin.Hoglin;
+import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -67,7 +69,7 @@ public class CrimsonBushBlock extends SweetBerryBushBlock {
 
     @Override
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effect) {
-        if (level instanceof ServerLevel serverLevel && entity instanceof LivingEntity && state.getValue(AGE) >= 2) {
+        if (level instanceof ServerLevel serverLevel && entity instanceof LivingEntity livingEntity && state.getValue(AGE) >= 2 && !(livingEntity instanceof AbstractPiglin) && !(livingEntity instanceof Hoglin)) {
             entity.makeStuckInBlock(state, new Vec3((double)0.8F, (double)0.75F, (double)0.8F));
             entity.hurtServer(serverLevel, entity.damageSources().sweetBerryBush(), 1);
             ((LivingEntity) entity).addEffect(new MobEffectInstance(ModEffects.BLEEDING_EFFECT, 200, 1));

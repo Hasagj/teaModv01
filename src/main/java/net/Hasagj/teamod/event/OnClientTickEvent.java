@@ -4,16 +4,20 @@ import com.mojang.blaze3d.framegraph.FrameGraphBuilder;
 import com.mojang.blaze3d.pipeline.RenderTarget;
 import com.mojang.blaze3d.systems.RenderPass;
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.hasagj.teamod.ModKeyMappings;
 import net.hasagj.teamod.TeaMod;
 import net.hasagj.teamod.effect.ModEffects;
+import net.hasagj.teamod.network.AbilityUsePacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LevelTargetBundle;
 import net.minecraft.client.renderer.PostChain;
 import net.minecraft.client.renderer.PostChainConfig;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -35,6 +39,8 @@ public class OnClientTickEvent {
         // Регистрируем событие в NeoForge
         NeoForge.EVENT_BUS.register(this);
     }
+    protected static int HOLD_TIME = 0;
+
     @SubscribeEvent
     public void onTick(ClientTickEvent.Post event) {
 
@@ -48,6 +54,15 @@ public class OnClientTickEvent {
                 Minecraft.getInstance().gameRenderer.clearPostEffect();
             }
         }
+
+        if (ModKeyMappings.ABILITY.isDown()) {
+            var mc = Minecraft.getInstance();
+            var player = mc.player;
+            if (player == null || !player.hasEffect(ModEffects.RESONANCE_EFFECT) || player.getFoodData().getFoodLevel() == 0) return;
+            if (HOLD_TIME >= 60) {
+                Minecraft.getInstance().getConnection().send(new AbilityUsePacket().toVanillaServerbound());
+            } else HOLD_TIME++;
+        } else HOLD_TIME = 0;
 
     }
 

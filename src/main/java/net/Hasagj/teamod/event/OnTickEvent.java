@@ -94,6 +94,7 @@ public class OnTickEvent {
 
             }
 
+
             if (player.hasEffect(ModEffects.THORNY_EFFECT)) {
                 if (player.getItemBySlot(EquipmentSlot.CHEST).is(Items.NETHERITE_CHESTPLATE)) {
                     var enchantments = player.getItemBySlot(EquipmentSlot.CHEST).get(DataComponents.ENCHANTMENTS);

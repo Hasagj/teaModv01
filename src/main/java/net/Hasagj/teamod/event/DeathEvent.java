@@ -14,7 +14,10 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.ElderGuardian;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -37,6 +40,9 @@ public class DeathEvent {
             if (player.hasEffect(ModEffects.GARDENS_BLESSING_EFFECT) && entity.getType() == EntityType.CREAKING) {
                 ModTriggers.CREAKING_TRIGGER.get().trigger(player);
             }
+        }
+        if (event.getSource().getEntity() instanceof Player player && player.hasEffect(MobEffects.CONDUIT_POWER) && entity instanceof ElderGuardian guardian) {
+            guardian.level().addFreshEntity(new ItemEntity(guardian.level(), guardian.getX(), guardian.getY(), guardian.getZ(), new ItemStack(ModItems.BROKEN_NAUTILUS_CUP.get())));
         }
     }
 }

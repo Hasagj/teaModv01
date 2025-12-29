@@ -49,22 +49,68 @@ public class ModItems {
 
     public static final DeferredItem<Item> TEA_LEAF = ITEMS.registerItem("tea_leaf",
             (properties) -> new Item(properties));
+    public static final DeferredItem<Item> PERFECT_TEA_LEAF = ITEMS.registerItem("perfect_tea_leaf",
+            (properties) -> new Item(properties)
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
+                    component.accept(Component.translatable("tooltip.teamod.perfect_tea_leaf").withColor(0x1CE383));
+                    super.appendHoverText(stack, context, display, component, tooltipFlag);
+
+                }
+            });
     public static final DeferredItem<Item> CRIMSON_TEA_LEAF = ITEMS.registerItem("crimson_tea_leaf",
             (properties) -> new Item(properties));
     public static final DeferredItem<Item> CRIMSON_FRUIT = ITEMS.registerItem("crimson_fruit",
             (properties) -> new BlockItem(ModBlocks.CRIMSON_BUSH.get(), properties.food(new FoodProperties(3, 3, true), Consumables.defaultFood().onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(ModEffects.BLEEDING_EFFECT, 300, 1))).build())));
     public static final DeferredItem<Item> LIGHTLY_DRIED_TEA_LEAF = ITEMS.registerItem("lightly_dried_tea_leaf",
             (properties) -> new Item(properties));
+    public static final DeferredItem<Item> PERFECT_LD_TEA_LEAF = ITEMS.registerItem("perfect_ld_tea_leaf",
+            (properties) -> new Item(properties){
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
+                    component.accept(Component.translatable("tooltip.teamod.perfect_tea_leaf").withColor(0x1CE383));
+                    super.appendHoverText(stack, context, display, component, tooltipFlag);
+
+                }
+            });
     public static final DeferredItem<Item> DRIED_TEA_LEAF = ITEMS.registerItem("dried_tea_leaf",
             (properties) -> new Item(properties));
+    public static final DeferredItem<Item> PERFECT_D_TEA_LEAF = ITEMS.registerItem("perfect_d_tea_leaf",
+            (properties) -> new Item(properties){
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
+                    component.accept(Component.translatable("tooltip.teamod.perfect_tea_leaf").withColor(0x1CE383));
+                    super.appendHoverText(stack, context, display, component, tooltipFlag);
+
+                }
+            });
     public static final DeferredItem<Item> BLACK_TEA_LEAVES = ITEMS.registerItem("black_tea_leaves",
             (properties) -> new Item(properties));
+    public static final DeferredItem<Item> PERFECT_BLACK_TEA_LEAVES = ITEMS.registerItem("perfect_black_tea_leaves",
+            (properties) -> new Item(properties){
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
+                    component.accept(Component.translatable("tooltip.teamod.perfect_tea_leaf").withColor(0x1CE383));
+                    super.appendHoverText(stack, context, display, component, tooltipFlag);
+
+                }
+            });
     public static final DeferredItem<Item> PALE_TEA_LEAVES = ITEMS.registerItem("pale_tea_leaves",
             (properties) -> new Item(properties));
     public static final DeferredItem<Item> DAISY_TEA_LEAVES = ITEMS.registerItem("daisy_tea_leaves",
             (properties) -> new Item(properties));
     public static final DeferredItem<Item> GREEN_TEA_LEAVES = ITEMS.registerItem("green_tea_leaves",
             (properties) -> new Item(properties));
+    public static final DeferredItem<Item> PERFECT_GREEN_TEA_LEAVES = ITEMS.registerItem("perfect_green_tea_leaves",
+            (properties) -> new Item(properties){
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
+                    component.accept(Component.translatable("tooltip.teamod.perfect_tea_leaf").withColor(0x1CE383));
+                    super.appendHoverText(stack, context, display, component, tooltipFlag);
+
+                }
+            });
     public static final DeferredItem<Item> TEA_SEEDS = ITEMS.registerItem("tea_seeds",
             (properties) -> new BlockItem(ModBlocks.TEA_BUSH.get(), properties));
     public static final DeferredItem<Item> HIBISCUS_FLOWER = ITEMS.registerItem("hibiscus_flower",
@@ -85,11 +131,13 @@ public class ModItems {
             (properties) -> new Item(properties));
     public static final DeferredItem<Item> CRIMSON_TEA_LEAVES = ITEMS.registerItem("crimson_tea_leaves",
             (properties) -> new Item(properties));
+    public static final DeferredItem<Item> CORAL_TEA_LEAVES = ITEMS.registerItem("coral_tea_leaves",
+            (properties) -> new Item(properties));
+    public static final DeferredItem<Item> SCULK_BURGEON = ITEMS.registerItem("sculk_burgeon",
+            (properties) -> new Item(properties));
 
     public static final DeferredItem<Item> TEA_HANDBOOK = ITEMS.registerItem("tea_handbook",
             (properties) -> new TeaHandbookItem(properties.stacksTo(1)));
-
-
     public static final DeferredItem<Item> PITCHER_TURNIP = ITEMS.registerItem("pitcher_turnip",
             (properties) -> new Item(properties.food(new FoodProperties.Builder().nutrition(3).saturationModifier(1f).build())));
 
@@ -104,9 +152,16 @@ public class ModItems {
             (properties) -> new Item(properties.stacksTo(1)));
     public static final DeferredItem<Item> NETHER_CUP = ITEMS.registerItem("nether_cup",
             (properties) -> new Item(properties.stacksTo(1)));
+    public static final DeferredItem<Item> BROKEN_NAUTILUS_CUP = ITEMS.registerItem("broken_nautilus_cup",
+            (properties) -> new Item(properties.stacksTo(1)));
+    public static final DeferredItem<Item> NAUTILUS_CUP = ITEMS.registerItem("nautilus_cup",
+            (properties) -> new Item(properties.stacksTo(1)));
+    public static final DeferredItem<Item> BROKEN_REINFORCED_CUP = ITEMS.registerItem("broken_reinforced_cup",
+            (properties) -> new Item(properties.stacksTo(1)));
+    public static final DeferredItem<Item> REINFORCED_CUP = ITEMS.registerItem("reinforced_cup",
+            (properties) -> new Item(properties.stacksTo(1)));
     public static final DeferredItem<Item> CUP_GREEN_TEA = ITEMS.registerItem("cup_green_tea",
-            (properties) -> new Item(properties.stacksTo(1).component(DataComponents.CONSUMABLE, Consumables.defaultDrink()
-                            .onConsume(ClearAllStatusEffectsConsumeEffect.INSTANCE).build())
+            (properties) -> new Item(properties.stacksTo(1).component(DataComponents.CONSUMABLE, Consumables.defaultDrink().build())
                     .usingConvertsTo(CUP.get())) {
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
@@ -115,8 +170,7 @@ public class ModItems {
                 }
             });
     public static final DeferredItem<Item> CUP_BLACK_TEA = ITEMS.registerItem("cup_black_tea",
-            (properties) -> new Item(properties.stacksTo(1).component(DataComponents.CONSUMABLE, Consumables.defaultDrink()
-                            .onConsume(ClearAllStatusEffectsConsumeEffect.INSTANCE).build())
+            (properties) -> new Item(properties.stacksTo(1).component(DataComponents.CONSUMABLE, Consumables.defaultDrink().build())
                             .usingConvertsTo(CUP.get())){
 
                 @Override
@@ -226,6 +280,7 @@ public class ModItems {
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
                     component.accept(Component.translatable("tooltip.teamod.cup_crimson_tea.tooltip").withColor(0x911D00));
+                    component.accept(Component.translatable("tooltip.teamod.wrong_cup.tooltip").withColor(0xFFFFFF));
                     super.appendHoverText(stack, context, display, component, tooltipFlag);
 
                 }
@@ -236,7 +291,75 @@ public class ModItems {
                             .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(ModEffects.BLOODTHIRST_EFFECT, 1800))).build()).usingConvertsTo(BROKEN_NETHER_CUP.get())) {
                 @Override
                 public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
-                    component.accept(Component.translatable("tooltip.teamod.nether_cup_crimson_tea.tooltip").withColor(0x911D00));
+                    component.accept(Component.translatable("tooltip.teamod.cup_crimson_tea.tooltip").withColor(0x911D00));
+                    super.appendHoverText(stack, context, display, component, tooltipFlag);
+
+                }
+            });
+    public static final DeferredItem<Item> CUP_CORAL_TEA = ITEMS.registerItem("cup_coral_tea",
+            (properties) -> new Item(properties.stacksTo(1)
+                    .component(DataComponents.CONSUMABLE, Consumables.defaultDrink()
+                            .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.CONDUIT_POWER, 600))).build())) {
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
+                    component.accept(Component.translatable("tooltip.teamod.cup_coral_tea.tooltip").withColor(0x27B7F5));
+                    component.accept(Component.translatable("tooltip.teamod.wrong_cup.tooltip").withColor(0xFFFFFF));
+                    super.appendHoverText(stack, context, display, component, tooltipFlag);
+
+                }
+            });
+    public static final DeferredItem<Item> NAUTILUS_CUP_CORAL_TEA = ITEMS.registerItem("nautilus_cup_coral_tea",
+            (properties) -> new Item(properties.stacksTo(1).useCooldown(420)
+                    .component(DataComponents.CONSUMABLE, Consumables.defaultDrink()
+                            .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(ModEffects.SEAS_BLESSING_EFFECT, 6000))).build()).usingConvertsTo(BROKEN_NAUTILUS_CUP.get())) {
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
+                    component.accept(Component.translatable("tooltip.teamod.cup_coral_tea.tooltip").withColor(0x27B7F5));
+                    super.appendHoverText(stack, context, display, component, tooltipFlag);
+
+                }
+            });
+    public static final DeferredItem<Item> CUP_SCULK_TEA = ITEMS.registerItem("cup_sculk_tea",
+            (properties) -> new Item(properties.stacksTo(1)
+                    .component(DataComponents.CONSUMABLE, Consumables.defaultDrink()
+                            .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(ModEffects.ECHO_EFFECT, 600))).build())) {
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
+                    component.accept(Component.translatable("tooltip.teamod.cup_sculk_tea.tooltip").withColor(0x034150));
+                    component.accept(Component.translatable("tooltip.teamod.wrong_cup.tooltip").withColor(0xFFFFFF));
+                    super.appendHoverText(stack, context, display, component, tooltipFlag);
+
+                }
+            });
+    public static final DeferredItem<Item> REINFORCED_CUP_SCULK_TEA = ITEMS.registerItem("reinforced_cup_sculk_tea",
+            (properties) -> new Item(properties.stacksTo(1).useCooldown(48000)
+                    .component(DataComponents.CONSUMABLE, Consumables.defaultDrink()
+                            .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(ModEffects.RESONANCE_EFFECT, 24000))).build()).usingConvertsTo(BROKEN_REINFORCED_CUP.get())) {
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
+                    component.accept(Component.translatable("tooltip.teamod.cup_sculk_tea.tooltip").withColor(0x034150));
+                    super.appendHoverText(stack, context, display, component, tooltipFlag);
+
+                }
+            });
+
+    public static final DeferredItem<Item> CUP_PERFECT_GREEN_TEA = ITEMS.registerItem("cup_perfect_green_tea",
+            (properties) -> new Item(properties.stacksTo(1).useCooldown(10)
+                    .component(DataComponents.CONSUMABLE, Consumables.defaultDrink().build()).usingConvertsTo(CUP.get())) {
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
+                    component.accept(Component.translatable("tooltip.teamod.cup_perfect_green_tea.tooltip").withColor(0xADFF2F));
+                    super.appendHoverText(stack, context, display, component, tooltipFlag);
+
+                }
+            });
+
+    public static final DeferredItem<Item> CUP_PERFECT_BLACK_TEA = ITEMS.registerItem("cup_perfect_black_tea",
+            (properties) -> new Item(properties.stacksTo(1).useCooldown(10)
+                    .component(DataComponents.CONSUMABLE, Consumables.defaultDrink().build()).usingConvertsTo(CUP.get())) {
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> component, TooltipFlag tooltipFlag) {
+                    component.accept(Component.translatable("tooltip.teamod.cup_perfect_black_tea.tooltip").withColor(0xA0522D));
                     super.appendHoverText(stack, context, display, component, tooltipFlag);
 
                 }
@@ -282,6 +405,15 @@ public class ModItems {
             (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),10 ,properties.stacksTo(1).durability(6)));
     public static final DeferredItem<Item> CHAKHAI_CRIMSON_TEA = ITEMS.registerItem("chakhai_crimson_tea",
             (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),11 ,properties.stacksTo(1).durability(6)));
+    public static final DeferredItem<Item> CHAKHAI_CORAL_TEA = ITEMS.registerItem("chakhai_coral_tea",
+            (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),12 ,properties.stacksTo(1).durability(6)));
+    public static final DeferredItem<Item> CHAKHAI_SCULK_TEA = ITEMS.registerItem("chakhai_sculk_tea",
+            (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),13 ,properties.stacksTo(1).durability(6)));
+    public static final DeferredItem<Item> CHAKHAI_PERFECT_GREEN_TEA = ITEMS.registerItem("chakhai_perfect_green_tea",
+            (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),14 ,properties.stacksTo(1).durability(6)));
+    public static final DeferredItem<Item> CHAKHAI_PERFECT_BLACK_TEA = ITEMS.registerItem("chakhai_perfect_black_tea",
+            (properties) -> new BlockItemState(ModBlocks.CHAKHAI_BLOCK.get(),15 ,properties.stacksTo(1).durability(6)));
+
     public static final DeferredItem<Item> RAW_CHAKHAI = ITEMS.registerItem("raw_chakhai",
             (properties) -> new Item(properties.stacksTo(1)));
     public static final DeferredItem<Item> MOON_RAVEN = ITEMS.registerItem("moon_raven",

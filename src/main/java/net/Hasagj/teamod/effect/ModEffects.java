@@ -52,7 +52,11 @@ public class ModEffects {
             .addAttributeModifier(Attributes.OXYGEN_BONUS, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "seas_blessing"), 20, AttributeModifier.Operation.ADD_VALUE)
                     .addAttributeModifier(Attributes.KNOCKBACK_RESISTANCE, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "seas_blessing"), 10, AttributeModifier.Operation.ADD_VALUE)
                     .addAttributeModifier(Attributes.EXPLOSION_KNOCKBACK_RESISTANCE, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "seas_blessing"), 10, AttributeModifier.Operation.ADD_VALUE));
-
+    public static final Holder<MobEffect> RESONANCE_EFFECT = MOB_EFFECTS.register("resonance",
+            () -> new ResonanceEffect(MobEffectCategory.BENEFICIAL, 0x006E59));
+    public static final Holder<MobEffect> ECHO_EFFECT = MOB_EFFECTS.register("echo",
+            () -> new EchoEffect(MobEffectCategory.HARMFUL, 0x038CFB8).addAttributeModifier(Attributes.ARMOR, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "echo"), -2, AttributeModifier.Operation.ADD_VALUE)
+    );
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);

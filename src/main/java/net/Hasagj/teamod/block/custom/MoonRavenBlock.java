@@ -2,6 +2,7 @@ package net.hasagj.teamod.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.hasagj.teamod.block.ModBlocks;
+import net.hasagj.teamod.item.ItemCategory;
 import net.hasagj.teamod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -89,8 +90,7 @@ public class MoonRavenBlock extends HorizontalDirectionalBlock {
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         MinecraftServer server = level.getServer();
-        List<Item> tea_list = List.of(ModItems.CUP_GREEN_TEA.get(), ModItems.CUP_BLACK_TEA.get(), ModItems.CUP_HIBISCUS_TEA.get(), ModItems.CUP_DAISY_TEA.get(), ModItems.CUP_PALE_TEA.get(), ModItems.CUP_PITCHER_TEA.get(), ModItems.CUP_CACTUS_TEA.get(), ModItems.CUP_CHORUS_TEA.get(), ModItems.CUP_ANCIENT_TEA.get(), ModItems.CUP_WANDERERS_TEA.get());
-        if (tea_list.contains(stack.getItem()) && level instanceof ServerLevel serverLevel) {
+        if (ItemCategory.CUPS.getItems().contains(stack.getItem()) && level instanceof ServerLevel serverLevel) {
             stack.consume(1, player);
             level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
             serverLevel.sendParticles(ParticleTypes.SPLASH,

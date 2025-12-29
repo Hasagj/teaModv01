@@ -8,12 +8,16 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Position;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.particles.ColorParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.protocol.game.ClientboundSetHealthPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -156,6 +160,60 @@ public class FinishUseEvent  {
                 player.teleportTo(x, y, z);
                 serverLevel.playSound(null, x, y, z, ModSounds.TELEPORT.get(), SoundSource.PLAYERS);
             }
+
+        }
+
+        if (entity instanceof ServerPlayer player && player.level() instanceof ServerLevel serverLevel && usedItem.is(ModItems.CUP_BLACK_TEA)) {
+            if (player.getActiveEffects().isEmpty()) return;
+            for (MobEffectInstance effect : player.getActiveEffects()) {
+                if (!effect.getEffect().value().isBeneficial()) {
+                    player.getFoodData().eat(2, 2);
+                }
+            }
+            player.removeAllEffects();
+        }
+        if (entity instanceof ServerPlayer player && player.level() instanceof ServerLevel serverLevel && usedItem.is(ModItems.CUP_GREEN_TEA)) {
+            if (player.getActiveEffects().isEmpty()) return;
+            List<MobEffectInstance> effectList = player.getActiveEffects().stream().toList();
+            for (MobEffectInstance effect : effectList) {
+                if (!effect.getEffect().value().isBeneficial()) {
+                    player.removeEffect(effect.getEffect());
+                }
+            }
+        }
+
+        if (entity instanceof ServerPlayer player && player.level() instanceof ServerLevel serverLevel && usedItem.is(ModItems.CUP_PERFECT_GREEN_TEA)) {
+            if (player.getActiveEffects().isEmpty()) return;
+            List<MobEffectInstance> effectList = player.getActiveEffects().stream().toList();
+            for (MobEffectInstance effect : effectList) {
+                if (!effect.getEffect().value().isBeneficial()) {
+                    for (LivingEntity livingEntity : serverLevel.getEntitiesOfClass(LivingEntity.class, player.getBoundingBox().inflate(10))) {
+                        livingEntity.addEffect(new MobEffectInstance(effect.getEffect(), effect.getDuration() * 2, effect.getAmplifier()));
+                    }
+                    player.removeEffect(effect.getEffect());
+                    serverLevel.sendParticles(effect.getParticleOptions(), player.getX(), player.getY() + 0.5F, player.getZ(), 50, 4, 4, 4, 2.0F);
+                }
+            }
+            serverLevel.playSound(null, player.getOnPos(), SoundEvents.ZOMBIE_VILLAGER_CURE, SoundSource.PLAYERS, 1.0F, 1.0F);
+
+        }
+
+        if (entity instanceof ServerPlayer player && player.level() instanceof ServerLevel serverLevel && usedItem.is(ModItems.CUP_PERFECT_BLACK_TEA)) {
+            if (player.getActiveEffects().isEmpty()) return;
+            List<MobEffectInstance> effectList = player.getActiveEffects().stream().toList();
+            player.removeAllEffects();
+            for (MobEffectInstance effect : effectList) {
+                player.getFoodData().eat(2, 2);
+                if (!effect.getEffect().value().isBeneficial()) {
+                    if (player.getAbsorptionAmount() > 0) {
+                        player.setAbsorptionAmount(player.getAbsorptionAmount() + 2);
+                    } else {
+                        player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, Math.min(effectList.size() * 1200, 6000), 10));
+                        player.setAbsorptionAmount(2);
+                    }
+                }
+            }
+            serverLevel.playSound(null, player.getOnPos(), SoundEvents.ZOMBIE_VILLAGER_CURE, SoundSource.PLAYERS, 1.0F, 1.0F);
 
         }
 

@@ -106,6 +106,10 @@ public class PreDamageEvent {
                 livingEntity.knockback(0.5F, -direction.x, -direction.z);
             }
         }
+        if (event.getSource().getEntity() instanceof LivingEntity livingEntity && livingEntity.hasEffect(ModEffects.RESONANCE_EFFECT)) {
+            event.getEntity().addEffect(new MobEffectInstance(ModEffects.ECHO_EFFECT, 400));
+
+        }
 
     }
 

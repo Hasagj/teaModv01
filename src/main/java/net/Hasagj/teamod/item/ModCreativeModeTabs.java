@@ -22,27 +22,34 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.TEA_SEEDS);
                         output.accept(ModItems.TEA_LEAF);
+                        output.accept(ModItems.PERFECT_TEA_LEAF);
                         output.accept(ModItems.LIGHTLY_DRIED_TEA_LEAF);
+                        output.accept(ModItems.PERFECT_LD_TEA_LEAF);
                         output.accept(ModItems.DRIED_TEA_LEAF);
+                        output.accept(ModItems.PERFECT_D_TEA_LEAF);
                         output.accept(ModItems.CRIMSON_FRUIT);
                         output.accept(ModItems.CRIMSON_TEA_LEAF);
-                        output.accept(ModItems.GREEN_TEA_LEAVES);
-                        output.accept(ModItems.BLACK_TEA_LEAVES);
-                        output.accept(ModItems.PALE_TEA_LEAVES);
-                        output.accept(ModItems.CACTUS_TEA_LEAVES);
-                        output.accept(ModItems.CHORUS_TEA_LEAVES);
                         output.accept(ModBlocks.HIBISCUS_SAPLING.get());
                         output.accept(ModBlocks.FLOWERLESS_LEAVES.get());
                         output.accept(ModBlocks.HIBISCUS_LEAVES.get());
                         output.accept(ModItems.HIBISCUS_FLOWER);
-                        output.accept(ModItems.DRIED_HIBISCUS_PETALS);
                         output.accept(ModItems.DRIED_DAISY);
-                        output.accept(ModItems.DAISY_TEA_LEAVES);
-                        output.accept(ModItems.STRANGE_PETALS);
-                        output.accept(ModItems.DRIED_PITCHER_PLANT);
-                        output.accept(ModItems.DRIED_TORCHFLOWER);
-                        output.accept(ModItems.CRIMSON_TEA_LEAVES);
                         output.accept(ModItems.PITCHER_TURNIP);
+                        output.accept(ModItems.GREEN_TEA_LEAVES);
+                        output.accept(ModItems.PERFECT_GREEN_TEA_LEAVES);
+                        output.accept(ModItems.BLACK_TEA_LEAVES);
+                        output.accept(ModItems.PERFECT_BLACK_TEA_LEAVES);
+                        output.accept(ModItems.DRIED_HIBISCUS_PETALS);
+                        output.accept(ModItems.DAISY_TEA_LEAVES);
+                        output.accept(ModItems.PALE_TEA_LEAVES);
+                        output.accept(ModItems.DRIED_PITCHER_PLANT);
+                        output.accept(ModItems.CACTUS_TEA_LEAVES);
+                        output.accept(ModItems.CHORUS_TEA_LEAVES);
+                        output.accept(ModItems.DRIED_TORCHFLOWER);
+                        output.accept(ModItems.STRANGE_PETALS);
+                        output.accept(ModItems.CRIMSON_TEA_LEAVES);
+                        output.accept(ModItems.CORAL_TEA_LEAVES);
+                        output.accept(ModItems.SCULK_BURGEON);
                         output.accept(ModItems.BOILED_WATER);
 
 
@@ -54,7 +61,7 @@ public class ModCreativeModeTabs {
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "tea_items_tab"))
                     .title(Component.translatable("creativetab.teamod.dishes"))
                     .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(ModItems.TEA_HANDBOOK);
+//                        output.accept(ModItems.TEA_HANDBOOK);
                         output.accept(ModItems.RAW_CUP);
                         output.accept(ModItems.RAW_TEA_POT);
                         output.accept(ModItems.RAW_CHAKHAI);
@@ -63,6 +70,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CHAKHAI);
                         output.accept(ModItems.BROKEN_NETHER_CUP);
                         output.accept(ModItems.NETHER_CUP);
+                        output.accept(ModItems.BROKEN_NAUTILUS_CUP);
+                        output.accept(ModItems.NAUTILUS_CUP);
+                        output.accept(ModItems.BROKEN_REINFORCED_CUP);
+                        output.accept(ModItems.REINFORCED_CUP);
                         output.accept(ModBlocks.PRESS.get());
                         output.accept(ModItems.MOON_RAVEN);
                         output.accept(ModItems.FRAGMENT_HEAD);
@@ -83,8 +94,12 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.CHAKHAI_BLACK_TEA);
                         output.accept(ModItems.CUP_BLACK_TEA);
+                        output.accept(ModItems.CHAKHAI_PERFECT_BLACK_TEA);
+                        output.accept(ModItems.CUP_PERFECT_BLACK_TEA);
                         output.accept(ModItems.CHAKHAI_GREEN_TEA);
                         output.accept(ModItems.CUP_GREEN_TEA);
+                        output.accept(ModItems.CHAKHAI_PERFECT_GREEN_TEA);
+                        output.accept(ModItems.CUP_PERFECT_GREEN_TEA);
                         output.accept(ModItems.CHAKHAI_HIBISCUS_TEA);
                         output.accept(ModItems.CUP_HIBISCUS_TEA);
                         output.accept(ModItems.CHAKHAI_DAISY_TEA);
@@ -102,6 +117,15 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CHAKHAI_WANDERERS_TEA);
                         output.accept(ModItems.CUP_WANDERERS_TEA);
                         output.accept(ModItems.CHAKHAI_CRIMSON_TEA);
+                        output.accept(ModItems.CUP_CRIMSON_TEA);
+                        output.accept(ModItems.NETHER_CUP_CRIMSON_TEA);
+                        output.accept(ModItems.CHAKHAI_CORAL_TEA);
+                        output.accept(ModItems.CUP_CORAL_TEA);
+                        output.accept(ModItems.NAUTILUS_CUP_CORAL_TEA);
+                        output.accept(ModItems.CHAKHAI_SCULK_TEA);
+                        output.accept(ModItems.CUP_SCULK_TEA);
+                        output.accept(ModItems.REINFORCED_CUP_SCULK_TEA);
+
                     }).build());
 
 

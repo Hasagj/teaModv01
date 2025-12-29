@@ -1,0 +1,6 @@
+{
+  "parent":  "minecraft:item/generated",
+  "textures": {
+    "layer0": "teamod:item/nautilus_cup_coral_tea"
+  }
+}

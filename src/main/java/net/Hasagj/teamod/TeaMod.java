@@ -1,5 +1,6 @@
 package net.hasagj.teamod;
 
+import net.hasagj.teamod.ability.AbilityLogic;
 import net.hasagj.teamod.block.ModBlocks;
 import net.hasagj.teamod.block.entity.ModBlockEntities;
 import net.hasagj.teamod.effect.ModEffects;
@@ -8,6 +9,8 @@ import net.hasagj.teamod.item.ModCreativeModeTabs;
 import net.hasagj.teamod.item.ModItems;
 import net.hasagj.teamod.layer.NautilusLayer;
 import net.hasagj.teamod.loot.ModLootModifiers;
+import net.hasagj.teamod.network.AbilityUsePacket;
+import net.hasagj.teamod.network.ModNetwork;
 import net.hasagj.teamod.particle.ModParticles;
 import net.hasagj.teamod.particle.OrangeEyesParticles;
 import net.hasagj.teamod.recipe.ModRecipes;
@@ -19,9 +22,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.client.resources.PlayerSkin;
+import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -56,6 +62,7 @@ public class TeaMod
     {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(ModNetwork::register);
 
         ModBlocks.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
@@ -136,6 +143,12 @@ public class TeaMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+
+        }
+
+        @SubscribeEvent // on the mod event bus only on the physical client
+        public static void registerBindings(RegisterKeyMappingsEvent event) {
+            event.register(ModKeyMappings.ABILITY);
         }
         @SubscribeEvent
         public static void registerParticleFactories(RegisterParticleProvidersEvent event) {

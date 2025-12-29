@@ -2,6 +2,7 @@ package net.hasagj.teamod.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.hasagj.teamod.block.ModBlocks;
+import net.hasagj.teamod.item.ItemCategory;
 import net.hasagj.teamod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -105,45 +106,42 @@ public class TheWiseManBlock extends HorizontalDirectionalBlock {
 
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        List<Item> tea_list = List.of(ModItems.CUP_GREEN_TEA.get(), ModItems.CUP_BLACK_TEA.get(), ModItems.CUP_HIBISCUS_TEA.get(), ModItems.CUP_DAISY_TEA.get(), ModItems.CUP_PALE_TEA.get(), ModItems.CUP_PITCHER_TEA.get(), ModItems.CUP_CACTUS_TEA.get(), ModItems.CUP_CHORUS_TEA.get(), ModItems.CUP_ANCIENT_TEA.get(), ModItems.CUP_WANDERERS_TEA.get());
-        for (Item tea : tea_list) {
-            if (stack.is(tea) && player.experienceLevel >= 20 && !state.getValue(CAN_COLLECT) && state.getValue(XP) == 0 && player instanceof ServerPlayer serverPlayer && level instanceof ServerLevel serverLevel) {
-                stack.consume(1, player);
-                if (stack.isEmpty()) {
-                    player.setItemInHand(hand, new ItemStack(ModItems.CUP.get()));
-                } else if (!player.getInventory().add(new ItemStack(ModItems.CUP.get()))) {
-                    player.drop(new ItemStack(ModItems.CUP.get()), false);
-                }
-                serverLevel.sendParticles(ParticleTypes.SPLASH,
-                        pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F,
-                        30,
-                        0.25F, 0.25F, 0.25F,
-                        0);
-                this.emitParticles(serverPlayer, serverLevel, pos, 50, false);
-                playerUUID = player.getUUID();
-                level.scheduleTick(pos, this, 1);
-                level.playSound(null, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
-                return InteractionResult.SUCCESS;
-            } else if (stack.is(tea) && player.experienceLevel < 20 && player instanceof ServerPlayer serverPlayer && level instanceof ServerLevel serverLevel) {
-                stack.consume(1, player);
-                if (stack.isEmpty()) {
-                    player.setItemInHand(hand, new ItemStack(ModItems.CUP.get()));
-                } else if (!player.getInventory().add(new ItemStack(ModItems.CUP.get()))) {
-                    player.drop(new ItemStack(ModItems.CUP.get()), false);
-                }
-                serverLevel.sendParticles(ParticleTypes.ANGRY_VILLAGER,
-                        pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
-                        5,
-                        0.2, 0.2, 0.2,
-                        0.3);
-                return InteractionResult.SUCCESS;
-            } else if (stack.is(Items.BRUSH) && state.getValue(CAN_COLLECT) && state.getValue(XP) == 20 && player instanceof ServerPlayer serverPlayer && level instanceof ServerLevel serverLevel) {
-                stack.hurtWithoutBreaking(10 ,player);
-                this.emitParticles(serverPlayer, serverLevel, pos, 50, true);
-                playerUUID = player.getUUID();
-                level.scheduleTick(pos, this, 2);
-                return InteractionResult.SUCCESS;
+        if (ItemCategory.CUPS.getItems().contains(stack.getItem()) && player.experienceLevel >= 20 && !state.getValue(CAN_COLLECT) && state.getValue(XP) == 0 && player instanceof ServerPlayer serverPlayer && level instanceof ServerLevel serverLevel) {
+            stack.consume(1, player);
+            if (stack.isEmpty()) {
+                player.setItemInHand(hand, new ItemStack(ModItems.CUP.get()));
+            } else if (!player.getInventory().add(new ItemStack(ModItems.CUP.get()))) {
+                player.drop(new ItemStack(ModItems.CUP.get()), false);
             }
+            serverLevel.sendParticles(ParticleTypes.SPLASH,
+                    pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F,
+                    30,
+                    0.25F, 0.25F, 0.25F,
+                    0);
+            this.emitParticles(serverPlayer, serverLevel, pos, 50, false);
+            playerUUID = player.getUUID();
+            level.scheduleTick(pos, this, 1);
+            level.playSound(null, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
+            return InteractionResult.SUCCESS;
+        } else if (ItemCategory.CUPS.getItems().contains(stack.getItem()) && player.experienceLevel < 20 && player instanceof ServerPlayer serverPlayer && level instanceof ServerLevel serverLevel) {
+            stack.consume(1, player);
+            if (stack.isEmpty()) {
+                player.setItemInHand(hand, new ItemStack(ModItems.CUP.get()));
+            } else if (!player.getInventory().add(new ItemStack(ModItems.CUP.get()))) {
+                player.drop(new ItemStack(ModItems.CUP.get()), false);
+            }
+            serverLevel.sendParticles(ParticleTypes.ANGRY_VILLAGER,
+                    pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
+                    5,
+                    0.2, 0.2, 0.2,
+                    0.3);
+            return InteractionResult.SUCCESS;
+        } else if (stack.is(Items.BRUSH) && state.getValue(CAN_COLLECT) && state.getValue(XP) == 20 && player instanceof ServerPlayer serverPlayer && level instanceof ServerLevel serverLevel) {
+            stack.hurtWithoutBreaking(10 ,player);
+            this.emitParticles(serverPlayer, serverLevel, pos, 50, true);
+            playerUUID = player.getUUID();
+            level.scheduleTick(pos, this, 2);
+            return InteractionResult.SUCCESS;
         }
         return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
     }

@@ -18,6 +18,9 @@ public class ModDamageTypes {
             ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "water_damage"));
     public static final ResourceKey<DamageType> BOIL_DAMAGE =
             ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "boil_damage"));
+    public static final ResourceKey<DamageType> BLEEDING_DAMAGE =
+            ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(TeaMod.MOD_ID, "bleeding_damage"));
+
 
     public static DamageSource water(ServerLevel level) {
         Holder.Reference<DamageType> holder = level.registryAccess()
@@ -30,6 +33,13 @@ public class ModDamageTypes {
         Holder.Reference<DamageType> holder = level.registryAccess()
                 .lookup(Registries.DAMAGE_TYPE).get()
                 .getOrThrow(BOIL_DAMAGE);
+        return new DamageSource(holder);
+
+    }
+    public static DamageSource bleeding(ServerLevel level) {
+        Holder.Reference<DamageType> holder = level.registryAccess()
+                .lookup(Registries.DAMAGE_TYPE).get()
+                .getOrThrow(BLEEDING_DAMAGE);
         return new DamageSource(holder);
 
     }

@@ -1,0 +1,16 @@
+{
+  "type": "teamod:press",
+  "ingredient1": "teamod:perfect_d_tea_leaf",
+  "ingredient2": "teamod:perfect_d_tea_leaf",
+  "ingredient3": "teamod:perfect_d_tea_leaf",
+  "ingredient4": "teamod:perfect_d_tea_leaf",
+  "ingredient5": "teamod:perfect_d_tea_leaf",
+  "ingredient6": "teamod:perfect_d_tea_leaf",
+  "ingredient7": "teamod:perfect_d_tea_leaf",
+  "ingredient8": "teamod:perfect_d_tea_leaf",
+  "ingredient9": "teamod:perfect_d_tea_leaf",
+  "result": {
+    "count": 2,
+    "id": "teamod:perfect_black_tea_leaves"
+  }
+}

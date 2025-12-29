@@ -37,6 +37,8 @@ public class AutoSleepEvent {
     }
 
 
+
+
     @SubscribeEvent
     public void onWorldTick(LevelTickEvent.Pre event) {
         if (!(event.getLevel() instanceof ServerLevel world)) return;

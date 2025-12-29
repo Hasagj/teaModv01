@@ -1,0 +1,16 @@
+{
+  "type": "teamod:press",
+  "ingredient1": "#teamod:corals",
+  "ingredient2": "#teamod:corals",
+  "ingredient3": "#teamod:corals",
+  "ingredient4": "#teamod:corals",
+  "ingredient5": "teamod:dried_hibiscus_petals",
+  "ingredient6": "#teamod:corals",
+  "ingredient7": "minecraft:kelp",
+  "ingredient8": "teamod:dried_hibiscus_petals",
+  "ingredient9": "minecraft:kelp",
+  "result": {
+    "count": 1,
+    "id": "teamod:coral_tea_leaves"
+  }
+}

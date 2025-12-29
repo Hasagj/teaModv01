@@ -29,7 +29,7 @@ public class BleedingEffect extends MobEffect {
             double d0 = Math.abs(vec3.x());
             double d1 = Math.abs(vec3.z());
             if (!(livingEntity instanceof AbstractSkeleton) && (d0 >= (double)0.003F || d1 >= (double)0.003F)) {
-                livingEntity.hurtServer(level, livingEntity.damageSources().dryOut(), (float)Math.hypot(d0, d1) + (amplifier * 0.3F));
+                livingEntity.hurtServer(level, ModDamageTypes.bleeding(level), (float)Math.hypot(d0, d1) + (amplifier * 0.3F));
                 for (LivingEntity entity : level.getEntitiesOfClass(LivingEntity.class, livingEntity.getBoundingBox().inflate(5))) {
                     if (entity.hasEffect(ModEffects.BLOODTHIRST_EFFECT) && !livingEntity.hasEffect(ModEffects.BLOODTHIRST_EFFECT)) {
                         entity.heal((float)Math.hypot(d0, d1) + (amplifier * 0.3F));

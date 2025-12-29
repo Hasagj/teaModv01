@@ -23,7 +23,7 @@ license="MIT"
 modId="teamod" #mandatory
 
 # The version number of the mod
-version="1.2.0.exclusive-1.21.5" #mandatory
+version="1.3.0-1.21.5" #mandatory
 
 # A display name for the mod
 displayName="Tea Ceremony" #mandatory
@@ -44,12 +44,15 @@ displayName="Tea Ceremony" #mandatory
 authors="Hasagj" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
-description='''This mod allows you to host a tea ceremony right in your Minecraft world.'''
+description='''This mod allows you to host a tea ceremony right in your Minecraft world.
+ https://modrinth.com/project/vthOVUxT'''
+
+
+
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.
-#[[mixins]]
-#config="teamod.mixins.json"
-
+[[mixins]]
+config="teamod.mixins.json"
 # The [[accessTransformers]] block allows you to declare where your AT file is.
 # If this block is omitted, a fallback attempt will be made to load an AT from META-INF/accesstransformer.cfg
 #[[accessTransformers]]

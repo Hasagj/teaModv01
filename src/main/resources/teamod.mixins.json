@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.hasagj.teamod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "PlayerIsInWaterMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

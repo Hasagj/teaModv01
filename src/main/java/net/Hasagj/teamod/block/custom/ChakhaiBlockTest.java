@@ -1,6 +1,7 @@
 package net.hasagj.teamod.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.hasagj.teamod.item.ItemCategory;
 import net.hasagj.teamod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -78,8 +79,7 @@ public class ChakhaiBlockTest extends HorizontalDirectionalBlock {
 
     @Override
     public void destroy(LevelAccessor level, BlockPos pos, BlockState state) {
-        List<Item> tea_list = List.of(ModItems.CHAKHAI.get(), ModItems.CHAKHAI_GREEN_TEA.get(), ModItems.CHAKHAI_BLACK_TEA.get(), ModItems.CHAKHAI_HIBISCUS_TEA.get(), ModItems.CHAKHAI_DAISY_TEA.get(), ModItems.CHAKHAI_PALE_TEA.get(), ModItems.CHAKHAI_PITCHER_TEA.get(), ModItems.CHAKHAI_CACTUS_TEA.get(), ModItems.CHAKHAI_CHORUS_TEA.get(), ModItems.CHAKHAI_ANCIENT_TEA.get(), ModItems.CHAKHAI_WANDERERS_TEA.get(), ModItems.CHAKHAI_HIBISCUS_TEA.get());
-        ItemStack stack = new ItemStack(tea_list.get(state.getValue(IS_TEA_INSIDE)));
+        ItemStack stack = new ItemStack(state.getValue(IS_TEA_INSIDE) == 0? ModItems.CHAKHAI.get() : ItemCategory.CHAKHAIS.getItems().get(state.getValue(IS_TEA_INSIDE) - 1));
         stack.setDamageValue(!stack.is(ModItems.CHAKHAI) ? 6 - state.getValue(COUNT) : 0);
         popResource((Level) level, pos, stack);
     }
@@ -90,6 +90,22 @@ public class ChakhaiBlockTest extends HorizontalDirectionalBlock {
         Item item = stack.getItem();
         if (state.getValue(IS_TEA_INSIDE) == 11 && stack.is(ModItems.NETHER_CUP)) {
             player.setItemInHand(hand, new ItemStack(ModItems.NETHER_CUP_CRIMSON_TEA.get()));
+            level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+            level.setBlockAndUpdate(pos, state.setValue(COUNT, state.getValue(COUNT) - 1).setValue(IS_TEA_INSIDE, state.getValue(COUNT) - 1 == 0 ? 0 : state.getValue(IS_TEA_INSIDE)));
+            state = level.getBlockState(pos);
+            player.awardStat(Stats.ITEM_USED.get(item));
+            return InteractionResult.SUCCESS;
+        }
+        if (state.getValue(IS_TEA_INSIDE) == 12 && stack.is(ModItems.NAUTILUS_CUP)) {
+            player.setItemInHand(hand, new ItemStack(ModItems.NAUTILUS_CUP_CORAL_TEA.get()));
+            level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+            level.setBlockAndUpdate(pos, state.setValue(COUNT, state.getValue(COUNT) - 1).setValue(IS_TEA_INSIDE, state.getValue(COUNT) - 1 == 0 ? 0 : state.getValue(IS_TEA_INSIDE)));
+            state = level.getBlockState(pos);
+            player.awardStat(Stats.ITEM_USED.get(item));
+            return InteractionResult.SUCCESS;
+        }
+        if (state.getValue(IS_TEA_INSIDE) == 13 && stack.is(ModItems.REINFORCED_CUP)) {
+            player.setItemInHand(hand, new ItemStack(ModItems.REINFORCED_CUP_SCULK_TEA.get()));
             level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
             level.setBlockAndUpdate(pos, state.setValue(COUNT, state.getValue(COUNT) - 1).setValue(IS_TEA_INSIDE, state.getValue(COUNT) - 1 == 0 ? 0 : state.getValue(IS_TEA_INSIDE)));
             state = level.getBlockState(pos);
@@ -111,13 +127,12 @@ public class ChakhaiBlockTest extends HorizontalDirectionalBlock {
 
     private boolean fillCup(ItemStack cup, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
         if (state.getValue(COUNT) > 0) {
-            List<Item> tea_list = List.of(ModItems.CUP_GREEN_TEA.get(), ModItems.CUP_BLACK_TEA.get(), ModItems.CUP_HIBISCUS_TEA.get(), ModItems.CUP_DAISY_TEA.get(), ModItems.CUP_PALE_TEA.get(), ModItems.CUP_PITCHER_TEA.get(), ModItems.CUP_CACTUS_TEA.get(), ModItems.CUP_CHORUS_TEA.get(), ModItems.CUP_ANCIENT_TEA.get(), ModItems.CUP_WANDERERS_TEA.get(),  ModItems.CUP_CRIMSON_TEA.get());
             cup.shrink(1);
             level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
             if (cup.isEmpty()) {
-                player.setItemInHand(hand, new ItemStack(tea_list.get(state.getValue(IS_TEA_INSIDE) - 1)));
-            } else if (!player.getInventory().add(new ItemStack(tea_list.get(state.getValue(IS_TEA_INSIDE) - 1)))) {
-                player.drop(new ItemStack(tea_list.get(state.getValue(IS_TEA_INSIDE) - 1)), false);
+                player.setItemInHand(hand, new ItemStack(ItemCategory.CUPS.getItems().get(state.getValue(IS_TEA_INSIDE) - 1)));
+            } else if (!player.getInventory().add(new ItemStack(ItemCategory.CUPS.getItems().get(state.getValue(IS_TEA_INSIDE) - 1)))) {
+                player.drop(new ItemStack(ItemCategory.CUPS.getItems().get(state.getValue(IS_TEA_INSIDE) - 1)), false);
             }
             level.setBlockAndUpdate(pos, state.setValue(COUNT, state.getValue(COUNT) - 1).setValue(IS_TEA_INSIDE, state.getValue(COUNT) - 1 == 0 ? 0 : state.getValue(IS_TEA_INSIDE)));
             return true;

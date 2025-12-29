@@ -16,6 +16,7 @@ public class SeasBlessingEffect extends MobEffect {
     @Override
     public boolean applyEffectTick(ServerLevel level, LivingEntity livingEntity, int amplifier) {
         if(livingEntity.hasEffect(MobEffects.POISON) || livingEntity.hasEffect(MobEffects.HUNGER) || livingEntity.hasEffect(MobEffects.WITHER)) {
+
             livingEntity.removeEffect(MobEffects.POISON);
             livingEntity.removeEffect(MobEffects.HUNGER);
             livingEntity.removeEffect(MobEffects.WITHER);

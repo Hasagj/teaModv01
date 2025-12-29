@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.mojang.serialization.MapCodec;
+import net.hasagj.teamod.item.ItemCategory;
 import net.hasagj.teamod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -120,11 +121,10 @@ public class TeaPotBlock extends HorizontalDirectionalBlock {
 
         }
 
-        List<Item> tea_list = List.of(ModItems.CHAKHAI_GREEN_TEA.get(), ModItems.CHAKHAI_BLACK_TEA.get(), ModItems.CHAKHAI_HIBISCUS_TEA.get(), ModItems.CHAKHAI_DAISY_TEA.get(), ModItems.CHAKHAI_PALE_TEA.get(), ModItems.CHAKHAI_PITCHER_TEA.get(), ModItems.CHAKHAI_CACTUS_TEA.get(), ModItems.CHAKHAI_CHORUS_TEA.get(), ModItems.CHAKHAI_ANCIENT_TEA.get(), ModItems.CHAKHAI_WANDERERS_TEA.get(), ModItems.CHAKHAI_CRIMSON_TEA.get());
         if (state.getValue(WHAT_TEA_INSIDE) != 0 && stack.is(ModItems.CHAKHAI)) {
             fillChakhai(stack, state, level, pos, player, hand);
             return InteractionResult.SUCCESS;
-        } else if (state.getValue(WHAT_TEA_INSIDE) != 0 && tea_list.get(state.getValue(WHAT_TEA_INSIDE) - 1) == stack.getItem() && stack.getDamageValue() != 0) {
+        } else if (state.getValue(WHAT_TEA_INSIDE) != 0 && ItemCategory.CHAKHAIS.getItems().get(state.getValue(WHAT_TEA_INSIDE) - 1) == stack.getItem() && stack.getDamageValue() != 0) {
             fillChakhai(stack, state, level, pos, player, hand);
             return InteractionResult.SUCCESS;
         } else {
@@ -132,20 +132,18 @@ public class TeaPotBlock extends HorizontalDirectionalBlock {
         }
     }
     private void checkLeaves(ItemStack leaves, BlockState state, Level level, BlockPos pos, Player player) {
-        List<Item> leaves_list = List.of(ModItems.GREEN_TEA_LEAVES.get(), ModItems.BLACK_TEA_LEAVES.get(), ModItems.DRIED_HIBISCUS_PETALS.get(), ModItems.DAISY_TEA_LEAVES.get(), ModItems.PALE_TEA_LEAVES.get(), ModItems.DRIED_PITCHER_PLANT.get(), ModItems.CACTUS_TEA_LEAVES.get(), ModItems.CHORUS_TEA_LEAVES.get(), ModItems.DRIED_TORCHFLOWER.get(), ModItems.STRANGE_PETALS.get(), ModItems.CRIMSON_TEA_LEAVES.get());
-        if (leaves_list.contains(leaves.getItem())) {
+        if (ItemCategory.TEA_LEAVES.getItems().contains(leaves.getItem())) {
             leaves.consume(1, player);
             level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-            BlockState newState = state.setValue(WHAT_LEAVES_INSIDE, leaves_list.indexOf(leaves.getItem()) + 1);
+            BlockState newState = state.setValue(WHAT_LEAVES_INSIDE, ItemCategory.TEA_LEAVES.getItems().indexOf(leaves.getItem()) + 1);
             level.setBlock(pos, newState, 3);
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, newState));
         }
 
     }
     private void fillChakhai(ItemStack chakhai, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand) {
-        List<Item> tea_list = List.of(ModItems.CHAKHAI_GREEN_TEA.get(), ModItems.CHAKHAI_BLACK_TEA.get(), ModItems.CHAKHAI_HIBISCUS_TEA.get(), ModItems.CHAKHAI_DAISY_TEA.get(), ModItems.CHAKHAI_PALE_TEA.get(), ModItems.CHAKHAI_PITCHER_TEA.get(), ModItems.CHAKHAI_CACTUS_TEA.get(), ModItems.CHAKHAI_CHORUS_TEA.get(), ModItems.CHAKHAI_ANCIENT_TEA.get(), ModItems.CHAKHAI_WANDERERS_TEA.get(), ModItems.CHAKHAI_CRIMSON_TEA.get());
         level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
-        ItemStack newStack = new ItemStack(tea_list.get(state.getValue(WHAT_TEA_INSIDE) - 1));
+        ItemStack newStack = new ItemStack(ItemCategory.CHAKHAIS.getItems().get(state.getValue(WHAT_TEA_INSIDE) - 1));
         newStack.setDamageValue(chakhai.is(ModItems.CHAKHAI) ? 5 : chakhai.getDamageValue() - 1);
         player.setItemInHand(hand, newStack);
         BlockState newState = state.setValue(WHAT_LEAVES_INSIDE, 0).setValue(WHAT_TEA_INSIDE, 0).setValue(IS_WATER_INSIDE, false);

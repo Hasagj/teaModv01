@@ -1,6 +1,7 @@
 {
   "values": [
     "teamod:water_damage",
-    "teamod:boil_damage"
+    "teamod:boil_damage",
+    "teamod:bleeding_damage"
   ]
 }
